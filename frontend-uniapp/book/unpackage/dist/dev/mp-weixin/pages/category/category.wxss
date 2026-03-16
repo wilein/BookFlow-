@@ -1,0 +1,286 @@
+
+/* 隐藏滚动条 */
+.container.data-v-8145b772::-webkit-scrollbar,
+.category-sidebar.data-v-8145b772::-webkit-scrollbar,
+.book-list.data-v-8145b772::-webkit-scrollbar {
+  display: none;
+}
+.container.data-v-8145b772 {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  background-color: #f8f9fc;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* 固定顶部区域 */
+.fixed-header.data-v-8145b772 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  padding-left: 32rpx;
+  padding-bottom: 20rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.02);
+  z-index: 100;
+  box-sizing: border-box;
+}
+.header-row.data-v-8145b772 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+}
+.logo-title.data-v-8145b772 {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.logo-img.data-v-8145b772 {
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 12rpx;
+}
+.logo-text.data-v-8145b772 {
+  font-size: 48rpx;
+  font-weight: 700;
+  color: #2c3e50;
+  line-height: 1.2;
+}
+.slogan.data-v-8145b772 {
+  font-size: 28rpx;
+  color: #7f8c8d;
+  display: block;
+}
+
+/* 搜索条区域 */
+.search-section.data-v-8145b772 {
+  padding: 20rpx 32rpx;
+  background-color: #ffffff;
+  border-bottom: 2rpx solid #ecf0f1;
+}
+.search-bar.data-v-8145b772 {
+  display: flex;
+  align-items: center;
+  background-color: #f0f3f7;
+  border-radius: 60rpx;
+  height: 72rpx;
+  padding: 0 8rpx 0 24rpx;
+}
+.search-input.data-v-8145b772 {
+  flex: 1;
+  font-size: 28rpx;
+  color: #2c3e50;
+  height: 100%;
+  line-height: 72rpx;
+}
+.placeholder.data-v-8145b772 {
+  color: #95a5a6;
+  font-size: 28rpx;
+}
+.search-btn.data-v-8145b772 {
+  width: 64rpx;
+  height: 64rpx;
+  background-color: #3498db;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8rpx;
+  flex-shrink: 0;
+}
+.search-icon.data-v-8145b772 {
+  width: 36rpx;
+  height: 36rpx;
+  filter: brightness(0) invert(1); /* 使黑色图标变白，如果图标本身是白色可去掉 */
+}
+
+/* 历史 & 热门区块 */
+.history-hot-section.data-v-8145b772 {
+  background-color: #ffffff;
+  padding: 0 32rpx 20rpx;
+  border-bottom: 2rpx solid #ecf0f1;
+}
+.block-header.data-v-8145b772 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+.block-title.data-v-8145b772 {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #2c3e50;
+}
+.clear-btn.data-v-8145b772 {
+  font-size: 26rpx;
+  color: #95a5a6;
+  padding: 8rpx 16rpx;
+  background-color: #f8f9fc;
+  border-radius: 30rpx;
+}
+.tag-list.data-v-8145b772 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  margin-bottom: 24rpx;
+}
+.tag-item.data-v-8145b772 {
+  font-size: 26rpx;
+  color: #34495e;
+  background-color: #f0f3f7;
+  padding: 12rpx 28rpx;
+  border-radius: 40rpx;
+  display: inline-flex;
+  align-items: center;
+}
+.hot-tag.data-v-8145b772 {
+  background-color: #fff5e6;
+  color: #e67e22;
+  position: relative;
+  padding-right: 48rpx;
+}
+.hot-badge.data-v-8145b772 {
+  position: absolute;
+  right: 8rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22rpx;
+  color: #ffffff;
+  background-color: #e74c3c;
+  padding: 4rpx 8rpx;
+  border-radius: 20rpx;
+  line-height: 1;
+}
+
+/* 主体内容 */
+.main-content.data-v-8145b772 {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  background-color: #f8f9fc;
+}
+.category-sidebar.data-v-8145b772 {
+  width: 200rpx;
+  background-color: #ffffff;
+  border-right: 2rpx solid #ecf0f1;
+  overflow-y: auto;
+}
+.category-item.data-v-8145b772 {
+  padding: 32rpx 0;
+  text-align: center;
+  font-size: 28rpx;
+  color: #34495e;
+  position: relative;
+  transition: background-color 0.2s;
+}
+.category-item.active.data-v-8145b772 {
+  background-color: #ebf5fb;
+  color: #2980b9;
+  font-weight: 500;
+}
+.category-item.active.data-v-8145b772::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6rpx;
+  height: 40rpx;
+  background-color: #3498db;
+  border-radius: 0 6rpx 6rpx 0;
+}
+.category-name.data-v-8145b772 {
+  display: block;
+  line-height: 1.4;
+}
+.book-list.data-v-8145b772 {
+  flex: 1;
+  padding: 20rpx 24rpx;
+  overflow-y: auto;
+}
+.loading-tip.data-v-8145b772,
+.empty-tip.data-v-8145b772 {
+  text-align: center;
+  padding: 40rpx 0;
+  color: #7f8c8d;
+  font-size: 28rpx;
+}
+
+/* 书籍项样式 */
+.book-item.data-v-8145b772 {
+  display: flex;
+  gap: 24rpx;
+  padding: 24rpx 0;
+  border-bottom: 2rpx solid #f0f3f7;
+}
+.book-item.data-v-8145b772:last-child {
+  border-bottom: none;
+}
+.book-cover.data-v-8145b772 {
+  width: 130rpx;
+  height: 170rpx;
+  background-color: #ecf0f1;
+  border-radius: 16rpx;
+  flex-shrink: 0;
+}
+.book-info.data-v-8145b772 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.book-title.data-v-8145b772 {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #2c3e50;
+  line-height: 1.3;
+}
+.book-author.data-v-8145b772 {
+  font-size: 26rpx;
+  color: #7f8c8d;
+  margin: 6rpx 0 12rpx;
+}
+.book-meta.data-v-8145b772 {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+  margin-bottom: 12rpx;
+}
+.price.data-v-8145b772 {
+  font-size: 26rpx;
+  color: #e67e22;
+  font-weight: 500;
+  background-color: #fef5e7;
+  padding: 4rpx 16rpx;
+  border-radius: 30rpx;
+}
+.annotations.data-v-8145b772 {
+  font-size: 24rpx;
+  color: #3498db;
+  background-color: #ebf5fb;
+  padding: 4rpx 16rpx;
+  border-radius: 30rpx;
+}
+.book-tags.data-v-8145b772 {
+  display: flex;
+  gap: 16rpx;
+  flex-wrap: wrap;
+}
+.tag.data-v-8145b772 {
+  font-size: 22rpx;
+  color: #16a085;
+  background-color: #e8f6f3;
+  padding: 4rpx 18rpx;
+  border-radius: 30rpx;
+  border: 1rpx solid #b3e5dc;
+}
+.bottom-safe.data-v-8145b772 {
+  height: 20rpx;
+  background-color: transparent;
+  flex-shrink: 0;
+}

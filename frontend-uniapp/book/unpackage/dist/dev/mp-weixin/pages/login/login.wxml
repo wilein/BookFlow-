@@ -1,0 +1,1 @@
+<view class="login"><button class="wxq-btn loginWx" open-type="getUserInfo" bindgetuserinfo="{{a}}">一键登录</button><button class="wxq-btn goback">取消登录</button><button open-type=""></button></view>

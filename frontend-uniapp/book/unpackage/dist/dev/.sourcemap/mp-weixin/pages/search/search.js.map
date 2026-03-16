@@ -1,0 +1,1 @@
+{"version":3,"file":"search.js","sources":["../../../../../../HBuildX/HBuilderX/plugins/uniapp-cli-vite/uniPage:/cGFnZXMvc2VhcmNoL3NlYXJjaC52dWU"],"sourcesContent":["import MiniProgramPage from 'D:/1011/1011/毕设/BookFlow/frontend-uniapp/book/pages/search/search.vue'\nwx.createPage(MiniProgramPage)"],"names":[],"mappings":";;;;;;;AACA,GAAG,WAAW,eAAe;"}
