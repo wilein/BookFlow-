@@ -1,0 +1,44 @@
+spring:
+  datasource:
+    url: ${BOOKFLOW_DB_URL:jdbc:mysql://127.0.0.1:3306/project_book?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8&autoReconnect=true&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true}
+    username: ${BOOKFLOW_DB_USERNAME:root}
+    password: ${BOOKFLOW_DB_PASSWORD:123456}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    redis:
+      host: ${BOOKFLOW_REDIS_HOST:127.0.0.1}
+      port: ${BOOKFLOW_REDIS_PORT:6379}
+      password: ${BOOKFLOW_REDIS_PASSWORD:}
+      database: ${BOOKFLOW_REDIS_DB:0}
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 50MB
+
+mybatis-flex:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath*:mapper/**/*.xml
+  type-aliases-package: com.book.bookflow.entity
+
+weixin:
+  appid: ${BOOKFLOW_WECHAT_APPID:wxf036e74d6a11e752}
+  secret: ${BOOKFLOW_WECHAT_SECRET:dac60ddd83c608baf819af772090c7a3}
+
+server:
+  port: ${BOOKFLOW_SERVER_PORT:8080}
+
+app:
+  image-base-url: ${BOOKFLOW_IMAGE_BASE_URL:}
+  security:
+    dev-login-enabled: ${BOOKFLOW_DEV_LOGIN_ENABLED:false}
+
+pay:
+  mode: ${BOOKFLOW_PAY_MODE:disabled}
+  wechat:
+    mch-id: ${BOOKFLOW_WECHAT_MCH_ID:}
+    mch-serial-no: ${BOOKFLOW_WECHAT_MCH_SERIAL_NO:}
+    api-v3-key: ${BOOKFLOW_WECHAT_API_V3_KEY:}
+    private-key-path: ${BOOKFLOW_WECHAT_PRIVATE_KEY_PATH:}
+    platform-cert-path: ${BOOKFLOW_WECHAT_PLATFORM_CERT_PATH:}
+    notify-url: ${BOOKFLOW_WECHAT_NOTIFY_URL:}

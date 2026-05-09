@@ -1,267 +1,284 @@
 <template>
   <view class="page">
-    <!-- 顶部个人信息 -->
-    <view class="profile-header">
-      <view class="profile-main">
-        <image
-          class="avatar"
-          :src="user.avatarUrl || defaultAvatar"
-          mode="aspectFill"
-        ></image>
-        <view class="profile-text">
-          <view class="row">
-            <text class="nickname">{{ user.nickname || '未登录用户' }}</text>
-            <view class="badge" v-if="user.creditLevelText">
-              <text class="badge-text">{{ user.creditLevelText }}</text>
+    <view :style="{ height: headerPlaceholderHeight + 'px' }"></view>
+
+    <view class="content">
+      <view v-if="!isLoggedIn" class="guest-card">
+        <image class="guest-avatar" src="/static/logo.png" mode="aspectFill"></image>
+        <text class="guest-title">{{ texts.guestTitle }}</text>
+        <text class="guest-desc">{{ texts.guestDesc }}</text>
+        <view class="guest-actions">
+          <view class="guest-login" @click="goLogin">{{ texts.goLogin }}</view>
+          <view class="guest-browse" @click="goBrowse">{{ texts.goBrowse }}</view>
+        </view>
+      </view>
+
+      <block v-else>
+      <view class="hero-card">
+        <view class="hero-top">
+          <image class="avatar" :src="profile.avatar || '/static/logo.png'" mode="aspectFill"></image>
+          <view class="hero-main">
+            <view class="name-row">
+              <text class="name">{{ profile.nickname }}</text>
+              <view class="badge">{{ profile.creditBadge }}</view>
             </view>
+            <text class="signature">{{ profile.signature }}</text>
           </view>
-          <text class="uid" v-if="user.userId">ID: {{ user.userId }}</text>
-          <text class="uid" v-else>请先登录以同步云端数据</text>
         </view>
-      </view>
-      <view class="profile-meta">
-        <view class="meta-item">
-          <text class="meta-number">{{ user.stats.selling }}</text>
-          <text class="meta-label">在售</text>
-        </view>
-        <view class="meta-item">
-          <text class="meta-number">{{ user.stats.sold }}</text>
-          <text class="meta-label">已售</text>
-        </view>
-        <view class="meta-item">
-          <text class="meta-number">{{ user.stats.collections }}</text>
-          <text class="meta-label">收藏</text>
-        </view>
-      </view>
-    </view>
 
-    <!-- 认证状态条 -->
-    <view class="verify-bar" @click="goToVerify">
-      <view class="verify-left">
-        <text class="verify-status" :class="{ passed: user.isVerified }">
-          {{ user.isVerified ? '已完成实名认证' : '未认证，点击去认证' }}
-        </text>
-        <text class="verify-sub">
-          {{ user.isVerified ? '账户更安全，交易更放心' : '认证后可提升信誉等级，增加交易额度' }}
-        </text>
-      </view>
-      <text class="arrow">></text>
-    </view>
+        <view class="hero-actions">
+          <view class="action-chip" @click="goEditProfile">{{ texts.editProfile }}</view>
+          <view class="action-chip light" @click="goVerify">{{ texts.verify }}</view>
+        </view>
 
-    <!-- 功能区块：我的书架 / 我的订单 -->
-    <view class="card">
-      <view class="card-title-row">
-        <text class="card-title">我的书架</text>
-        <text class="card-sub">管理在售/已售书籍</text>
-      </view>
-      <view class="grid grid-3">
-        <view class="grid-item" @click="goToShelf('selling')">
-          <text class="grid-icon">📚</text>
-          <text class="grid-text">在售书籍</text>
-        </view>
-        <view class="grid-item" @click="goToShelf('sold')">
-          <text class="grid-icon">✅</text>
-          <text class="grid-text">已售书籍</text>
-        </view>
-        <view class="grid-item" @click="goToShelf('draft')">
-          <text class="grid-icon">✏️</text>
-          <text class="grid-text">草稿/待发布</text>
+        <view class="hero-stats">
+          <view class="stat">
+            <text class="stat-num">{{ profile.points }}</text>
+            <text class="stat-label">{{ texts.points }}</text>
+          </view>
+          <view class="divider"></view>
+          <view class="stat">
+            <text class="stat-num">{{ profile.level }}</text>
+            <text class="stat-label">{{ texts.level }}</text>
+          </view>
         </view>
       </view>
-    </view>
 
-    <view class="card">
-      <view class="card-title-row">
-        <text class="card-title">我的订单</text>
-        <text class="card-sub">查看买入 / 卖出订单</text>
+      <view v-if="profile.profileIncomplete" class="complete-strip" @click="goEditProfile">
+        <view class="complete-main">
+          <text class="complete-title">{{ texts.incompleteTitle }}</text>
+          <text class="complete-desc">{{ texts.incompleteDesc }}</text>
+        </view>
+        <text class="complete-action">{{ texts.goComplete }}</text>
       </view>
-      <view class="grid grid-4">
-        <view class="grid-item" @click="goToOrder('unpaid')">
-          <text class="grid-icon">💰</text>
-          <text class="grid-text">待付款</text>
-        </view>
-        <view class="grid-item" @click="goToOrder('undelivered')">
-          <text class="grid-icon">📦</text>
-          <text class="grid-text">待发货</text>
-        </view>
-        <view class="grid-item" @click="goToOrder('unreceived')">
-          <text class="grid-icon">🚚</text>
-          <text class="grid-text">待收货</text>
-        </view>
-        <view class="grid-item" @click="goToOrder('finished')">
-          <text class="grid-icon">✅</text>
-          <text class="grid-text">已完成</text>
-        </view>
-      </view>
-    </view>
 
-    <!-- 其它功能网格 -->
-    <view class="card">
-      <view class="grid grid-3">
-        <view class="grid-item" @click="goToCollections">
-          <text class="grid-icon">⭐</text>
-          <text class="grid-text">我的收藏</text>
-        </view>
-        <view class="grid-item" @click="goToAnnotations">
-          <text class="grid-icon">📝</text>
-          <text class="grid-text">我的批注</text>
-        </view>
-        <view class="grid-item" @click="goToPaths">
-          <text class="grid-icon">🗺️</text>
-          <text class="grid-text">我创建的路径</text>
-        </view>
-        <view class="grid-item" @click="goToResources">
-          <text class="grid-icon">📤</text>
-          <text class="grid-text">我上传的资源</text>
-        </view>
-        <view class="grid-item" @click="goToAddress">
-          <text class="grid-icon">🏠</text>
-          <text class="grid-text">收货地址管理</text>
-        </view>
-        <view class="grid-item" @click="goToSettings">
-          <text class="grid-icon">⚙️</text>
-          <text class="grid-text">设置</text>
-        </view>
+      <view class="verify-strip" :class="{ verified: profile.authStatus === 2, pending: profile.authStatus === 1 }" @click="goVerify">
+        <text class="verify-text">{{ texts.verifyStatus }}{{ profile.authLabel }}</text>
+        <text class="verify-action">{{ verifyActionText }}</text>
       </view>
-    </view>
 
-    <!-- 底部：联系客服 / 编辑资料 / 退出登录 -->
-    <view class="list-card">
-      <view class="list-item" @click="goToEditProfile">
-        <text class="list-text">编辑个人资料</text>
-        <text class="list-sub">修改昵称、头像等信息</text>
-        <text class="arrow">></text>
+      <view class="section">
+        <text class="section-title">{{ texts.assetTitle }}</text>
+        <view class="asset-grid">
+          <view v-for="item in assetItems" :key="item.key" class="asset-item" @click="navigateTo(item.url)">
+            <view class="asset-icon">{{ item.icon }}</view>
+            <text class="asset-title">{{ item.title }}</text>
+            <text class="asset-sub">{{ item.sub }}</text>
+          </view>
+        </view>
       </view>
-      <view class="list-item" @click="contactService">
-        <text class="list-text">联系客服</text>
-        <text class="list-sub">遇到问题？联系平台客服</text>
-        <text class="arrow">></text>
-      </view>
-    </view>
 
-    <view class="logout-wrapper">
-      <button class="logout-btn" type="warn" @click="logout">退出登录</button>
+      <view class="section">
+        <text class="section-title">{{ texts.knowledgeTitle }}</text>
+        <view class="list-card">
+          <view v-for="item in knowledgeItems" :key="item.key" class="list-item" @click="navigateTo(item.url)">
+            <view class="list-left">
+              <text class="list-icon">{{ item.icon }}</text>
+              <text class="list-title">{{ item.title }}</text>
+            </view>
+            <text class="arrow">></text>
+          </view>
+        </view>
+      </view>
+
+      <view class="section">
+        <text class="section-title">{{ texts.helpTitle }}</text>
+        <view class="list-card">
+          <view class="list-item" @click="navigateTo('/pages/my/notifications')">
+            <view class="list-left">
+              <text class="list-icon">{{ texts.iconNotification }}</text>
+              <text class="list-title">{{ texts.notifications }}</text>
+            </view>
+            <text class="arrow">></text>
+          </view>
+          <view class="list-item" @click="navigateTo('/pages/my/address')">
+            <view class="list-left">
+              <text class="list-icon">{{ texts.iconAddress }}</text>
+              <text class="list-title">{{ texts.address }}</text>
+            </view>
+            <text class="arrow">></text>
+          </view>
+          <view class="list-item" @click="goService">
+            <view class="list-left">
+              <text class="list-icon">{{ texts.iconService }}</text>
+              <text class="list-title">{{ texts.service }}</text>
+            </view>
+            <text class="arrow">></text>
+          </view>
+          <view class="list-item" @click="goEditProfile">
+            <view class="list-left">
+              <text class="list-icon">{{ texts.iconSetting }}</text>
+              <text class="list-title">{{ texts.setting }}</text>
+            </view>
+            <text class="arrow">></text>
+          </view>
+        </view>
+      </view>
+
+      <view class="logout-wrap">
+        <view class="logout-btn" @click="onLogout">{{ texts.logout }}</view>
+      </view>
+      </block>
+      <view class="bottom-space"></view>
     </view>
   </view>
 </template>
 
 <script>
+import { getUserProfile, getUserStats, logoutAuth } from '../../utils/api/user';
+import { clearSession, ensureLoggedIn, getCurrentPageUrl, hasValidSession } from '../../utils/auth';
+
 export default {
   data() {
     return {
-      defaultAvatar: '/static/avatar_placeholder.png',
-      user: {
-        userId: null,
-        nickname: '',
-        avatarUrl: '',
-        creditLevelText: '新用户',
-        isVerified: false,
-        stats: {
-          selling: 0,
-          sold: 0,
-          collections: 0
-        }
+      headerPlaceholderHeight: 0,
+      texts: {
+        editProfile: '\u5b8c\u5584\u8d44\u6599',
+        verify: '\u5b66\u751f\u8ba4\u8bc1',
+        points: '\u79ef\u5206',
+        level: '\u5b66\u8005\u7b49\u7ea7',
+        incompleteTitle: '\u4e2a\u4eba\u4fe1\u606f\u5f85\u5b8c\u5584',
+        incompleteDesc: '\u9ed8\u8ba4\u6635\u79f0\u4e3a\u4e66\u53cb\uff0c\u70b9\u51fb\u8865\u5145\u5b66\u6821\u3001\u9662\u7cfb\u3001\u7b80\u4ecb\u548c\u5934\u50cf\u3002',
+        goComplete: '\u53bb\u5b8c\u5584',
+        verifyStatus: '\u8ba4\u8bc1\u72b6\u6001\uff1a',
+        assetTitle: '\u8d44\u4ea7\u7ba1\u7406',
+        knowledgeTitle: '\u77e5\u8bc6\u7ba1\u7406',
+        helpTitle: '\u8bbe\u7f6e\u4e0e\u5e2e\u52a9',
+        notifications: '\u901a\u77e5\u4e2d\u5fc3',
+        address: '\u6536\u8d27\u5730\u5740\u7ba1\u7406',
+        service: '\u8054\u7cfb\u5ba2\u670d',
+        setting: '\u8bbe\u7f6e',
+        logout: '\u9000\u51fa\u767b\u5f55',
+        iconNotification: '\u901a',
+        iconAddress: '\u5730',
+        iconService: '\u670d',
+        iconSetting: '\u8bbe',
+        confirmLogout: '\u9000\u51fa\u767b\u5f55',
+        confirmLogoutText: '\u786e\u8ba4\u9000\u51fa\u5f53\u524d\u8d26\u53f7\u5417\uff1f',
+        viewVerify: '\u67e5\u770b\u8ba4\u8bc1\u4fe1\u606f',
+        pendingVerify: '\u5ba1\u6838\u4e2d',
+        tapVerify: '\u70b9\u51fb\u53bb\u8ba4\u8bc1',
+        guestTitle: '\u6e38\u5ba2\u6d4f\u89c8\u4e2d',
+        guestDesc: '\u767b\u5f55\u540e\u53ef\u4ee5\u53d1\u5e03\u4e66\u7c4d\u3001\u6536\u85cf\u3001\u804a\u5929\u548c\u67e5\u770b\u8ba2\u5355\u3002',
+        goLogin: '\u53bb\u767b\u5f55',
+        goBrowse: '\u7ee7\u7eed\u901b\u901b'
+      },
+      isLoggedIn: false,
+      profile: {
+        avatar: '/static/logo.png',
+        nickname: '\u4e66\u53cb',
+        signature: '\u4e2a\u4eba\u4fe1\u606f\u5f85\u5b8c\u5584',
+        creditBadge: '\u4fe1\u8a89\u826f\u597d',
+        authStatus: 0,
+        authLabel: '\u672a\u8ba4\u8bc1',
+        points: 88,
+        level: 'Lv.9',
+        profileIncomplete: true
+      },
+      stats: {
+        sellingBooks: 0,
+        soldBooks: 0,
+        pendingPay: 0,
+        pendingShip: 0,
+        pendingReceive: 0,
+        favorites: 0,
+        annotations: 0,
+        paths: 0,
+        resources: 0
       }
     };
   },
+  computed: {
+    verifyActionText() {
+      if (this.profile.authStatus === 2) return this.texts.viewVerify;
+      if (this.profile.authStatus === 1) return this.texts.pendingVerify;
+      return this.texts.tapVerify;
+    },
+    assetItems() {
+      return [
+        { key: 'bookshelf', icon: '\u4e66', title: '\u6211\u7684\u4e66\u67b6', sub: `\u5728\u552e ${this.stats.sellingBooks} / \u5df2\u552e ${this.stats.soldBooks}`, url: '/pages/my/bookshelf' },
+        { key: 'orders', icon: '\u5355', title: '\u6211\u7684\u8ba2\u5355', sub: `\u5f85\u4ed8 ${this.stats.pendingPay} / \u5f85\u53d1 ${this.stats.pendingShip}`, url: '/pages/my/orders' },
+        { key: 'cart', icon: '\u8f66', title: '\u8d2d\u7269\u8f66', sub: '\u5408\u5e76\u52fe\u9009\u540e\u5206\u5355\u7ed3\u7b97', url: '/pages/cart/cart' },
+        { key: 'favorites', icon: '\u85cf', title: '\u6211\u7684\u6536\u85cf', sub: `${this.stats.favorites} \u6761\u6536\u85cf`, url: '/pages/my/favorites' },
+        { key: 'address', icon: '\u5740', title: '\u6536\u8d27\u5730\u5740', sub: '\u7ba1\u7406\u6536\u8d27\u4fe1\u606f', url: '/pages/my/address' },
+        { key: 'notifications', icon: '\u901a', title: '\u901a\u77e5\u4e2d\u5fc3', sub: '\u67e5\u770b\u4ea4\u6613\u548c\u793e\u533a\u901a\u77e5', url: '/pages/my/notifications' }
+      ];
+    },
+    knowledgeItems() {
+      return [
+        { key: 'annotations', icon: '\u6ce8', title: '\u6211\u7684\u6279\u6ce8', url: '/pages/my/annotations' },
+        { key: 'paths', icon: '\u5f84', title: '\u6211\u7684\u8def\u5f84', url: '/pages/my/paths' },
+        { key: 'resources', icon: '\u8d44', title: '\u6211\u4e0a\u4f20\u7684\u8d44\u6e90', url: '/pages/my/resources' }
+      ];
+    }
+  },
   onLoad() {
-    this.loadUserInfo();
+    const systemInfo = uni.getSystemInfoSync();
+    const statusBarHeight = systemInfo.statusBarHeight || 0;
+    const capsule = typeof uni.getMenuButtonBoundingClientRect === 'function'
+      ? uni.getMenuButtonBoundingClientRect()
+      : null;
+    this.headerPlaceholderHeight = capsule ? capsule.top + capsule.height + 12 : statusBarHeight + 48;
+  },
+  onShow() {
+    this.isLoggedIn = hasValidSession();
+    if (!this.isLoggedIn) return;
+    this.fetchProfile();
+    this.fetchStats();
   },
   methods: {
-    // 从后端 / 登录结果中获取用户数据（参考 /user/auth/wechat 返回的 userInfo）
-    loadUserInfo() {
+    async fetchProfile() {
       try {
-        // 优先从本地缓存读取（建议在登录成功时把 userInfo 和 token 存入本地）
-        const cached = uni.getStorageSync('userInfo');
-        if (cached) {
-          this.user = {
-            ...this.user,
-            ...cached
-          };
+        const data = await getUserProfile();
+        if (data) {
+          this.profile = { ...this.profile, ...data };
         }
-        // 如需直接从后端按 token 查询，可在此补充：
-        // const token = uni.getStorageSync('token');
-        // if (token) { 调用后端 /user/info 之类接口刷新最新资料 }
-      } catch (e) {
-        console.error('loadUserInfo error', e);
+      } catch (error) {
+        console.error('fetchProfile failed', error);
       }
     },
-    goToVerify() {
-      uni.navigateTo({
-        url: '/pages/auth/auth' // 预留认证页面路由
-      });
+    async fetchStats() {
+      try {
+        const data = await getUserStats();
+        if (data) {
+          this.stats = { ...this.stats, ...data };
+        }
+      } catch (error) {
+        console.error('fetchStats failed', error);
+      }
     },
-    goToEditProfile() {
-      uni.navigateTo({
-        url: '/pages/my/edit' // 路由到编辑个人资料页
-      });
+    navigateTo(url) {
+      if (!ensureLoggedIn(getCurrentPageUrl())) return;
+      uni.navigateTo({ url });
     },
-    goToShelf(type) {
-      uni.navigateTo({
-        url: `/pages/shelf/shelf?type=${type}`
-      });
+    goLogin() {
+      ensureLoggedIn(getCurrentPageUrl());
     },
-    goToOrder(status) {
-      uni.navigateTo({
-        url: `/pages/order/list?status=${status}`
-      });
+    goBrowse() {
+      uni.switchTab({ url: '/pages/index/index' });
     },
-    goToCollections() {
-      uni.navigateTo({
-        url: '/pages/collection/collection'
-      });
+    goEditProfile() {
+      this.navigateTo('/pages/my/edit');
     },
-    goToAnnotations() {
-      uni.navigateTo({
-        url: '/pages/annotation/annotation'
-      });
+    goVerify() {
+      this.navigateTo('/pages/placeholder/verify');
     },
-    goToPaths() {
-      uni.navigateTo({
-        url: '/pages/paths/my'
-      });
+    goService() {
+      uni.navigateTo({ url: `/pages/placeholder/feedback?pagePath=${encodeURIComponent('/pages/my/my')}` });
     },
-    goToResources() {
-      uni.navigateTo({
-        url: '/pages/resources/my'
-      });
-    },
-    goToAddress() {
-      uni.navigateTo({
-        url: '/pages/address/list'
-      });
-    },
-    goToSettings() {
-      uni.navigateTo({
-        url: '/pages/settings/settings'
-      });
-    },
-    contactService() {
-      // 这里可以改为跳转客服页或调用小程序客服能力
+    onLogout() {
       uni.showModal({
-        title: '联系客服',
-        content: '请通过公众号或客服微信联系管理员。',
-        showCancel: false
-      });
-    },
-    logout() {
-      uni.showModal({
-        title: '提示',
-        content: '确定要退出登录吗？',
-        success: (res) => {
-          if (res.confirm) {
-            uni.removeStorageSync('userInfo');
-            uni.removeStorageSync('token');
-            this.user = {
-              ...this.user,
-              userId: null,
-              nickname: '',
-              avatarUrl: '',
-              creditLevelText: '新用户',
-              isVerified: false
-            };
-            uni.showToast({ title: '已退出登录', icon: 'none' });
+        title: this.texts.confirmLogout,
+        content: this.texts.confirmLogoutText,
+        success: async (res) => {
+          if (!res.confirm) return;
+          try {
+            await logoutAuth();
+          } catch (error) {
+            console.error('logoutAuth failed', error);
           }
+          clearSession();
+          uni.reLaunch({ url: '/pages/login/login' });
         }
       });
     }
@@ -270,218 +287,56 @@ export default {
 </script>
 
 <style scoped>
-.page {
-  min-height: 100vh;
-  background-color: #f6f7fb;
-  padding: 24rpx;
-  box-sizing: border-box;
-}
-
-.profile-header {
-  background: linear-gradient(135deg, #4facfe, #00f2fe);
-  border-radius: 24rpx;
-  padding: 32rpx 28rpx 24rpx;
-  color: #ffffff;
-  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.08);
-  margin-bottom: 24rpx;
-}
-
-.profile-main {
-  display: flex;
-  align-items: center;
-}
-
-.avatar {
-  width: 120rpx;
-  height: 120rpx;
-  border-radius: 60rpx;
-  background-color: #ecf0f1;
-  margin-right: 24rpx;
-}
-
-.profile-text {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.row {
-  display: flex;
-  align-items: center;
-}
-
-.nickname {
-  font-size: 32rpx;
-  font-weight: 600;
-  margin-right: 16rpx;
-}
-
-.badge {
-  padding: 4rpx 16rpx;
-  border-radius: 100rpx;
-  background: rgba(255, 255, 255, 0.18);
-}
-
-.badge-text {
-  font-size: 22rpx;
-}
-
-.uid {
-  margin-top: 8rpx;
-  font-size: 24rpx;
-  opacity: 0.9;
-}
-
-.profile-meta {
-  margin-top: 24rpx;
-  display: flex;
-  justify-content: space-around;
-}
-
-.meta-item {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-}
-
-.meta-number {
-  font-size: 32rpx;
-  font-weight: 600;
-}
-
-.meta-label {
-  margin-top: 4rpx;
-  font-size: 24rpx;
-  opacity: 0.9;
-}
-
-.verify-bar {
-  margin-bottom: 24rpx;
-  padding: 20rpx 24rpx;
-  background-color: #ffffff;
-  border-radius: 20rpx;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.verify-left {
-  display: flex;
-  flex-direction: column;
-}
-
-.verify-status {
-  font-size: 28rpx;
-  color: #e67e22;
-}
-
-.verify-status.passed {
-  color: #2ecc71;
-}
-
-.verify-sub {
-  margin-top: 6rpx;
-  font-size: 24rpx;
-  color: #7f8c8d;
-}
-
-.arrow {
-  font-size: 30rpx;
-  color: #bdc3c7;
-}
-
-.card {
-  background-color: #ffffff;
-  border-radius: 20rpx;
-  padding: 20rpx 24rpx 12rpx;
-  margin-bottom: 20rpx;
-}
-
-.card-title-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12rpx;
-}
-
-.card-title {
-  font-size: 30rpx;
-  font-weight: 600;
-  color: #2c3e50;
-}
-
-.card-sub {
-  font-size: 24rpx;
-  color: #95a5a6;
-}
-
-.grid {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.grid-3 .grid-item {
-  width: 33.33%;
-}
-
-.grid-4 .grid-item {
-  width: 25%;
-}
-
-.grid-item {
-  padding: 16rpx 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.grid-icon {
-  font-size: 40rpx;
-  margin-bottom: 8rpx;
-}
-
-.grid-text {
-  font-size: 24rpx;
-  color: #34495e;
-}
-
-.list-card {
-  background-color: #ffffff;
-  border-radius: 20rpx;
-  margin-top: 4rpx;
-}
-
-.list-item {
-  padding: 20rpx 24rpx;
-  border-bottom: 2rpx solid #f0f3f7;
-  display: flex;
-  align-items: center;
-}
-
-.list-item:last-child {
-  border-bottom-width: 0;
-}
-
-.list-text {
-  font-size: 28rpx;
-  color: #2c3e50;
-}
-
-.list-sub {
-  margin-left: 16rpx;
-  font-size: 24rpx;
-  color: #95a5a6;
-  flex: 1;
-}
-
-.logout-wrapper {
-  margin: 40rpx 0 20rpx;
-}
-
-.logout-btn {
-  width: 100%;
-  border-radius: 999rpx;
-  background-color: #e74c3c;
-  color: #ffffff;
-}
+.page { min-height: 100vh; background: #f3f5f8; }
+.content { box-sizing: border-box; padding: 0 20rpx calc(32rpx + env(safe-area-inset-bottom)); }
+.guest-card { background: #ffffff; border-radius: 20rpx; padding: 40rpx 28rpx; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.guest-avatar { width: 116rpx; height: 116rpx; border-radius: 58rpx; background: #eef2f8; }
+.guest-title { margin-top: 22rpx; font-size: 36rpx; color: #25374b; font-weight: 700; }
+.guest-desc { margin-top: 12rpx; max-width: 620rpx; font-size: 25rpx; line-height: 1.7; color: #6f8094; }
+.guest-actions { margin-top: 28rpx; display: flex; gap: 14rpx; width: 100%; }
+.guest-login, .guest-browse { flex: 1; height: 76rpx; border-radius: 16rpx; font-size: 26rpx; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.guest-login { background: #2d55c7; color: #ffffff; }
+.guest-browse { background: #eef3f8; color: #4f6278; }
+.hero-card { background: linear-gradient(135deg, #2d55c7 0%, #2349b7 100%); border-radius: 24rpx; padding: 24rpx; color: #ffffff; }
+.hero-top { display: flex; align-items: center; gap: 18rpx; }
+.avatar { width: 112rpx; height: 112rpx; border-radius: 56rpx; background: rgba(255, 255, 255, 0.86); }
+.hero-main { flex: 1; }
+.name-row { display: flex; align-items: center; gap: 12rpx; flex-wrap: wrap; }
+.name { display: block; font-size: 38rpx; font-weight: 700; }
+.signature { margin-top: 8rpx; display: block; font-size: 24rpx; opacity: 0.92; }
+.badge { padding: 8rpx 14rpx; border-radius: 999rpx; background: rgba(255, 255, 255, 0.18); font-size: 22rpx; }
+.hero-actions { margin-top: 20rpx; display: flex; gap: 12rpx; }
+.action-chip { min-width: 150rpx; height: 60rpx; padding: 0 22rpx; border-radius: 999rpx; background: rgba(255, 255, 255, 0.22); color: #ffffff; font-size: 24rpx; display: flex; align-items: center; justify-content: center; }
+.action-chip.light { background: rgba(255, 255, 255, 0.14); }
+.hero-stats { margin-top: 22rpx; display: flex; align-items: center; gap: 20rpx; }
+.stat-num { display: block; font-size: 40rpx; font-weight: 700; }
+.stat-label { display: block; margin-top: 6rpx; font-size: 22rpx; opacity: 0.9; }
+.divider { width: 2rpx; height: 54rpx; background: rgba(255, 255, 255, 0.4); }
+.complete-strip, .verify-strip { margin-top: 14rpx; border-radius: 14rpx; padding: 18rpx; display: flex; align-items: center; justify-content: space-between; gap: 16rpx; }
+.complete-strip { background: #edf3ff; }
+.complete-main { flex: 1; }
+.complete-title { display: block; font-size: 26rpx; color: #2f4f75; font-weight: 700; }
+.complete-desc { display: block; margin-top: 6rpx; font-size: 22rpx; color: #6f84a0; line-height: 1.5; }
+.complete-action { font-size: 24rpx; color: #2d55c7; font-weight: 700; white-space: nowrap; }
+.verify-strip { background: #fff3e8; color: #9a5a24; }
+.verify-strip.pending { background: #fff6d8; color: #8b6a20; }
+.verify-strip.verified { background: #e9f8ed; color: #2f7a4f; }
+.verify-text, .verify-action { font-size: 24rpx; }
+.section { margin-top: 22rpx; }
+.section-title { display: block; margin-bottom: 12rpx; font-size: 34rpx; color: #2d3d52; font-weight: 700; }
+.asset-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14rpx; }
+.asset-item { background: #ffffff; border-radius: 18rpx; min-height: 172rpx; padding: 18rpx 14rpx; }
+.asset-icon { width: 54rpx; height: 54rpx; border-radius: 14rpx; background: #e6eeff; color: #2d55c7; font-size: 26rpx; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.asset-title { margin-top: 12rpx; display: block; font-size: 26rpx; color: #2b3f53; font-weight: 600; }
+.asset-sub { margin-top: 8rpx; display: block; font-size: 22rpx; color: #7b8ea1; line-height: 1.4; }
+.list-card { background: #ffffff; border-radius: 16rpx; overflow: hidden; }
+.list-item { height: 96rpx; padding: 0 18rpx; display: flex; align-items: center; justify-content: space-between; border-bottom: 1rpx solid #edf1f5; }
+.list-item:last-child { border-bottom: none; }
+.list-left { display: flex; align-items: center; gap: 12rpx; }
+.list-icon { width: 42rpx; height: 42rpx; border-radius: 10rpx; background: #eef2f8; color: #3e5f86; font-size: 22rpx; display: flex; align-items: center; justify-content: center; }
+.list-title { font-size: 28rpx; color: #2b3f53; }
+.arrow { font-size: 24rpx; color: #99a6b5; }
+.logout-wrap { margin-top: 28rpx; }
+.logout-btn { height: 84rpx; border-radius: 16rpx; background: #2f4f75; color: #ffffff; font-size: 30rpx; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.bottom-space { height: 18rpx; }
 </style>

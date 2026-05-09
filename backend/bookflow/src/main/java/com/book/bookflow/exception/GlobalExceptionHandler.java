@@ -1,43 +1,40 @@
-package com.example.exception;
-import com.example.common.Result;
+package com.book.bookflow.exception;
+
+import com.book.bookflow.common.Result;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.security.access.AccessDeniedException;
-
-import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
-/**
- * 全局异常捕获器
- */
-@ControllerAdvice("com.example.controller")
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+
+@ControllerAdvice
 public class GlobalExceptionHandler {
-    private static final Logger log =
-            LoggerFactory.getLogger(GlobalExceptionHandler.class);
-    @ExceptionHandler(Exception.class)
-    @ResponseBody // 将result对象转换成 json的格式
-    public Result error(Exception e) {
-        log.error("系统异常", e);
-        return Result.error("系统异常");
-    }
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(GlobalExceptionHandler.class);
+
     @ExceptionHandler(CustomerException.class)
-    @ResponseBody // 将result对象转换成 json的格式
-    public Result customerError(CustomerException e) {
-        log.error("自定义错误", e);
-        return Result.error(e.getCode(), e.getMsg());
-    }
-    @ExceptionHandler(AccessDeniedException.class)
     @ResponseBody
-    public Result handleAccessDenied(AccessDeniedException e) {
-        log.error("权限不足", e);
-        return Result.error("403", "权限不足");
+    public Result<Void> handleCustomerException(CustomerException exception) {
+        LOGGER.error("Business error", exception);
+        return Result.error(exception.getCode(), exception.getMsg());
     }
-    @ExceptionHandler(AuthenticationCredentialsNotFoundException.class)
+
+    @ExceptionHandler({
+        MissingServletRequestParameterException.class,
+        MethodArgumentTypeMismatchException.class
+    })
     @ResponseBody
-    public Result
-    handleAuthenticationFailure(AuthenticationCredentialsNotFoundException e) {
-        log.error("认证失败", e);
-        return Result.error("401", "认证失败");
+    public Result<Void> handleBadRequest(Exception exception) {
+        LOGGER.warn("Bad request", exception);
+        return Result.error("400", "\u8bf7\u6c42\u53c2\u6570\u9519\u8bef");
+    }
+
+    @ExceptionHandler(Exception.class)
+    @ResponseBody
+    public Result<Void> handleException(Exception exception) {
+        LOGGER.error("System error", exception);
+        return Result.error("500", "系统异常，请稍后重试");
     }
 }

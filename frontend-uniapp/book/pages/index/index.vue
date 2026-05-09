@@ -1,127 +1,115 @@
 <template>
-  <view class="container">
-    <!-- 固定顶部区域（避开胶囊） -->
-    <view
-      class="fixed-header"
-      :style="{
-        paddingTop: statusBarHeight + 'px',
-        paddingRight: capsulePaddingRight + 'px'
-      }"
-      ref="fixedHeader"
-    >
+  <view class="page">
+    <view class="fixed-header" :style="{ paddingTop: statusBarHeight + 'px', paddingRight: capsulePaddingRight + 'px' }">
       <view class="header-row">
-        <view class="logo-title">
+        <view class="logo-wrap">
           <image class="logo-img" src="/static/logo.png" mode="aspectFit"></image>
-          <text class="logo-text">薪传</text>
+          <text class="logo-text">{{ textMap.appName }}</text>
         </view>
         <view class="search-btn" @click="goToSearch">
           <image class="search-img" src="/static/search.png" mode="aspectFit"></image>
         </view>
       </view>
-      <text class="slogan">批注传承·学习路径·知识分享</text>
+      <text class="slogan">{{ textMap.slogan }}</text>
     </view>
-
-    <!-- 占位视图，高度等于固定顶部高度 -->
     <view :style="{ height: fixedHeaderHeight + 'px' }"></view>
 
-    <!-- 轮播图区域（数据来自 API） -->
+    <view v-if="currentPath" class="current-path-card" @click="goToPathDetail(currentPath)">
+      <view class="current-path-top">
+        <text class="current-path-label">当前学习路径</text>
+        <text class="current-path-percent">{{ currentPath.progressPercent || 0 }}%</text>
+      </view>
+      <text class="current-path-title">{{ currentPath.title }}</text>
+      <text class="current-path-meta">{{ currentPath.completedCount || 0 }}/{{ currentPath.nodeCount || 0 }} 个节点 · {{ currentPath.lastLearnTime || '刚刚学习' }}</text>
+      <view class="current-progress-track">
+        <view class="current-progress-fill" :style="{ width: (currentPath.progressPercent || 0) + '%' }"></view>
+      </view>
+    </view>
+
     <view class="swiper-section" v-if="bannerList.length > 0">
-      <swiper
-        class="swiper"
-        indicator-dots="true"
-        autoplay="true"
-        interval="3000"
-        duration="500"
-        circular="true"
-      >
+      <swiper class="swiper" circular indicator-dots autoplay interval="3000" duration="500">
         <swiper-item v-for="(item, index) in bannerList" :key="index">
           <image :src="item.image" class="swiper-image" mode="aspectFill"></image>
         </swiper-item>
       </swiper>
     </view>
 
-    <!-- 四个功能入口（保持不变） -->
     <view class="nav-grid">
-      <view
-        class="nav-item"
-        v-for="(item, index) in navItems"
-        :key="index"
-        hover-class="nav-hover"
-      >
+      <view class="nav-item" v-for="item in navItems" :key="item.name" @click="handleNav(item)">
         <text class="nav-icon">{{ item.icon }}</text>
         <text class="nav-text">{{ item.name }}</text>
       </view>
     </view>
 
-    <!-- 热门书籍区块（数据来自 API） -->
     <view class="section">
       <view class="section-header">
-        <text class="section-title">热门书籍</text>
-        <navigator class="more" url="/pages/books/hot" hover-class="none">更多></navigator>
+        <text class="section-title">{{ textMap.hotBooks }}</text>
+        <text class="more" @click="goToSearch">{{ textMap.more }}</text>
       </view>
-      <view class="book-list" v-if="hotBooks.length > 0">
-        <view
-          class="book-item"
-          v-for="(book, index) in hotBooks"
-          :key="index"
-          @click="goToBookDetail(book)"
-        >
-          <image class="book-cover" :src="book.cover || '/static/cover_placeholder.png'" mode="aspectFill"></image>
-          <view class="book-info">
-            <text class="book-title">{{ book.title }}</text>
-            <text class="book-author">{{ book.author }}</text>
-            <view class="book-meta">
-              <text class="price">￥{{ book.price }}价格</text>
-              <text class="annotations">{{ book.annotations }}条批注</text>
-            </view>
-            <view class="book-tags">
-              <text class="tag">{{ book.category }}</text>
+      <scroll-view class="hot-tabs-scroll" scroll-x show-scrollbar="false" enable-flex>
+        <view class="hot-tabs-row">
+          <view
+            v-for="tab in hotCategoryTabs"
+            :key="tab"
+            class="hot-tab"
+            :class="{ active: selectedHotCategory === tab }"
+            @click="selectedHotCategory = tab"
+          >
+            {{ tab }}
+          </view>
+        </view>
+      </scroll-view>
+      <scroll-view v-if="displayHotBooks.length > 0" class="hot-books-scroll" scroll-x show-scrollbar="false" enable-flex>
+        <view class="hot-books-row">
+          <view class="hot-book-card" v-for="book in displayHotBooks" :key="book._uniqueKey" @click="goToBookDetail(book)">
+            <image class="hot-book-cover" :src="book.cover || '/static/cover_placeholder.png'" mode="aspectFill"></image>
+            <view class="hot-book-main">
+              <text class="hot-book-title">{{ book.title }}</text>
+              <text class="hot-book-author">{{ book.author }}</text>
+              <view class="hot-book-meta">
+                <text class="hot-book-price">{{ formatPrice(book.price) }}</text>
+                <text class="hot-book-annotation">{{ getAnnotationText(book) }}</text>
+              </view>
+              <text class="hot-book-tag">{{ book.categoryName || book.category || textMap.unknownCategory }}</text>
             </view>
           </view>
         </view>
+      </scroll-view>
+      <view v-else class="empty-block">
+        <text class="empty-text">{{ textMap.noHotBooks }}</text>
       </view>
-      <!-- 加载中或空状态可自行添加 -->
     </view>
 
-    <!-- 推荐学习路径区块（仍为静态数据，如需改为 API 可参考修改） -->
     <view class="section">
       <view class="section-header">
-        <text class="section-title">推荐学习路径</text>
-        <navigator class="more" url="/pages/paths/recommend" hover-class="none">更多></navigator>
+        <text class="section-title">{{ textMap.recommendPaths }}</text>
+        <text class="more" @click="goToPathList">{{ textMap.more }}</text>
       </view>
-      <view class="path-list">
-        <view
-          class="path-item"
-          v-for="(path, index) in studyPaths"
-          :key="index"
-          @click="goToPathDetail(path)"
-        >
-          <view class="path-info">
-            <text class="path-name">{{ path.name }}</text>
-            <text class="path-creator">{{ path.creator }}</text>
+      <view v-if="studyPaths.length" class="path-list">
+        <view class="path-item" v-for="path in studyPaths" :key="path.id || path.name" @click="goToPathDetail(path)">
+          <view>
+            <text class="path-name">{{ path.title || path.name }}</text>
+            <text class="path-creator">{{ path.creator }} · {{ path.category || textMap.unknownCategory }}</text>
           </view>
           <view class="path-stats">
-            <text class="stat-item">{{ path.bookCount }}本书</text>
-            <text class="stat-item">{{ path.learners }}人学习</text>
+            <text>{{ path.nodeCount || path.bookCount || 0 }}{{ textMap.nodeUnit }}</text>
+            <text>{{ path.learnerCount || path.learners || 0 }}{{ textMap.learnersUnit }}</text>
           </view>
         </view>
       </view>
+      <view v-else class="empty-block">
+        <text class="empty-text">{{ textMap.noPaths }}</text>
+      </view>
     </view>
 
-    <!-- 社区动态区块（仍为静态数据） -->
     <view class="section">
       <view class="section-header">
-        <text class="section-title">社区动态</text>
-        <navigator class="more" url="/pages/community/feed" hover-class="none">更多></navigator>
+        <text class="section-title">{{ textMap.communityFeed }}</text>
+        <text class="more" @click="goToCommunity">{{ textMap.more }}</text>
       </view>
       <view class="dynamic-list">
-        <view
-          class="dynamic-item"
-          v-for="(item, index) in dynamics"
-          :key="index"
-          @click="goToDynamicDetail(item)"
-        >
-          <image class="avatar" src="/static/avatar_placeholder.png" mode="aspectFill"></image>
+        <view class="dynamic-item" v-for="item in dynamics" :key="item.username + item.time" @click="goToCommunity">
+          <image class="avatar" src="/static/logo.png" mode="aspectFill"></image>
           <view class="dynamic-content">
             <view class="dynamic-header">
               <text class="username">{{ item.username }}</text>
@@ -133,159 +121,257 @@
       </view>
     </view>
 
-    <!-- 底部留白 -->
     <view class="bottom-safe"></view>
   </view>
 </template>
 
 <script>
+import { getBannerList } from '../../utils/api/common';
+import { getBookList, getBooksByCategory } from '../../utils/api/book';
+import { getCurrentLearningPath, getPathList } from '../../utils/api/path';
+import { hasValidSession } from '../../utils/auth';
+import { buildBookQueryFromListItem, toPriceText } from '../../utils/book-detail';
+
+function toNumber(value, fallback = 0) {
+  const num = Number(value);
+  return Number.isFinite(num) ? num : fallback;
+}
+
+function createKey(book, index) {
+  if (book && book.id !== undefined && book.id !== null && book.id !== '') {
+    return String(book.id);
+  }
+  return `${book?.title || 'book'}-${book?.author || 'author'}-${index}`;
+}
+
 export default {
   data() {
     return {
       statusBarHeight: 0,
       capsulePaddingRight: 0,
       fixedHeaderHeight: 0,
-      navItems: [
-        { name: '分类浏览', icon: '📚' },
-        { name: '学习路径', icon: '🗺️' },
-        { name: '发布书籍', icon: '📤' },
-        { name: '社区动态', icon: '💬' }
-      ],
-      // 轮播图数据（初始为空，由 API 填充）
       bannerList: [],
-      // 热门书籍数据（初始为空，由 API 填充）
-      hotBooks: [],
-      // 以下为静态数据，可根据需要改为 API 获取
-      studyPaths: [
-        { name: 'Java后端开发路线', creator: '张三学长创建', bookCount: 8, learners: 234 },
-        { name: '前端工程师进阶', creator: '李四学姐创建', bookCount: 12, learners: 456 }
+      hotCategoryTabs: ['\u5168\u90e8'],
+      selectedHotCategory: '\u5168\u90e8',
+      hotBookMap: {
+        '\u5168\u90e8': []
+      },
+      currentPath: null,
+      textMap: {
+        appName: '\u85aa\u4f20',
+        slogan: '\u6279\u6ce8\u4f20\u627f \u00b7 \u5b66\u4e60\u8def\u5f84 \u00b7 \u77e5\u8bc6\u5206\u4eab',
+        hotBooks: '\u70ed\u95e8\u4e66\u7c4d',
+        recommendPaths: '\u63a8\u8350\u5b66\u4e60\u8def\u5f84',
+        communityFeed: '\u793e\u533a\u52a8\u6001',
+        more: '\u66f4\u591a >',
+        unknownCategory: '\u672a\u5206\u7c7b',
+        noHotBooks: '\u6682\u65e0\u70ed\u95e8\u4e66\u7c4d',
+        noPaths: '\u6682\u65e0\u63a8\u8350\u8def\u5f84',
+        nodeUnit: '\u4e2a\u8282\u70b9',
+        learnersUnit: '\u4eba\u5728\u5b66'
+      },
+      navItems: [
+        { name: '\u5206\u7c7b\u6d4f\u89c8', icon: '\u4e66', action: 'category' },
+        { name: '\u5b66\u4e60\u8def\u5f84', icon: '\u8def', action: 'path' },
+        { name: '\u53d1\u5e03\u4e66\u7c4d', icon: '\u53d1', action: 'publish' },
+        { name: '\u793e\u533a\u52a8\u6001', icon: '\u52a8', action: 'community' }
       ],
+      studyPaths: [],
       dynamics: [
-        { username: '王五', time: '2小时前', content: '分享一本宝藏书籍《设计模式》，学长的批注超级详细！' },
-        { username: '赵六', time: '5小时前', content: '刚完成了数据结构学习路径，感谢学长推荐！' }
+        { username: '\u738b\u540c\u5b66', time: '2\u5c0f\u65f6\u524d', content: '\u5206\u4eab\u4e86\u4e00\u672c\u5e26\u6709\u8be6\u7ec6\u6279\u6ce8\u7684\u8bbe\u8ba1\u6a21\u5f0f\u6559\u6750\u3002' },
+        { username: '\u8d75\u540c\u5b66', time: '5\u5c0f\u65f6\u524d', content: '\u521a\u5b8c\u6210\u6570\u636e\u7ed3\u6784\u5b66\u4e60\u8def\u5f84\uff0c\u6536\u83b7\u5f88\u5927\u3002' }
       ]
     };
   },
+  computed: {
+    displayHotBooks() {
+      return this.hotBookMap[this.selectedHotCategory] || [];
+    }
+  },
   onLoad() {
-    // 获取状态栏和胶囊信息
-    uni.getSystemInfo({
-      success: (res) => {
-        this.statusBarHeight = res.statusBarHeight;
-      }
-    });
-  	  const capsule =
-  	    typeof uni.getMenuButtonBoundingClientRect === 'function'
-  	      ? uni.getMenuButtonBoundingClientRect()
-  	      : null;
-  	  if (capsule) {
-      const screenWidth = uni.getSystemInfoSync().windowWidth;
+    const systemInfo = uni.getSystemInfoSync();
+    this.statusBarHeight = systemInfo.statusBarHeight || 0;
+    const capsule =
+      typeof uni.getMenuButtonBoundingClientRect === 'function'
+        ? uni.getMenuButtonBoundingClientRect()
+        : null;
+    if (capsule) {
+      const screenWidth = systemInfo.windowWidth || 375;
       this.capsulePaddingRight = screenWidth - capsule.left + 10;
+      this.fixedHeaderHeight = capsule.top + capsule.height + 58;
     } else {
       this.capsulePaddingRight = 100;
+      this.fixedHeaderHeight = this.statusBarHeight + 92;
     }
-
-    // 调用获取数据的方法
-    this.fetchBannerData();
-    this.fetchHotBooks();
+    this.fetchData();
   },
-  onReady() {
-    // 获取固定顶部的高度
-    uni.createSelectorQuery()
-      .in(this)
-      .select('.fixed-header')
-      .boundingClientRect((rect) => {
-        if (rect) {
-          this.fixedHeaderHeight = rect.height;
-        }
-      })
-      .exec();
+  onShow() {
+    this.fetchCurrentPath();
   },
   methods: {
-    // 获取轮播图数据
-    fetchBannerData() {
-      uni.showLoading({ title: '加载中...' });
-      uni.request({
-        url: 'http://localhost:8080/common/banner/list', // 替换为实际接口地址
-        method: 'GET',
-        success: (res) => {
-          if (res.data.code === "200") {
-			  
-            this.bannerList = res.data.data; // 假设返回格式 { code:0, data: [{ image: 'url' }] }
-          } else {
-            uni.showToast({ title: '轮播图加载失败', icon: 'none' });
-          }
-        },	
-        fail: (err) => {
-          console.error('banner api error', err);
-          uni.showToast({ title: '网络错误', icon: 'none' });
-        },
-        complete: () => {
-          uni.hideLoading();
-        }
-      });
+    async fetchData() {
+      const [banners, grouped, books] = await Promise.all([
+        getBannerList().catch((error) => {
+          console.error('fetchBannerList failed', error);
+          return [];
+        }),
+        getBooksByCategory().catch((error) => {
+          console.error('fetchBooksByCategory failed', error);
+          return {};
+        }),
+        getBookList().catch((error) => {
+          console.error('fetchBookList failed', error);
+          return [];
+        })
+      ]);
+      this.bannerList = Array.isArray(banners) ? banners : [];
+      const groupedBooks = grouped || {};
+      const fallbackBooks = Array.isArray(books) ? books.map((book, index) => this.normalizeBook(book, index)) : [];
+      this.buildHotBooks(groupedBooks, fallbackBooks);
+      this.fetchPathData();
+      this.fetchCurrentPath();
     },
-    // 获取热门书籍数据
-    fetchHotBooks() {
-      uni.request({
-        url: 'http://localhost:8080/book/list', // 替换为实际接口地址
-        method: 'GET',
-        success: (res) => {
-          if (res.data.code === "200") {
-			  console.log(res.data.data)
-			  console.log(res.data.data)
-            this.hotBooks = res.data.data; // 假设返回格式匹配 hotBooks 字段
-          } else {
-            uni.showToast({ title: '书籍加载失败', icon: 'none' });
-          }
-        },
-        fail: (err) => {
-          console.error('hotBooks api error', err);
-          uni.showToast({ title: '网络错误', icon: 'none' });
-        }
+    async fetchPathData() {
+      try {
+        const paths = await getPathList({ category: '', keyword: '' });
+        this.studyPaths = Array.isArray(paths) ? paths.slice(0, 4) : [];
+      } catch (error) {
+        console.error('fetchPathData failed', error);
+      }
+    },
+    async fetchCurrentPath() {
+      if (!hasValidSession()) {
+        this.currentPath = null;
+        return;
+      }
+      try {
+        this.currentPath = (await getCurrentLearningPath()) || null;
+      } catch (error) {
+        this.currentPath = null;
+      }
+    },
+    normalizeBook(book, index, categoryName = '') {
+      const key = createKey(book, index);
+      return {
+        ...book,
+        id: book.id !== undefined && book.id !== null && book.id !== '' ? String(book.id) : key,
+        _uniqueKey: `${key}-${index}`,
+        price: toNumber(book.price, 0),
+        annotationCount: toNumber(book.annotationCount ?? book.annotations, 0),
+        categoryName: book.categoryName || categoryName || book.category || this.textMap.unknownCategory
+      };
+    },
+    buildHotBooks(grouped, fallbackBooks) {
+      const groupedEntries = Object.keys(grouped || {}).map((name, categoryIndex) => {
+        const books = Array.isArray(grouped[name]) ? grouped[name] : [];
+        return {
+          name,
+          books: books.map((book, index) => this.normalizeBook(book, categoryIndex * 20 + index, name))
+        };
       });
+
+      const sortedEntries = groupedEntries.sort((a, b) => b.books.length - a.books.length);
+      const topEntries = sortedEntries.slice(0, 3);
+      const seen = new Set();
+      const allBooks = [];
+
+      groupedEntries.forEach((entry) => {
+        entry.books.forEach((book) => {
+          const key = createKey(book, allBooks.length);
+          if (seen.has(key)) return;
+          seen.add(key);
+          allBooks.push(book);
+        });
+      });
+
+      if (!allBooks.length && Array.isArray(fallbackBooks)) {
+        fallbackBooks.forEach((book, index) => {
+          const key = createKey(book, index);
+          if (seen.has(key)) return;
+          seen.add(key);
+          allBooks.push(book);
+        });
+      }
+
+      const tabs = ['\u5168\u90e8', ...topEntries.map((item) => item.name)];
+      const bookMap = {
+        '\u5168\u90e8': allBooks.slice(0, 5)
+      };
+
+      topEntries.forEach((entry) => {
+        bookMap[entry.name] = entry.books.slice(0, 5);
+      });
+
+      if (!bookMap['\u5168\u90e8'].length && Array.isArray(fallbackBooks)) {
+        bookMap['\u5168\u90e8'] = fallbackBooks.slice(0, 5);
+      }
+
+      this.hotCategoryTabs = tabs.length ? tabs : ['\u5168\u90e8'];
+      this.hotBookMap = bookMap;
+      this.selectedHotCategory = this.hotCategoryTabs.includes(this.selectedHotCategory)
+        ? this.selectedHotCategory
+        : '\u5168\u90e8';
+    },
+    formatPrice(price) {
+      return '\uffe5' + toPriceText(price);
+    },
+    getAnnotationText(book) {
+      return `${book.annotationCount || 0}\u6761\u6279\u6ce8`;
     },
     goToSearch() {
       uni.navigateTo({ url: '/pages/search/search' });
     },
+    goToCommunity() {
+      uni.switchTab({ url: '/pages/community/community' });
+    },
+    handleNav(item) {
+      if (item.action === 'category') {
+        uni.switchTab({ url: '/pages/category/category' });
+        return;
+      }
+      if (item.action === 'publish') {
+        uni.switchTab({ url: '/pages/publish/create' });
+        return;
+      }
+      if (item.action === 'community') {
+        this.goToCommunity();
+        return;
+      }
+      this.goToPathList();
+    },
     goToBookDetail(book) {
-      uni.navigateTo({
-        url: `/pages/books/detail?title=${encodeURIComponent(book.title)}`
-      });
+      const query = buildBookQueryFromListItem(book);
+      uni.navigateTo({ url: `/pages/books/detail?${query}` });
     },
     goToPathDetail(path) {
+      const id = path.pathId || path.id;
+      if (id) {
+        uni.navigateTo({ url: `/pages/path/detail?pathId=${encodeURIComponent(id)}` });
+        return;
+      }
       uni.navigateTo({
-        url: `/pages/paths/detail?name=${encodeURIComponent(path.name)}`
+        url: `/pages/path/detail?title=${encodeURIComponent(path.name)}&creator=${encodeURIComponent(path.creator)}`
       });
     },
-    goToDynamicDetail(dynamic) {
-      uni.navigateTo({
-        url: `/pages/community/detail?username=${encodeURIComponent(dynamic.username)}`
-      });
+    goToPathList() {
+      uni.navigateTo({ url: '/pages/path/list' });
     }
   }
 };
 </script>
 
 <style scoped>
-/* 隐藏右侧滚动条 */
-.container::-webkit-scrollbar {
-  display: none;
-}
-.container {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  background-color: #f8f9fc;
+.page {
   min-height: 100vh;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: #f8f9fc;
 }
 
-/* 固定顶部区域 */
 .fixed-header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background-color: #ffffff;
+  background: #ffffff;
   padding-left: 32rpx;
   padding-bottom: 20rpx;
   box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.02);
@@ -297,10 +383,9 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 10rpx;
 }
 
-.logo-title {
+.logo-wrap {
   display: flex;
   align-items: center;
 }
@@ -312,20 +397,19 @@ export default {
 }
 
 .logo-text {
-  font-size: 48rpx;
+  font-size: 44rpx;
   font-weight: 700;
   color: #2c3e50;
-  line-height: 1.2;
 }
 
 .search-btn {
   width: 60rpx;
   height: 60rpx;
+  border-radius: 50%;
+  background: #f0f3f7;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f0f3f7;
-  border-radius: 50%;
 }
 
 .search-img {
@@ -334,14 +418,68 @@ export default {
 }
 
 .slogan {
-  font-size: 28rpx;
+  margin-top: 8rpx;
+  font-size: 26rpx;
   color: #7f8c8d;
   display: block;
 }
 
-/* 轮播图区域 */
+.current-path-card {
+  margin: 20rpx 32rpx 0;
+  border-radius: 24rpx;
+  padding: 24rpx;
+  background: #2f4f75;
+  color: #ffffff;
+}
+
+.current-path-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16rpx;
+}
+
+.current-path-label {
+  font-size: 24rpx;
+  opacity: 0.86;
+}
+
+.current-path-percent {
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.current-path-title {
+  display: block;
+  margin-top: 12rpx;
+  font-size: 34rpx;
+  line-height: 1.35;
+  font-weight: 700;
+}
+
+.current-path-meta {
+  display: block;
+  margin-top: 10rpx;
+  font-size: 23rpx;
+  opacity: 0.82;
+}
+
+.current-progress-track {
+  margin-top: 18rpx;
+  height: 14rpx;
+  border-radius: 999rpx;
+  background: rgba(255, 255, 255, 0.24);
+  overflow: hidden;
+}
+
+.current-progress-fill {
+  height: 100%;
+  border-radius: 999rpx;
+  background: #5ee09b;
+}
+
 .swiper-section {
-  margin: 32rpx 32rpx 20rpx;
+  margin: 24rpx 32rpx 20rpx;
   border-radius: 24rpx;
   overflow: hidden;
 }
@@ -356,12 +494,11 @@ export default {
   height: 100%;
 }
 
-/* 四个功能导航网格 */
 .nav-grid {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #ffffff;
+  background: #ffffff;
   margin: 24rpx 32rpx;
   padding: 20rpx 0;
   border-radius: 24rpx;
@@ -373,33 +510,24 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   padding: 16rpx 0;
-  border-radius: 16rpx;
-  transition: background-color 0.2s;
-}
-
-.nav-hover {
-  background-color: #f0f7ff;
 }
 
 .nav-icon {
-  font-size: 48rpx;
-  margin-bottom: 8rpx;
+  font-size: 42rpx;
 }
 
 .nav-text {
-  font-size: 26rpx;
+  margin-top: 10rpx;
+  font-size: 24rpx;
   color: #34495e;
-  font-weight: 500;
 }
 
-/* 通用区块样式 */
 .section {
-  margin: 32rpx 32rpx 40rpx;
-  background-color: #ffffff;
+  margin: 24rpx 32rpx;
+  background: #ffffff;
   border-radius: 28rpx;
-  padding: 32rpx 28rpx;
+  padding: 28rpx;
   box-shadow: 0 6rpx 24rpx rgba(0, 0, 0, 0.02);
 }
 
@@ -407,234 +535,183 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 28rpx;
-  padding-bottom: 16rpx;
-  border-bottom: 2rpx solid #ecf0f1;
+  margin-bottom: 24rpx;
 }
 
 .section-title {
-  font-size: 34rpx;
-  font-weight: 650;
+  font-size: 32rpx;
+  font-weight: 700;
   color: #2c3e50;
-  position: relative;
-  padding-left: 18rpx;
-  border-left: 8rpx solid #3498db;
 }
 
 .more {
-  font-size: 26rpx;
-  color: #7f8c8d;
-  padding: 8rpx 16rpx;
-  background-color: #f8f9fc;
-  border-radius: 30rpx;
-}
-
-/* 热门书籍列表 */
-.book-list {
-  display: flex;
-  flex-direction: column;
-  gap: 32rpx;
-}
-
-.book-item {
-  display: flex;
-  gap: 24rpx;
-  padding: 8rpx 0;
-  border-bottom: 2rpx solid #f0f3f7;
-}
-
-.book-item:last-child {
-  border-bottom: none;
-}
-
-.book-cover {
-  width: 130rpx;
-  height: 170rpx;
-  background-color: #ecf0f1;
-  border-radius: 16rpx;
-  flex-shrink: 0;
-}
-
-.book-info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.book-title {
-  font-size: 32rpx;
-  font-weight: 600;
-  color: #2c3e50;
-  line-height: 1.3;
-}
-
-.book-author {
-  font-size: 26rpx;
-  color: #7f8c8d;
-  margin: 6rpx 0 12rpx;
-}
-
-.book-meta {
-  display: flex;
-  align-items: center;
-  gap: 24rpx;
-  margin-bottom: 12rpx;
-}
-
-.price {
-  font-size: 26rpx;
-  color: #e67e22;
-  font-weight: 500;
-  background-color: #fef5e7;
-  padding: 4rpx 16rpx;
-  border-radius: 30rpx;
-}
-
-.annotations {
   font-size: 24rpx;
-  color: #3498db;
-  background-color: #ebf5fb;
-  padding: 4rpx 16rpx;
-  border-radius: 30rpx;
+  color: #7f8c8d;
 }
 
-.book-tags {
-  display: flex;
-  gap: 16rpx;
-  flex-wrap: wrap;
+.hot-tabs-scroll {
+  white-space: nowrap;
 }
 
-.tag {
+.hot-tabs-row {
+  display: inline-flex;
+  gap: 14rpx;
+  padding-bottom: 6rpx;
+}
+
+.hot-tab {
+  padding: 10rpx 24rpx;
+  border-radius: 999rpx;
+  background: #f1f5f9;
+  color: #607185;
+  font-size: 24rpx;
+  white-space: nowrap;
+}
+
+.hot-tab.active {
+  background: #2f4f75;
+  color: #ffffff;
+}
+
+.hot-books-scroll {
+  margin-top: 18rpx;
+  white-space: nowrap;
+}
+
+.hot-books-row {
+  display: inline-flex;
+  gap: 20rpx;
+  padding-right: 8rpx;
+}
+
+.hot-book-card {
+  width: 260rpx;
+  flex-shrink: 0;
+  background: #f8fafc;
+  border-radius: 22rpx;
+  overflow: hidden;
+}
+
+.hot-book-cover {
+  width: 260rpx;
+  height: 320rpx;
+  background: #e9edf2;
+}
+
+.hot-book-main {
+  padding: 18rpx;
+}
+
+.hot-book-title {
+  display: block;
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #24364b;
+  line-height: 1.4;
+}
+
+.hot-book-author,
+.hot-book-tag {
+  display: block;
+  margin-top: 8rpx;
   font-size: 22rpx;
-  color: #16a085;
-  background-color: #e8f6f3;
-  padding: 4rpx 18rpx;
-  border-radius: 30rpx;
-  border: 1rpx solid #b3e5dc;
+  color: #75879a;
 }
 
-/* 学习路径卡片 */
-.path-list {
-  display: flex;
-  flex-direction: column;
-  gap: 32rpx;
-}
-
-.path-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20rpx 0;
-  border-bottom: 2rpx solid #f0f3f7;
-}
-
-.path-item:last-child {
-  border-bottom: none;
-}
-
-.path-info {
+.hot-book-meta {
+  margin-top: 12rpx;
   display: flex;
   flex-direction: column;
   gap: 8rpx;
 }
 
-.path-name {
-  font-size: 32rpx;
-  font-weight: 600;
-  color: #2c3e50;
+.hot-book-price {
+  font-size: 30rpx;
+  color: #e67e22;
+  font-weight: 700;
 }
 
-.path-creator {
-  font-size: 26rpx;
-  color: #7f8c8d;
+.hot-book-annotation {
+  font-size: 22rpx;
+  color: #3f6db4;
 }
 
-.path-stats {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 6rpx;
-  background-color: #f4f8ff;
-  padding: 16rpx 22rpx;
-  border-radius: 30rpx;
+.empty-block {
+  padding: 30rpx 0 10rpx;
+  text-align: center;
 }
 
-.stat-item {
-  font-size: 26rpx;
-  color: #2980b9;
-  font-weight: 500;
+.empty-text {
+  font-size: 24rpx;
+  color: #92a0b0;
 }
 
-/* 社区动态列表 */
+.path-list,
 .dynamic-list {
   display: flex;
   flex-direction: column;
-  gap: 30rpx;
+  gap: 22rpx;
 }
 
 .dynamic-item {
   display: flex;
-  gap: 24rpx;
-  padding: 16rpx 0;
-  border-bottom: 2rpx solid #f0f3f7;
+  gap: 20rpx;
 }
 
-.dynamic-item:last-child {
-  border-bottom: none;
+.path-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20rpx;
 }
 
 .avatar {
-  width: 80rpx;
-  height: 80rpx;
+  width: 72rpx;
+  height: 72rpx;
   border-radius: 50%;
-  background-color: #bdc3c7;
   flex-shrink: 0;
 }
 
 .dynamic-content {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 8rpx;
 }
 
-.dynamic-header {
-  display: flex;
-  align-items: center;
-  gap: 20rpx;
-  flex-wrap: wrap;
-}
-
-.username {
+.path-name {
   font-size: 30rpx;
   font-weight: 600;
   color: #2c3e50;
 }
 
+.path-creator,
 .time {
+  margin-top: 6rpx;
+  display: block;
   font-size: 24rpx;
-  color: #95a5a6;
+  color: #7f8c8d;
+}
+
+.path-stats,
+.dynamic-header {
+  display: flex;
+  gap: 16rpx;
+  align-items: center;
+}
+
+.username {
+  font-size: 28rpx;
+  color: #2c3e50;
+  font-weight: 600;
 }
 
 .content {
-  font-size: 28rpx;
-  color: #34495e;
-  line-height: 1.4;
-  word-break: break-word;
+  display: block;
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  color: #5d6c7a;
+  line-height: 1.6;
 }
 
-/* 底部安全区域 */
 .bottom-safe {
-  height: 20rpx;
-  background-color: transparent;
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 700px;
-    margin: 0 auto;
-    box-shadow: 0 0 40rpx rgba(0,0,0,0.05);
-  }
+  height: calc(120rpx + env(safe-area-inset-bottom));
 }
 </style>

@@ -1,5 +1,6 @@
-package com.book.bookflow.utils;
+package com.book.bookflow.common.config;
 
+import com.book.bookflow.exception.CustomerException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -9,213 +10,115 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class WxSessionRedisService {
 
-    private final RedisService redisService;
-
-    // 微信session_key前缀
     private static final String WX_SESSION_PREFIX = "wx_session:";
-    // 微信access_token前缀（如果需要）
     private static final String WX_TOKEN_PREFIX = "wx_token:";
-    // 用户token前缀
     private static final String USER_TOKEN_PREFIX = "user_token:";
+    private static final long SESSION_EXPIRE = 7200;
+    private static final long TOKEN_EXPIRE = 15 * 24 * 3600;
+    private static final long ACCESS_TOKEN_EXPIRE = 7100;
 
-    // 过期时间（秒）
-    private static final long SESSION_EXPIRE = 7200; // 2小时
-    private static final long TOKEN_EXPIRE = 7 * 24 * 3600; // 7天
-    private static final long ACCESS_TOKEN_EXPIRE = 7100; // 微信access_token 1小时50分钟
+    private final RedisService redisService;
 
     public WxSessionRedisService(RedisService redisService) {
         this.redisService = redisService;
     }
 
-    // ==================== Session Key 相关 ====================
-
-    /**
-     * 保存微信session_key
-     * @param openid 用户openid
-     * @param sessionKey 微信session_key
-     */
     public void saveSessionKey(String openid, String sessionKey) {
-        String key = WX_SESSION_PREFIX + openid;
-        redisService.set(key, sessionKey, SESSION_EXPIRE, TimeUnit.SECONDS);
-        log.debug("保存session_key, openid: {}, expire: {}秒", openid, SESSION_EXPIRE);
+        boolean success = redisService.setString(WX_SESSION_PREFIX + openid, sessionKey, SESSION_EXPIRE, TimeUnit.SECONDS);
+        if (!success) {
+            throw new CustomerException("500", "登录状态保存失败，请检查 Redis");
+        }
     }
 
-    /**
-     * 获取微信session_key
-     * @param openid 用户openid
-     * @return session_key
-     */
     public String getSessionKey(String openid) {
-        String key = WX_SESSION_PREFIX + openid;
-        return redisService.getString(key);
+        return redisService.getString(WX_SESSION_PREFIX + openid);
     }
 
-    /**
-     * 删除微信session_key
-     * @param openid 用户openid
-     */
     public void deleteSessionKey(String openid) {
-        String key = WX_SESSION_PREFIX + openid;
-        redisService.del(key);
-        log.debug("删除session_key, openid: {}", openid);
+        redisService.del(WX_SESSION_PREFIX + openid);
     }
 
-    /**
-     * 延长session_key有效期
-     * @param openid 用户openid
-     */
     public void extendSessionKey(String openid) {
         String key = WX_SESSION_PREFIX + openid;
         if (redisService.hasKey(key)) {
             redisService.expire(key, SESSION_EXPIRE, TimeUnit.SECONDS);
-            log.debug("延长session_key有效期, openid: {}", openid);
         }
     }
 
-    // ==================== 用户Token 相关 ====================
-
-    /**
-     * 保存用户登录token
-     * @param token 登录token
-     * @param userId 用户ID
-     */
     public void saveUserToken(String token, Long userId) {
-        String key = USER_TOKEN_PREFIX + token;
-        redisService.set(key, userId, TOKEN_EXPIRE, TimeUnit.SECONDS);
-        log.debug("保存用户token, userId: {}, expire: {}秒", userId, TOKEN_EXPIRE);
-    }
-
-    /**
-     * 获取token对应的用户ID
-     * @param token 登录token
-     * @return 用户ID
-     */
-    public Long getUserIdByToken(String token) {
-        String key = USER_TOKEN_PREFIX + token;
-        Object value = redisService.get(key);
-        if (value instanceof Number) {
-            return ((Number) value).longValue();
+        boolean success = redisService.setString(USER_TOKEN_PREFIX + token, String.valueOf(userId), TOKEN_EXPIRE, TimeUnit.SECONDS);
+        if (!success) {
+            throw new CustomerException("500", "登录状态保存失败，请检查 Redis");
         }
-        return null;
     }
 
-    /**
-     * 删除用户token
-     * @param token 登录token
-     */
+    public Long getUserIdByToken(String token) {
+        String value = redisService.getString(USER_TOKEN_PREFIX + token);
+        if (value == null || value.isBlank()) {
+            return null;
+        }
+        try {
+            return Long.parseLong(value.trim());
+        } catch (NumberFormatException exception) {
+            return null;
+        }
+    }
+
     public void deleteUserToken(String token) {
-        String key = USER_TOKEN_PREFIX + token;
-        redisService.del(key);
-        log.debug("删除用户token, token: {}", token);
+        redisService.del(USER_TOKEN_PREFIX + token);
     }
 
-    /**
-     * 延长token有效期
-     * @param token 登录token
-     */
     public void extendUserToken(String token) {
         String key = USER_TOKEN_PREFIX + token;
         if (redisService.hasKey(key)) {
             redisService.expire(key, TOKEN_EXPIRE, TimeUnit.SECONDS);
-            log.debug("延长token有效期, token: {}", token);
         }
     }
 
-    /**
-     * 验证token是否有效
-     * @param token 登录token
-     * @return 是否有效
-     */
     public boolean isTokenValid(String token) {
-        String key = USER_TOKEN_PREFIX + token;
-        return redisService.hasKey(key);
+        return redisService.hasKey(USER_TOKEN_PREFIX + token);
     }
 
-    // ==================== 微信AccessToken 相关 ====================
+    public long getTokenExpireSeconds() {
+        return TOKEN_EXPIRE;
+    }
 
-    /**
-     * 保存微信access_token（如果需要调用其他微信接口）
-     * @param accessToken access_token
-     */
     public void saveWxAccessToken(String accessToken) {
-        String key = WX_TOKEN_PREFIX + "access";
-        redisService.set(key, accessToken, ACCESS_TOKEN_EXPIRE, TimeUnit.SECONDS);
-        log.debug("保存微信access_token, expire: {}秒", ACCESS_TOKEN_EXPIRE);
+        redisService.setString(WX_TOKEN_PREFIX + "access", accessToken, ACCESS_TOKEN_EXPIRE, TimeUnit.SECONDS);
     }
 
-    /**
-     * 获取微信access_token
-     * @return access_token
-     */
     public String getWxAccessToken() {
-        String key = WX_TOKEN_PREFIX + "access";
-        return redisService.getString(key);
+        return redisService.getString(WX_TOKEN_PREFIX + "access");
     }
 
-    // ==================== 验证码 相关 ====================
-
-    /**
-     * 保存短信验证码
-     * @param phone 手机号
-     * @param code 验证码
-     * @param expireSeconds 过期时间（秒）
-     */
     public void saveSmsCode(String phone, String code, long expireSeconds) {
-        String key = "sms_code:" + phone;
-        redisService.set(key, code, expireSeconds, TimeUnit.SECONDS);
-        log.debug("保存短信验证码, phone: {}, code: {}", phone, code);
+        redisService.setString("sms_code:" + phone, code, expireSeconds, TimeUnit.SECONDS);
     }
 
-    /**
-     * 验证短信验证码
-     * @param phone 手机号
-     * @param code 验证码
-     * @return 是否验证成功
-     */
     public boolean verifySmsCode(String phone, String code) {
         String key = "sms_code:" + phone;
         String savedCode = redisService.getString(key);
         if (savedCode == null) {
             return false;
         }
-
-        boolean isValid = savedCode.equals(code);
-        if (isValid) {
-            // 验证成功后删除验证码，防止重复使用
+        boolean valid = savedCode.equals(code);
+        if (valid) {
             redisService.del(key);
         }
-        return isValid;
+        return valid;
     }
 
-    // ==================== 频率限制 相关 ====================
-
-    /**
-     * 检查操作频率
-     * @param key 操作key（如：login:127.0.0.1）
-     * @param limit 限制次数
-     * @param period 时间周期（秒）
-     * @return 是否超过限制
-     */
     public boolean checkRateLimit(String key, int limit, int period) {
         String redisKey = "rate_limit:" + key;
         Long count = redisService.incr(redisKey, 1);
-
         if (count == 1) {
-            // 第一次设置过期时间
             redisService.expire(redisKey, period, TimeUnit.SECONDS);
         }
-
         return count != null && count <= limit;
     }
 
-    /**
-     * 获取剩余操作次数
-     * @param key 操作key
-     * @return 剩余次数
-     */
     public Long getRemainingLimit(String key) {
-        String redisKey = "rate_limit:" + key;
-        String value = redisService.getString(redisKey);
+        String value = redisService.getString("rate_limit:" + key);
         if (value == null) {
             return null;
         }

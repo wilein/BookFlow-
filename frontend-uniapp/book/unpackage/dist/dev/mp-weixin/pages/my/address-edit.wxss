@@ -1,0 +1,41 @@
+
+.page.data-v-7272ca84 { min-height: 100vh; background: #f3f5f8;
+}
+.header.data-v-7272ca84 { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #f3f5f8; display: flex; align-items: center; justify-content: space-between;
+}
+.back-btn.data-v-7272ca84, .header-placeholder.data-v-7272ca84 { width: 72rpx; height: 72rpx; flex-shrink: 0;
+}
+.back-btn.data-v-7272ca84 { border-radius: 16rpx; background: #edf2f8; display: flex; align-items: center; justify-content: center;
+}
+.back-icon.data-v-7272ca84 { width: 32rpx; height: 32rpx;
+}
+.header-title.data-v-7272ca84 { font-size: 30rpx; color: #2d3d52; font-weight: 700;
+}
+.content.data-v-7272ca84 { padding: 16rpx 20rpx 140rpx;
+}
+.card.data-v-7272ca84 { background: #ffffff; border-radius: 20rpx; padding: 20rpx;
+}
+.field.data-v-7272ca84 { margin-bottom: 18rpx;
+}
+.field.data-v-7272ca84:last-child { margin-bottom: 0;
+}
+.label.data-v-7272ca84 { display: block; margin-bottom: 10rpx; font-size: 24rpx; color: #5d7186;
+}
+.input.data-v-7272ca84, .textarea.data-v-7272ca84 { width: 100%; box-sizing: border-box; border-radius: 14rpx; background: #f3f7fb; font-size: 26rpx; color: #2b3f53;
+}
+.input.data-v-7272ca84 { height: 72rpx; line-height: 72rpx; padding: 0 20rpx;
+}
+.textarea.data-v-7272ca84 { min-height: 160rpx; padding: 20rpx;
+}
+.default-row.data-v-7272ca84 { margin-top: 10rpx; display: flex; align-items: center; gap: 14rpx;
+}
+.checkbox.data-v-7272ca84 { width: 34rpx; height: 34rpx; border-radius: 10rpx; background: #e7edf5; border: 2rpx solid #cbd7e4;
+}
+.checkbox.active.data-v-7272ca84 { background: #2d55c7; border-color: #2d55c7;
+}
+.default-text.data-v-7272ca84 { font-size: 24rpx; color: #44596f;
+}
+.bottom-bar.data-v-7272ca84 { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; background: rgba(255, 255, 255, 0.96); border-top: 1rpx solid #e7edf4; padding: 16rpx 20rpx calc(16rpx + env(safe-area-inset-bottom));
+}
+.save-btn.data-v-7272ca84 { height: 84rpx; border-radius: 16rpx; background: #2f4f75; color: #ffffff; font-size: 30rpx; font-weight: 700; display: flex; align-items: center; justify-content: center;
+}

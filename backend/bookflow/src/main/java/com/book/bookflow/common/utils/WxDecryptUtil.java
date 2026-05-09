@@ -1,4 +1,4 @@
-package com.book.bookflow.utils;
+package com.book.bookflow.common.utils;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;

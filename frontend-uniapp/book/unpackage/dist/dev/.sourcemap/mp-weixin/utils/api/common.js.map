@@ -1,0 +1,1 @@
+{"version":3,"file":"common.js","sources":["utils/api/common.js"],"sourcesContent":["import { get } from './request';\n\nexport function getBannerList() {\n  return get('/common/banner/list');\n}\n"],"names":["get"],"mappings":";;AAEO,SAAS,gBAAgB;AAC9B,SAAOA,kBAAAA,IAAI,qBAAqB;AAClC;;"}

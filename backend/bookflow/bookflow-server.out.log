@@ -1,0 +1,174 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.book:bookflow:jar:0.0.1-SNAPSHOT
+[WARNING] 'dependencies.dependency.scope' for org.projectlombok:lombok:jar must be one of [provided, compile, runtime, test, system] but is 'annotationProcessor'. @ line 47, column 20
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] -------------------------< com.book:bookflow >--------------------------
+[INFO] Building bookflow 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:4.0.1:run (default-cli) > test-compile @ bookflow >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ bookflow ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 19 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ bookflow ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 134 source files with javac [debug parameters release 17] to target\classes
+mybatis flex processor run start...
+mybatis flex processor run start...
+mybatis flex processor run start...
+mybatis flex processor run start...
+mybatis flex processor run start...
+[WARNING] /D:/1011/1011/毕设/BookFlow/backend/bookflow/src/main/java/com/book/bookflow/common/utils/RedisUtil.java:[337,55] 最后一个参数使用了不准确的变量类型的 varargs 方法的非 varargs 调用; 
+  对于 varargs 调用, 应使用 java.lang.Object
+  对于非 varargs 调用, 应使用 java.lang.Object[], 这样也可以抑制此警告
+[WARNING] /D:/1011/1011/毕设/BookFlow/backend/bookflow/src/main/java/com/book/bookflow/common/utils/RedisUtil.java:[442,53] 最后一个参数使用了不准确的变量类型的 varargs 方法的非 varargs 调用; 
+  对于 varargs 调用, 应使用 java.lang.Object
+  对于非 varargs 调用, 应使用 java.lang.Object[], 这样也可以抑制此警告
+[WARNING] /D:/1011/1011/毕设/BookFlow/backend/bookflow/src/main/java/com/book/bookflow/common/utils/RedisUtil.java:[465,54] 最后一个参数使用了不准确的变量类型的 varargs 方法的非 varargs 调用; 
+  对于 varargs 调用, 应使用 java.lang.Object
+  对于非 varargs 调用, 应使用 java.lang.Object[], 这样也可以抑制此警告
+[INFO] /D:/1011/1011/毕设/BookFlow/backend/bookflow/src/main/java/com/book/bookflow/common/utils/RedisUtil.java: D:\1011\1011\毕设\BookFlow\backend\bookflow\src\main\java\com\book\bookflow\common\utils\RedisUtil.java使用了未经检查或不安全的操作。
+[INFO] /D:/1011/1011/毕设/BookFlow/backend/bookflow/src/main/java/com/book/bookflow/common/utils/RedisUtil.java: 有关详细信息, 请使用 -Xlint:unchecked 重新编译。
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ bookflow ---
+[INFO] skip non existing resourceDirectory D:\1011\1011\毕设\BookFlow\backend\bookflow\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ bookflow ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 7 source files with javac [debug parameters release 17] to target\test-classes
+[INFO] 
+[INFO] <<< spring-boot:4.0.1:run (default-cli) < test-compile @ bookflow <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:4.0.1:run (default-cli) @ bookflow ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.1)
+
+2026-05-08T22:25:49.310+08:00  INFO 23544 --- [           main] com.book.bookflow.BookflowApplication    : Starting BookflowApplication using Java 17.0.12 with PID 23544 (D:\1011\1011\毕设\BookFlow\backend\bookflow\target\classes started by he in D:\1011\1011\毕设\BookFlow\backend\bookflow)
+2026-05-08T22:25:49.338+08:00  INFO 23544 --- [           main] com.book.bookflow.BookflowApplication    : No active profile set, falling back to 1 default profile: "default"
+2026-05-08T22:25:55.672+08:00  INFO 23544 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-05-08T22:25:55.679+08:00  INFO 23544 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-05-08T22:25:56.307+08:00  INFO 23544 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 520 ms. Found 0 Redis repository interfaces.
+2026-05-08T22:25:59.555+08:00  INFO 23544 --- [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-05-08T22:25:59.648+08:00  INFO 23544 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-08T22:25:59.660+08:00  INFO 23544 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-05-08T22:25:59.895+08:00  INFO 23544 --- [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 10218 ms
+Logging initialized using 'class org.apache.ibatis.logging.stdout.StdOutImpl' adapter.
+Using VFS adapter com.mybatisflex.spring.boot.SpringBootVFS
+Checking to see if class com.mybatisflex.core.row.BatchArgsSetter matches criteria [is assignable to BaseMapper]
+Checking to see if class com.mybatisflex.core.row.Db matches criteria [is assignable to BaseMapper]
+Checking to see if class com.mybatisflex.core.row.DbChain matches criteria [is assignable to BaseMapper]
+Checking to see if class com.mybatisflex.core.row.Row matches criteria [is assignable to BaseMapper]
+Checking to see if class com.mybatisflex.core.row.RowCPI matches criteria [is assignable to BaseMapper]
+Checking to see if class com.mybatisflex.core.row.RowKey matches criteria [is assignable to BaseMapper]
+Checking to see if class com.mybatisflex.core.row.RowMapper matches criteria [is assignable to BaseMapper]
+Checking to see if class com.mybatisflex.core.row.RowMapperInvoker matches criteria [is assignable to BaseMapper]
+Checking to see if class com.mybatisflex.core.row.RowUtil matches criteria [is assignable to BaseMapper]
+  __  __       _           _   _       _____ _           
+ |  \/  |_   _| |__   __ _| |_(_)___  |  ___| | _____  __
+ | |\/| | | | | '_ \ / _` | __| / __| | |_  | |/ _ \ \/ /
+ | |  | | |_| | |_) | (_| | |_| \__ \ |  _| | |  __/>  < 
+ |_|  |_|\__, |_.__/ \__,_|\__|_|___/ |_|   |_|\___/_/\_\
+         |___/ v1.11.6 https://mybatis-flex.com
+2026-05-08T22:26:10.891+08:00  INFO 23544 --- [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-05-08T22:26:10.914+08:00  INFO 23544 --- [           main] com.book.bookflow.BookflowApplication    : Started BookflowApplication in 25.777 seconds (process running for 27.361)
+2026-05-08T22:26:10.961+08:00  INFO 23544 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-08T22:26:11.270+08:00  INFO 23544 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-08T22:26:11.272+08:00  INFO 23544 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-05-08T22:26:11.280+08:00  INFO 23544 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@40078263] was not registered for synchronization because synchronization is not active
+2026-05-08T22:26:12.506+08:00  INFO 23544 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2d3bb944
+2026-05-08T22:26:12.513+08:00  INFO 23544 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+==>  Preparing: SELECT `id`, `title`, `image_url`, `link`, `sort_order`, `status`, `create_time`, `update_time` FROM `banner` WHERE status = 1 ORDER BY id desc
+==> Parameters: 
+<==    Columns: id, title, image_url, link, sort_order, status, create_time, update_time
+<==        Row: 3, 以书为桥, uploads/banner/banner3.png, null, 3, 1, 2026-02-28 16:09:07, 2026-02-28 16:09:09
+<==        Row: 2, 旧书新用, uploads/banner/banner2.png, null, 2, 1, 2026-02-28 16:08:42, 2026-02-28 16:09:10
+<==        Row: 1, 流转旧书, uploads/banner/banner1.png, null, 1, 1, 2026-02-28 16:08:02, 2026-02-28 16:12:17
+<==      Total: 3
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@40078263]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7586abb2] was not registered for synchronization because synchronization is not active
+==>  Preparing: SELECT `id`, `title`, `image_url`, `link`, `sort_order`, `status`, `create_time`, `update_time` FROM `banner` WHERE status = 1 ORDER BY id desc
+==> Parameters: 
+<==    Columns: id, title, image_url, link, sort_order, status, create_time, update_time
+<==        Row: 3, 以书为桥, uploads/banner/banner3.png, null, 3, 1, 2026-02-28 16:09:07, 2026-02-28 16:09:09
+<==        Row: 2, 旧书新用, uploads/banner/banner2.png, null, 2, 1, 2026-02-28 16:08:42, 2026-02-28 16:09:10
+<==        Row: 1, 流转旧书, uploads/banner/banner1.png, null, 1, 1, 2026-02-28 16:08:02, 2026-02-28 16:12:17
+<==      Total: 3
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7586abb2]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@306aa095] was not registered for synchronization because synchronization is not active
+==>  Preparing: SELECT `id`, `book_id`, `user_id`, `page_num`, `content`, `position_text`, `image_url`, `type`, `visibility`, `like_count`, `create_time`, `update_time`, `is_deleted` FROM `annotation` WHERE book_id = ? AND is_deleted = 0 ORDER BY page_num asc, id asc
+==> Parameters: 20(Long)
+<==      Total: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@306aa095]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@52365784] was not registered for synchronization because synchronization is not active
+==>  Preparing: SELECT * FROM `book` WHERE `id` = ?
+==> Parameters: 20(Long)
+<==    Columns: id, user_id, isbn, title, author, publisher, publish_date, cover_images, description, category, price, original_price, condition, status, view_count, favorite_count, annotation_count, create_time, update_time, is_deleted
+<==        Row: 20, 10, 9787121456789, 设计中的设计, 原研哉, 电子工业出版社, 2022-04-01, http://127.0.0.1:8080/uploads/book/admin_1_1777108336979_ac6476cd4ca34f49a61f9756e9a79dfc.jpg, <<BLOB>>, 艺术, 78.00, 99.00, 1, 1, 560, 0, 67, 2026-03-02 10:55:20, 2026-04-25 17:12:17, 0
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@52365784]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@fbf394] was not registered for synchronization because synchronization is not active
+==>  Preparing: SELECT * FROM `wx_user` WHERE `id` = ?
+==> Parameters: 1(Long)
+<==    Columns: id, openid, unionid, session_key, nickname, avatar_url, gender, country, province, city, mobile, last_login_time, create_time, update_time, is_deleted
+<==        Row: 1, or9zx5WpXAUqo_-dZbfkdeB6cA0s, null, HUs+19yaNTN+35yjZV+Jyg==, 刘先生, http://127.0.0.1:8080/uploads/profile/avatar/1_1777108663492_66f6701ce1e64e12878f7a1101839676.jpeg, 1, 福州, , 福州, 13485692135, 2026-05-08 20:15:58, 2026-02-24 12:27:08, 2026-05-08 20:15:58, 0
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@fbf394]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6317c9da] was not registered for synchronization because synchronization is not active
+==>  Preparing: SELECT `id`, `user_id`, `student_id`, `real_name`, `school`, `department`, `auth_status`, `credit_score`, `intro`, `student_card_image_url`, `verify_type`, `verify_submit_time`, `audit_remark`, `create_time`, `update_time`, `is_deleted` FROM `user_profile` WHERE user_id = ? AND is_deleted = 0 LIMIT 1
+==> Parameters: 1(Long)
+<==    Columns: id, user_id, student_id, real_name, school, department, auth_status, credit_score, intro, student_card_image_url, verify_type, verify_submit_time, audit_remark, create_time, update_time, is_deleted
+<==        Row: 1, 1, 2021001, 张三, 华南理工大学, 计算机学院, 1, 85, 热爱编程，喜欢分享, http://127.0.0.1:8080/uploads/profile/student-card/1_1777359169294_4aa36d477fa244ba8720764c95ff837f.jpeg, student_card, 2026-04-28 14:52:53, , 2026-03-24 11:57:50, 2026-04-28 14:52:53, 0
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6317c9da]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@75c22077] was not registered for synchronization because synchronization is not active
+==>  Preparing: SELECT `id`, `book_id`, `user_id`, `page_num`, `content`, `position_text`, `image_url`, `type`, `visibility`, `like_count`, `create_time`, `update_time`, `is_deleted` FROM `annotation` WHERE book_id = ? AND is_deleted = 0 ORDER BY page_num asc, id asc
+==> Parameters: 20(Long)
+<==      Total: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@75c22077]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@45d0a9f] was not registered for synchronization because synchronization is not active
+==>  Preparing: SELECT * FROM `book` WHERE `id` = ?
+==> Parameters: 20(Long)
+<==    Columns: id, user_id, isbn, title, author, publisher, publish_date, cover_images, description, category, price, original_price, condition, status, view_count, favorite_count, annotation_count, create_time, update_time, is_deleted
+<==        Row: 20, 10, 9787121456789, 设计中的设计, 原研哉, 电子工业出版社, 2022-04-01, http://127.0.0.1:8080/uploads/book/admin_1_1777108336979_ac6476cd4ca34f49a61f9756e9a79dfc.jpg, <<BLOB>>, 艺术, 78.00, 99.00, 1, 1, 560, 0, 67, 2026-03-02 10:55:20, 2026-04-25 17:12:17, 0
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@45d0a9f]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  10:15 min
+[INFO] Finished at: 2026-05-08T22:35:22+08:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:4.0.1:run (default-cli) on project bookflow: Process terminated with exit code: 1 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

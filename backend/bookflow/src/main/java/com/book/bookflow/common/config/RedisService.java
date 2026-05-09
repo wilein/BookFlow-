@@ -1,6 +1,7 @@
-package com.book.bookflow.utils;
+package com.book.bookflow.common.config;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.connection.DataType;
 import org.springframework.data.redis.core.*;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,8 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class RedisService {
 
-    private final RedisTemplate<String, Object> redisTemplate;
+
+    private RedisTemplate<String, Object> redisTemplate;
     private final StringRedisTemplate stringRedisTemplate;
 
     public RedisService(RedisTemplate<String, Object> redisTemplate,
@@ -127,6 +129,30 @@ public class RedisService {
      */
     public String getString(String key) {
         return stringRedisTemplate.opsForValue().get(key);
+    }
+
+    public boolean setString(String key, String value) {
+        try {
+            stringRedisTemplate.opsForValue().set(key, value);
+            return true;
+        } catch (Exception e) {
+            log.error("设置字符串缓存失败, key: {}", key, e);
+            return false;
+        }
+    }
+
+    public boolean setString(String key, String value, long time, TimeUnit unit) {
+        try {
+            if (time > 0) {
+                stringRedisTemplate.opsForValue().set(key, value, time, unit);
+            } else {
+                stringRedisTemplate.opsForValue().set(key, value);
+            }
+            return true;
+        } catch (Exception e) {
+            log.error("设置字符串缓存失败, key: {}", key, e);
+            return false;
+        }
     }
 
     /**

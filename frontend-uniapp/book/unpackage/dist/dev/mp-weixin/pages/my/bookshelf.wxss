@@ -1,0 +1,45 @@
+
+.page.data-v-e23eefad { min-height: 100vh; background: #f3f5f8;
+}
+.header.data-v-e23eefad { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #f3f5f8; display: flex; align-items: center; justify-content: space-between;
+}
+.back-btn.data-v-e23eefad, .header-placeholder.data-v-e23eefad { width: 72rpx; height: 72rpx; flex-shrink: 0;
+}
+.back-btn.data-v-e23eefad { border-radius: 16rpx; background: #edf2f8; display: flex; align-items: center; justify-content: center;
+}
+.back-icon.data-v-e23eefad { width: 32rpx; height: 32rpx;
+}
+.header-title.data-v-e23eefad { font-size: 30rpx; color: #2d3d52; font-weight: 700;
+}
+.tab-bar.data-v-e23eefad { display: flex; gap: 12rpx; padding: 16rpx 20rpx 0;
+}
+.tab-item.data-v-e23eefad { flex: 1; height: 72rpx; border-radius: 18rpx; background: #ffffff; color: #61758b; display: flex; align-items: center; justify-content: center; font-size: 26rpx;
+}
+.tab-item.active.data-v-e23eefad { background: #2d55c7; color: #ffffff; font-weight: 700;
+}
+.content.data-v-e23eefad { padding: 16rpx 20rpx calc(32rpx + env(safe-area-inset-bottom));
+}
+.list.data-v-e23eefad { display: flex; flex-direction: column; gap: 16rpx;
+}
+.card.data-v-e23eefad { display: flex; gap: 18rpx; padding: 18rpx; background: #ffffff; border-radius: 20rpx;
+}
+.cover.data-v-e23eefad { width: 150rpx; height: 190rpx; border-radius: 16rpx; background: #e8edf3; flex-shrink: 0;
+}
+.card-main.data-v-e23eefad { flex: 1; display: flex; flex-direction: column;
+}
+.title.data-v-e23eefad { font-size: 30rpx; line-height: 1.4; color: #243548; font-weight: 700;
+}
+.meta.data-v-e23eefad { margin-top: 10rpx; font-size: 24rpx; color: #71859b;
+}
+.tag-row.data-v-e23eefad { margin-top: 14rpx; display: flex; flex-wrap: wrap; gap: 10rpx;
+}
+.tag.data-v-e23eefad { padding: 6rpx 14rpx; border-radius: 999rpx; background: #eef3fb; color: #4d6583; font-size: 22rpx;
+}
+.bottom-row.data-v-e23eefad { margin-top: auto; display: flex; align-items: center; justify-content: space-between;
+}
+.price.data-v-e23eefad { color: #d05a25; font-size: 34rpx; font-weight: 700;
+}
+.count.data-v-e23eefad { color: #7d8fa2; font-size: 22rpx;
+}
+.empty.data-v-e23eefad { margin-top: 120rpx; text-align: center; color: #7d8fa2; font-size: 28rpx;
+}

@@ -1,0 +1,41 @@
+
+.page.data-v-a2e5626f { min-height: 100vh; background: #f5f7fb;
+}
+.header.data-v-a2e5626f { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #f5f7fb; display: flex; align-items: center; justify-content: space-between;
+}
+.back-btn.data-v-a2e5626f { width: 72rpx; height: 72rpx; border-radius: 16rpx; background: #edf2f8; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.back-icon.data-v-a2e5626f { width: 32rpx; height: 32rpx;
+}
+.header-title.data-v-a2e5626f { font-size: 30rpx; color: #2d3d52; font-weight: 700;
+}
+.save-btn.data-v-a2e5626f { min-width: 96rpx; height: 64rpx; border-radius: 16rpx; background: #2d55c7; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 24rpx; font-weight: 700;
+}
+.content.data-v-a2e5626f { padding: 18rpx 20rpx 40rpx;
+}
+.card.data-v-a2e5626f { background: #fff; border-radius: 22rpx; padding: 20rpx; margin-bottom: 16rpx;
+}
+.label.data-v-a2e5626f { display: block; font-size: 28rpx; color: #2b3f53; font-weight: 700; margin-bottom: 16rpx;
+}
+.type-row.data-v-a2e5626f { display: flex; flex-wrap: wrap; gap: 12rpx;
+}
+.type-btn.data-v-a2e5626f { padding: 12rpx 22rpx; border-radius: 999rpx; background: #eef2f8; color: #5d7085; font-size: 24rpx;
+}
+.type-btn.active.data-v-a2e5626f { background: #e6efff; color: #2d55c7; font-weight: 700;
+}
+.path-options.data-v-a2e5626f { display: flex; flex-direction: column; gap: 12rpx;
+}
+.path-option.data-v-a2e5626f { border-radius: 16rpx; background: #f3f6fb; padding: 16rpx; border: 2rpx solid transparent;
+}
+.path-option.active.data-v-a2e5626f { background: #edf3ff; border-color: #2d55c7;
+}
+.path-name.data-v-a2e5626f { display: block; font-size: 27rpx; color: #2b3f53; font-weight: 700; line-height: 1.4;
+}
+.path-meta.data-v-a2e5626f { display: block; margin-top: 8rpx; font-size: 22rpx; color: #718398;
+}
+.empty-tip.data-v-a2e5626f { display: block; font-size: 24rpx; color: #7d8fa2;
+}
+.input.data-v-a2e5626f { height: 80rpx; line-height: 80rpx; border-radius: 16rpx; background: #f3f6fb; padding: 0 20rpx; font-size: 26rpx; color: #2d3d52;
+}
+.textarea.data-v-a2e5626f { min-height: 260rpx; border-radius: 16rpx; background: #f3f6fb; padding: 20rpx; font-size: 26rpx; color: #2d3d52; box-sizing: border-box; width: 100%;
+}

@@ -1,98 +1,100 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
+const utils_api_user = require("../../utils/api/user.js");
+const utils_auth = require("../../utils/auth.js");
+const common_assets = require("../../common/assets.js");
+const TEXTS = {
+  appName: "薪传",
+  subtitle: "教材流转、批注传承、学习路径共享",
+  cardTitle: "登录后继续使用",
+  cardDesc: "首次进入需要完成登录，登录状态有效期 15 天，活跃访问会自动续期。",
+  h5Login: "开发环境一键登录",
+  wechatLogin: "微信一键登录",
+  loggingIn: "登录中...",
+  tip: "当前不支持匿名进入业务页",
+  loginSuccess: "登录成功",
+  loginFail: "登录失败",
+  codeFail: "获取登录凭证失败"
+};
+function getRuntimePlatform() {
+  let platform = "unknown";
+  platform = "mp-weixin";
+  return platform;
+}
 const _sfc_main = {
-  // computed: {  
-  //           ...mapState(['userInfo'])
-  //       },
   data() {
     return {
-      code: ""
-      //微信临时登录凭证
+      texts: TEXTS,
+      loading: false,
+      platform: getRuntimePlatform()
     };
   },
-  onLoad: function() {
-    common_vendor.index.login({
-      success: (res) => {
-        if (res.errMsg == "login:ok") {
-          this.code = res.code;
-          common_vendor.index.__f__("log", "at pages/login/login.vue:29", this.code);
-        } else {
-          common_vendor.index.showToast({
-            title: "系统异常，请联系管理员!"
-          });
-        }
-      }
-    });
+  computed: {
+    loginButtonText() {
+      return this.platform === "h5" ? TEXTS.h5Login : TEXTS.wechatLogin;
+    }
+  },
+  onLoad() {
+    if (utils_auth.hasValidSession()) {
+      utils_auth.navigateAfterLogin();
+    }
   },
   methods: {
-    ...common_vendor.mapMutations(["login"]),
-    //微信授权登录
-    getUserInfo(e) {
-      let that = this;
-      var p = this.getSetting();
-      p.then(function(isAuth) {
-        common_vendor.index.__f__("log", "at pages/login/login.vue:45", "是否已经授权", isAuth);
-        if (isAuth) {
-          common_vendor.index.__f__("log", "at pages/login/login.vue:56", "用户信息，加密数据", e);
-          JSON.parse(e.detail.rawData);
-          common_vendor.index.request({
-            header: {
-              "content-type": "application/x-www-form-urlencoded"
-            },
-            url: "http://localhost:8080/user/auth/wechat",
-            //你的接口地址
-            method: "POST",
-            //接口类型 
-            data: { code: that.code },
-            //接口需要的数据
-            success: function(res) {
-              common_vendor.index.__f__("log", "at pages/login/login.vue:68", res);
-              if (res.data.Success) {
-                that.login(res.data);
-                common_vendor.index.__f__("log", "at pages/login/login.vue:71", res.data);
-              } else {
-                common_vendor.index.showToast({
-                  title: "授权登录失败！",
-                  mask: true,
-                  icon: "none"
-                });
-              }
-            }
-          });
+    async handleLogin() {
+      if (this.loading)
+        return;
+      this.loading = true;
+      try {
+        if (this.platform === "h5") {
+          await utils_api_user.loginWithDev();
         } else {
-          common_vendor.index.showToast({
-            title: "授权失败，请确认授权已开启",
-            mask: true,
-            icon: "none"
-          });
+          const code = await this.fetchWechatCode();
+          await utils_api_user.loginWithWechat(code);
         }
-      });
+        common_vendor.index.showToast({ title: TEXTS.loginSuccess, icon: "success" });
+        setTimeout(() => {
+          utils_auth.navigateAfterLogin();
+        }, 300);
+      } catch (error) {
+        common_vendor.index.__f__("error", "at pages/login/login.vue:83", "handleLogin failed", error);
+        common_vendor.index.showToast({ title: (error == null ? void 0 : error.message) || TEXTS.loginFail, icon: "none" });
+      } finally {
+        this.loading = false;
+      }
     },
-    //获取用户的当前设置
-    getSetting() {
-      return new Promise(function(resolve, reject) {
-        common_vendor.index.getSetting({
-          success: function(res) {
-            if (res.authSetting["scope.userInfo"]) {
-              common_vendor.index.__f__("log", "at pages/login/login.vue:102", "存在");
-              resolve(true);
-            } else {
-              common_vendor.index.__f__("log", "at pages/login/login.vue:105", "不存在");
-              resolve(false);
+    fetchWechatCode() {
+      return new Promise((resolve, reject) => {
+        common_vendor.index.login({
+          provider: "weixin",
+          success: (res) => {
+            if (res.code) {
+              resolve(res.code);
+              return;
             }
+            reject(new Error("missing wechat code"));
+          },
+          fail: (error) => {
+            common_vendor.index.showToast({ title: TEXTS.codeFail, icon: "none" });
+            reject(error);
           }
         });
-      }).catch((e) => {
-        common_vendor.index.__f__("log", "at pages/login/login.vue:111", e);
       });
     }
   }
 };
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
-    a: common_vendor.o((...args) => $options.getUserInfo && $options.getUserInfo(...args))
+    a: common_assets._imports_2,
+    b: common_vendor.t($data.texts.appName),
+    c: common_vendor.t($data.texts.subtitle),
+    d: common_vendor.t($data.texts.cardTitle),
+    e: common_vendor.t($data.texts.cardDesc),
+    f: common_vendor.t($data.loading ? $data.texts.loggingIn : $options.loginButtonText),
+    g: $data.loading ? 1 : "",
+    h: common_vendor.o((...args) => $options.handleLogin && $options.handleLogin(...args)),
+    i: common_vendor.t($data.texts.tip)
   };
 }
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-e4e4508d"]]);
 wx.createPage(MiniProgramPage);
 //# sourceMappingURL=../../../.sourcemap/mp-weixin/pages/login/login.js.map

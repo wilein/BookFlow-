@@ -1,4 +1,4 @@
-package com.book.bookflow.utils;
+package com.book.bookflow.common.utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;

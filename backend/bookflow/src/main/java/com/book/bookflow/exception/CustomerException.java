@@ -1,4 +1,4 @@
-package com.example.exception;
+package com.book.bookflow.exception;
 
 /**
  * 自定义异常

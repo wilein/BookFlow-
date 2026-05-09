@@ -1,0 +1,41 @@
+
+.page.data-v-cd8410a3 { min-height: 100vh; background: #f6f8fc;
+}
+.header.data-v-cd8410a3 { position: fixed; top: 0; left: 0; right: 0; z-index: 40; box-sizing: border-box; padding-left: 20rpx; background: rgba(246, 248, 252, 0.96); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+.header-inner.data-v-cd8410a3 { height: 100%; display: flex; align-items: center; gap: 14rpx; padding-bottom: 12rpx; box-sizing: border-box;
+}
+.back-btn.data-v-cd8410a3 { width: 72rpx; height: 72rpx; border-radius: 16rpx; background: #edf2f8; display: flex; align-items: center; justify-content: center;
+}
+.back-icon.data-v-cd8410a3 { width: 32rpx; height: 32rpx;
+}
+.title.data-v-cd8410a3 { flex: 1; font-size: 30rpx; color: #2d3d52; font-weight: 700;
+}
+.submit-mini.data-v-cd8410a3 { min-width: 104rpx; height: 64rpx; padding: 0 18rpx; border-radius: 999rpx; background: #2f4f75; color: #ffffff; font-size: 24rpx; display: flex; align-items: center; justify-content: center;
+}
+.content.data-v-cd8410a3 { padding: 16rpx 20rpx 0;
+}
+.form-card.data-v-cd8410a3 { background: #ffffff; border-radius: 24rpx; padding: 24rpx; box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.03);
+}
+.field-title.data-v-cd8410a3 { display: block; margin-bottom: 12rpx; font-size: 24rpx; color: #6e8094;
+}
+.field-title.data-v-cd8410a3:not(:first-child) { margin-top: 24rpx;
+}
+.type-row.data-v-cd8410a3 { display: flex; flex-wrap: wrap; gap: 12rpx;
+}
+.type-chip.data-v-cd8410a3 { padding: 10rpx 18rpx; border-radius: 999rpx; background: #f2f6fb; color: #5f748a; font-size: 24rpx;
+}
+.type-chip.active.data-v-cd8410a3 { background: #2f4f75; color: #ffffff;
+}
+.input.data-v-cd8410a3, .textarea.data-v-cd8410a3 { width: 100%; box-sizing: border-box; border-radius: 16rpx; background: #f5f8fc; padding: 18rpx 20rpx; font-size: 26rpx; color: #24364b;
+}
+.input.data-v-cd8410a3 { height: 84rpx;
+}
+.textarea.data-v-cd8410a3 { min-height: 260rpx;
+}
+.read-only.data-v-cd8410a3 { color: #7f90a4;
+}
+.bottom-btn.data-v-cd8410a3 { margin-top: 24rpx; height: 88rpx; border-radius: 18rpx; background: #2f4f75; color: #ffffff; font-size: 30rpx; font-weight: 700; display: flex; align-items: center; justify-content: center;
+}
+.bottom-space.data-v-cd8410a3 { height: calc(88rpx + env(safe-area-inset-bottom));
+}
