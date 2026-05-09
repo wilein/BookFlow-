@@ -46,5 +46,5 @@
 
 ### 1. 克隆项目
 ```bash
-git clone https://github.com/your-username/academic-resource-platform.git
-cd academic-resource-platform
+https://github.com/wilein/BookFlow-.git
+
