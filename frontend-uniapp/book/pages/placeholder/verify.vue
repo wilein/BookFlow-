@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <view class="page">
     <view class="header" :style="{ height: headerHeight + 'px', paddingTop: statusBarHeight + 'px' }">
       <view class="back-btn" @click="goBack">
@@ -327,14 +327,14 @@ export default {
 </script>
 
 <style scoped>
-.page { min-height: 100vh; background: #f3f5f8; }
-.header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #f3f5f8; display: flex; align-items: center; justify-content: space-between; }
+.page { min-height: 100vh; background: #eef3fb; }
+.header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #eef3fb; display: flex; align-items: center; justify-content: space-between; }
 .back-btn, .header-placeholder { width: 72rpx; height: 72rpx; flex-shrink: 0; }
 .back-btn { border-radius: 16rpx; background: #edf2f8; display: flex; align-items: center; justify-content: center; }
 .back-icon { width: 32rpx; height: 32rpx; }
 .header-title { font-size: 30rpx; color: #2d3d52; font-weight: 700; }
 .content { padding: 0 20rpx 150rpx; }
-.hero-card { background: linear-gradient(135deg, #2d55c7 0%, #2349b7 100%); border-radius: 24rpx; padding: 24rpx; color: #ffffff; }
+.hero-card { background: linear-gradient(135deg, #1f5eff 0%, #143a7b 100%); border-radius: 24rpx; padding: 24rpx; color: #ffffff; }
 .hero-main { display: flex; align-items: center; justify-content: space-between; gap: 16rpx; }
 .hero-title { display: block; font-size: 36rpx; font-weight: 700; }
 .hero-sub { display: block; margin-top: 8rpx; font-size: 24rpx; line-height: 1.5; opacity: 0.92; }
@@ -345,7 +345,7 @@ export default {
 .mode-card, .section-card, .placeholder-card, .tips-card { margin-top: 16rpx; background: #ffffff; border-radius: 20rpx; padding: 20rpx; }
 .mode-card { display: flex; gap: 16rpx; }
 .mode-item { flex: 1; border-radius: 18rpx; padding: 18rpx; background: #f4f7fb; border: 2rpx solid transparent; }
-.mode-item.active { background: #edf3ff; border-color: #2d55c7; }
+.mode-item.active { background: #edf3ff; border-color: #1f5eff; }
 .mode-title { display: block; font-size: 28rpx; color: #2b3f53; font-weight: 700; }
 .mode-desc { display: block; margin-top: 8rpx; font-size: 22rpx; color: #70859c; line-height: 1.45; }
 .field-row { margin-bottom: 16rpx; }
@@ -362,10 +362,10 @@ export default {
 .preview { width: 100%; height: 320rpx; background: #eef2f6; }
 .preview-loading { display: flex; align-items: center; justify-content: center; color: #7f98b3; font-size: 24rpx; }
 .image-actions { display: flex; gap: 12rpx; padding: 16rpx; }
-.image-btn { flex: 1; height: 68rpx; border-radius: 14rpx; background: #2d55c7; color: #ffffff; font-size: 24rpx; display: flex; align-items: center; justify-content: center; }
+.image-btn { flex: 1; height: 68rpx; border-radius: 14rpx; background: #1f5eff; color: #ffffff; font-size: 24rpx; display: flex; align-items: center; justify-content: center; }
 .image-btn.ghost { background: #eef3f8; color: #5f758a; }
 .placeholder-title, .tips-title { display: block; font-size: 28rpx; color: #2b3f53; font-weight: 700; }
 .placeholder-desc, .tips-text { display: block; margin-top: 10rpx; font-size: 22rpx; color: #73879b; line-height: 1.55; }
 .submit-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; background: rgba(255, 255, 255, 0.96); border-top: 1rpx solid #e7edf4; padding: 16rpx 20rpx calc(16rpx + env(safe-area-inset-bottom)); }
-.submit-btn { height: 84rpx; border-radius: 16rpx; background: #2f4f75; color: #ffffff; font-size: 30rpx; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.submit-btn { height: 84rpx; border-radius: 16rpx; background: #173b75; color: #ffffff; font-size: 30rpx; font-weight: 700; display: flex; align-items: center; justify-content: center; }
 </style>

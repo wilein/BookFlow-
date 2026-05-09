@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <view class="page">
     <view
       class="header"
@@ -160,7 +160,7 @@ export default {
 </script>
 
 <style scoped>
-.page { min-height: 100vh; background: #f3f5f8; }
+.page { min-height: 100vh; background: #eef3fb; }
 .header { position: fixed; left: 0; right: 0; top: 0; z-index: 30; box-sizing: border-box; padding-left: 20rpx; background: rgba(243, 245, 248, 0.96); }
 .header-inner { height: 100%; display: flex; align-items: center; gap: 14rpx; padding-bottom: 12rpx; box-sizing: border-box; }
 .back-btn, .header-placeholder { width: 72rpx; height: 72rpx; flex-shrink: 0; }
@@ -168,7 +168,7 @@ export default {
 .back-icon { width: 32rpx; height: 32rpx; }
 .header-title { flex: 1; text-align: center; font-size: 30rpx; color: #2d3d52; font-weight: 700; }
 .content { padding: 14rpx 20rpx 160rpx; }
-.hero-card { background: linear-gradient(135deg, #2d55c7 0%, #2349b7 100%); border-radius: 24rpx; padding: 24rpx; color: #ffffff; }
+.hero-card { background: linear-gradient(135deg, #1f5eff 0%, #143a7b 100%); border-radius: 24rpx; padding: 24rpx; color: #ffffff; }
 .book-title { display: block; font-size: 32rpx; font-weight: 700; }
 .book-sub { display: block; margin-top: 10rpx; font-size: 24rpx; opacity: 0.92; }
 .card { margin-top: 16rpx; background: #ffffff; border-radius: 22rpx; padding: 22rpx; }
@@ -176,7 +176,7 @@ export default {
 .label:first-child { margin-top: 0; }
 .type-row { display: flex; flex-wrap: wrap; gap: 12rpx; }
 .type-chip { padding: 12rpx 18rpx; border-radius: 999rpx; background: #edf2f8; font-size: 24rpx; color: #53677f; }
-.type-chip.active { background: #2f4f75; color: #ffffff; }
+.type-chip.active { background: #173b75; color: #ffffff; }
 .field {
   width: 100%;
   height: 84rpx;
@@ -205,5 +205,5 @@ export default {
 .upload-title { font-size: 28rpx; color: #42576d; font-weight: 700; }
 .upload-sub { margin-top: 10rpx; font-size: 22rpx; }
 .bottom-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; padding: 18rpx 20rpx calc(18rpx + env(safe-area-inset-bottom)); background: rgba(255,255,255,0.98); border-top: 1rpx solid #e8eef5; }
-.submit-btn { height: 84rpx; border-radius: 20rpx; background: #2f4f75; color: #ffffff; font-size: 28rpx; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.submit-btn { height: 84rpx; border-radius: 20rpx; background: #173b75; color: #ffffff; font-size: 28rpx; font-weight: 700; display: flex; align-items: center; justify-content: center; }
 </style>

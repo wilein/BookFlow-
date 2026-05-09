@@ -318,6 +318,7 @@ function isStudentCardProp(prop: string) {
   return prop === 'studentCardImageUrl';
 }
 
+
 function protectedStudentCardUrl(value: unknown) {
   const url = String(value || '').trim();
   if (!url) return '';

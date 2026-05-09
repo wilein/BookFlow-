@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <view class="page">
     <view class="header" :style="{ height: headerHeight + 'px', paddingTop: statusBarHeight + 'px', paddingRight: headerRightSafe + 'px' }">
       <view class="back-btn" @click="goBack">
@@ -160,15 +160,15 @@ export default {
 </script>
 
 <style scoped>
-.page { min-height: 100vh; background: #f3f5f8; }
-.header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #f3f5f8; display: flex; align-items: center; justify-content: space-between; }
+.page { min-height: 100vh; background: #eef3fb; }
+.header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #eef3fb; display: flex; align-items: center; justify-content: space-between; }
 .back-btn { width: 72rpx; height: 72rpx; flex-shrink: 0; }
 .back-btn { border-radius: 16rpx; background: #edf2f8; display: flex; align-items: center; justify-content: center; }
 .back-icon { width: 32rpx; height: 32rpx; }
 .header-title { flex: 1; min-width: 0; text-align: center; font-size: 30rpx; color: #2d3d52; font-weight: 700; }
-.create-btn { width: 88rpx; height: 64rpx; border-radius: 16rpx; background: #2f4f75; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 24rpx; font-weight: 700; flex-shrink: 0; }
+.create-btn { width: 88rpx; height: 64rpx; border-radius: 16rpx; background: #173b75; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 24rpx; font-weight: 700; flex-shrink: 0; }
 .content { padding: 16rpx 20rpx calc(32rpx + env(safe-area-inset-bottom)); }
-.current-card { border-radius: 22rpx; padding: 22rpx; background: #2f4f75; color: #ffffff; margin-bottom: 16rpx; }
+.current-card { border-radius: 22rpx; padding: 22rpx; background: #173b75; color: #ffffff; margin-bottom: 16rpx; }
 .current-top { display: flex; align-items: center; justify-content: space-between; gap: 12rpx; }
 .current-label { font-size: 24rpx; opacity: 0.86; }
 .current-percent { font-size: 30rpx; font-weight: 700; }
@@ -178,12 +178,12 @@ export default {
 .progress-fill { height: 100%; border-radius: 999rpx; background: #5ee09b; }
 .tabs { display: flex; gap: 12rpx; margin-bottom: 16rpx; }
 .tab { flex: 1; height: 72rpx; border-radius: 16rpx; background: #ffffff; color: #63758a; display: flex; align-items: center; justify-content: center; font-size: 26rpx; font-weight: 700; }
-.tab.active { background: #e8efff; color: #2d55c7; }
+.tab.active { background: #e8efff; color: #1f5eff; }
 .list { display: flex; flex-direction: column; gap: 16rpx; }
 .card { background: #ffffff; border-radius: 20rpx; padding: 20rpx; }
 .card-head, .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 14rpx; }
 .title { flex: 1; font-size: 30rpx; color: #243548; font-weight: 700; line-height: 1.4; }
-.status { font-size: 22rpx; color: #2d55c7; flex-shrink: 0; }
+.status { font-size: 22rpx; color: #1f5eff; flex-shrink: 0; }
 .desc { display: block; margin-top: 12rpx; font-size: 24rpx; color: #53677e; line-height: 1.7; }
 .progress-row { margin-top: 16rpx; display: flex; align-items: center; gap: 12rpx; }
 .mini-track { flex: 1; height: 12rpx; border-radius: 999rpx; background: #eef2f8; overflow: hidden; }
@@ -193,5 +193,5 @@ export default {
 .meta { font-size: 22rpx; color: #7b8ea1; }
 .empty { margin-top: 120rpx; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16rpx; }
 .empty-title { color: #7d8fa2; font-size: 28rpx; }
-.empty-link { padding: 14rpx 22rpx; border-radius: 999rpx; background: #e8efff; color: #2d55c7; font-size: 24rpx; font-weight: 700; }
+.empty-link { padding: 14rpx 22rpx; border-radius: 999rpx; background: #e8efff; color: #1f5eff; font-size: 24rpx; font-weight: 700; }
 </style>

@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <view class="page">
     <view class="header" :style="{ height: headerHeight + 'px', paddingTop: statusBarHeight + 'px' }">
       <view class="back-btn" @click="goBack">
@@ -171,8 +171,8 @@ export default {
 </script>
 
 <style scoped>
-.page { min-height: 100vh; background: #f3f5f8; }
-.header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #f3f5f8; display: flex; align-items: center; justify-content: space-between; }
+.page { min-height: 100vh; background: #eef3fb; }
+.header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #eef3fb; display: flex; align-items: center; justify-content: space-between; }
 .back-btn, .header-placeholder { width: 72rpx; height: 72rpx; flex-shrink: 0; }
 .back-btn { border-radius: 16rpx; background: #edf2f8; display: flex; align-items: center; justify-content: center; }
 .back-icon { width: 32rpx; height: 32rpx; }
@@ -187,8 +187,8 @@ export default {
 .textarea { min-height: 160rpx; padding: 20rpx; }
 .default-row { margin-top: 10rpx; display: flex; align-items: center; gap: 14rpx; }
 .checkbox { width: 34rpx; height: 34rpx; border-radius: 10rpx; background: #e7edf5; border: 2rpx solid #cbd7e4; }
-.checkbox.active { background: #2d55c7; border-color: #2d55c7; }
+.checkbox.active { background: #1f5eff; border-color: #1f5eff; }
 .default-text { font-size: 24rpx; color: #44596f; }
 .bottom-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; background: rgba(255, 255, 255, 0.96); border-top: 1rpx solid #e7edf4; padding: 16rpx 20rpx calc(16rpx + env(safe-area-inset-bottom)); }
-.save-btn { height: 84rpx; border-radius: 16rpx; background: #2f4f75; color: #ffffff; font-size: 30rpx; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.save-btn { height: 84rpx; border-radius: 16rpx; background: #173b75; color: #ffffff; font-size: 30rpx; font-weight: 700; display: flex; align-items: center; justify-content: center; }
 </style>

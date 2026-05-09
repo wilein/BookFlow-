@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <view class="page">
     <view
       class="header"
@@ -238,16 +238,16 @@ export default {
 </script>
 
 <style scoped>
-.page { min-height: 100vh; background: #f3f5f8; }
+.page { min-height: 100vh; background: #eef3fb; }
 .header { position: fixed; left: 0; right: 0; top: 0; z-index: 40; box-sizing: border-box; padding-left: 20rpx; background: rgba(243, 245, 248, 0.96); backdrop-filter: blur(10px); }
 .header-inner { height: 100%; display: flex; align-items: center; gap: 14rpx; padding-bottom: 12rpx; box-sizing: border-box; }
 .back-btn { width: 72rpx; height: 72rpx; border-radius: 16rpx; background: #edf2f8; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .back-icon { width: 32rpx; height: 32rpx; }
 .header-title { flex: 1; min-width: 0; text-align: center; font-size: 30rpx; color: #2d3d52; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .add-btn, .header-placeholder { width: 120rpx; height: 72rpx; flex-shrink: 0; }
-.add-btn { border-radius: 16rpx; background: #2f4f75; color: #ffffff; font-size: 24rpx; display: flex; align-items: center; justify-content: center; }
+.add-btn { border-radius: 16rpx; background: #173b75; color: #ffffff; font-size: 24rpx; display: flex; align-items: center; justify-content: center; }
 .content { padding: 12rpx 20rpx 0; }
-.hero-card { background: linear-gradient(135deg, #2d55c7 0%, #2349b7 100%); border-radius: 24rpx; padding: 24rpx; color: #ffffff; }
+.hero-card { background: linear-gradient(135deg, #1f5eff 0%, #143a7b 100%); border-radius: 24rpx; padding: 24rpx; color: #ffffff; }
 .hero-title { display: block; font-size: 34rpx; font-weight: 700; }
 .hero-sub { margin-top: 8rpx; display: block; font-size: 24rpx; opacity: 0.92; }
 .page-nav-card, .list-card { margin-top: 16rpx; background: #ffffff; border-radius: 20rpx; padding: 20rpx; }
@@ -255,7 +255,7 @@ export default {
 .page-nav-row { display: inline-flex; gap: 12rpx; }
 .page-chip { min-width: 148rpx; border-radius: 16rpx; background: #f3f7fb; padding: 14rpx 16rpx; }
 .page-chip.active { background: #e8efff; }
-.page-chip-title { display: block; font-size: 24rpx; color: #2f4f75; font-weight: 700; }
+.page-chip-title { display: block; font-size: 24rpx; color: #173b75; font-weight: 700; }
 .page-chip-count { display: block; margin-top: 6rpx; font-size: 22rpx; color: #7b8ea1; }
 .empty-block { padding: 48rpx 0; text-align: center; }
 .empty-text { color: #91a0b1; font-size: 24rpx; }
@@ -271,7 +271,7 @@ export default {
 .content-text { display: block; margin-top: 12rpx; font-size: 26rpx; color: #2b3f53; line-height: 1.7; }
 .annotation-image { width: 100%; height: 280rpx; margin-top: 12rpx; border-radius: 18rpx; background: #eef2f8; }
 .action-row { display: flex; align-items: center; gap: 18rpx; }
-.view-image-link { font-size: 22rpx; color: #2d55c7; }
+.view-image-link { font-size: 22rpx; color: #1f5eff; }
 .like-btn { display: inline-flex; align-items: center; gap: 6rpx; padding: 8rpx 14rpx; border-radius: 999rpx; background: #f4f7fb; color: #7b8ea1; }
 .like-btn.liked { background: #ffecef; color: #da4a67; }
 .like-icon { font-size: 24rpx; }

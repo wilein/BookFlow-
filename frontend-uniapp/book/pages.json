@@ -220,14 +220,14 @@
   "globalStyle": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "\u85aa\u4f20",
-    "navigationBarBackgroundColor": "#F8F8F8",
-    "backgroundColor": "#F8F8F8"
+    "navigationBarBackgroundColor": "#EEF3FB",
+    "backgroundColor": "#EEF3FB"
   },
   "tabBar": {
-    "color": "#7A7E83",
-    "selectedColor": "#2D55C7",
-    "borderStyle": "black",
-    "backgroundColor": "#ffffff",
+    "color": "#7A8798",
+    "selectedColor": "#1F5EFF",
+    "borderStyle": "white",
+    "backgroundColor": "#FBFCFF",
     "list": [
       {
         "pagePath": "pages/index/index",

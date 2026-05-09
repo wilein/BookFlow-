@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <view class="page">
     <view class="header" :style="{ height: headerHeight + 'px', paddingTop: statusBarHeight + 'px' }">
       <view class="back-btn" @click="goBack">
@@ -482,14 +482,14 @@ export default {
   padding: 6rpx 14rpx;
   border-radius: 999rpx;
   background: #edf3ff;
-  color: #2d55c7;
+  color: #1f5eff;
   font-size: 20rpx;
   font-weight: 700;
 }
 
 .trade-status {
   font-size: 22rpx;
-  color: #d05a25;
+  color: #f59e0b;
   font-weight: 700;
 }
 
@@ -511,7 +511,7 @@ export default {
 .trade-price {
   margin-top: 12rpx;
   font-size: 34rpx;
-  color: #d05a25;
+  color: #f59e0b;
   font-weight: 700;
 }
 
@@ -536,7 +536,7 @@ export default {
 }
 
 .action-btn.primary {
-  background: #2d55c7;
+  background: #1f5eff;
   color: #ffffff;
 }
 
@@ -546,7 +546,7 @@ export default {
 }
 
 .status-card {
-  background: linear-gradient(135deg, #2d55c7 0%, #2349b7 100%);
+  background: linear-gradient(135deg, #1f5eff 0%, #143a7b 100%);
   color: #ffffff;
   border-radius: 20rpx;
   padding: 20rpx;
@@ -654,7 +654,7 @@ export default {
   height: 62rpx;
   padding: 0 24rpx;
   border-radius: 16rpx;
-  background: #2d55c7;
+  background: #1f5eff;
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -689,7 +689,7 @@ export default {
   width: 128rpx;
   height: 72rpx;
   border-radius: 36rpx;
-  background: #2f4f75;
+  background: #173b75;
   color: #ffffff;
   display: flex;
   align-items: center;

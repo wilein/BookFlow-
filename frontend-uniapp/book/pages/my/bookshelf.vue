@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <view class="page">
     <view class="header" :style="{ height: headerHeight + 'px', paddingTop: statusBarHeight + 'px' }">
       <view class="back-btn" @click="goBack">
@@ -109,15 +109,15 @@ export default {
 </script>
 
 <style scoped>
-.page { min-height: 100vh; background: #f3f5f8; }
-.header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #f3f5f8; display: flex; align-items: center; justify-content: space-between; }
+.page { min-height: 100vh; background: #eef3fb; }
+.header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #eef3fb; display: flex; align-items: center; justify-content: space-between; }
 .back-btn, .header-placeholder { width: 72rpx; height: 72rpx; flex-shrink: 0; }
 .back-btn { border-radius: 16rpx; background: #edf2f8; display: flex; align-items: center; justify-content: center; }
 .back-icon { width: 32rpx; height: 32rpx; }
 .header-title { font-size: 30rpx; color: #2d3d52; font-weight: 700; }
 .tab-bar { display: flex; gap: 12rpx; padding: 16rpx 20rpx 0; }
 .tab-item { flex: 1; height: 72rpx; border-radius: 18rpx; background: #ffffff; color: #61758b; display: flex; align-items: center; justify-content: center; font-size: 26rpx; }
-.tab-item.active { background: #2d55c7; color: #ffffff; font-weight: 700; }
+.tab-item.active { background: #1f5eff; color: #ffffff; font-weight: 700; }
 .content { padding: 16rpx 20rpx calc(32rpx + env(safe-area-inset-bottom)); }
 .list { display: flex; flex-direction: column; gap: 16rpx; }
 .card { display: flex; gap: 18rpx; padding: 18rpx; background: #ffffff; border-radius: 20rpx; }
@@ -128,7 +128,7 @@ export default {
 .tag-row { margin-top: 14rpx; display: flex; flex-wrap: wrap; gap: 10rpx; }
 .tag { padding: 6rpx 14rpx; border-radius: 999rpx; background: #eef3fb; color: #4d6583; font-size: 22rpx; }
 .bottom-row { margin-top: auto; display: flex; align-items: center; justify-content: space-between; }
-.price { color: #d05a25; font-size: 34rpx; font-weight: 700; }
+.price { color: #f59e0b; font-size: 34rpx; font-weight: 700; }
 .count { color: #7d8fa2; font-size: 22rpx; }
 .empty { margin-top: 120rpx; text-align: center; color: #7d8fa2; font-size: 28rpx; }
 </style>

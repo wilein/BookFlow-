@@ -495,7 +495,7 @@ export default {
 <style scoped>
 .page {
   min-height: 100vh;
-  background: #f3f5f8;
+  background: #eef3fb;
 }
 
 .header {
@@ -507,7 +507,7 @@ export default {
   box-sizing: border-box;
   padding-left: 20rpx;
   padding-right: 20rpx;
-  background: #f3f5f8;
+  background: #eef3fb;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -550,7 +550,7 @@ export default {
   line-height: 62rpx;
   text-align: center;
   border-radius: 14rpx;
-  background: #2d55c7;
+  background: #1f5eff;
   color: #ffffff;
   font-size: 24rpx;
   flex-shrink: 0;
@@ -563,7 +563,7 @@ export default {
 }
 
 .hero-card {
-  background: linear-gradient(135deg, #2d55c7 0%, #2349b7 100%);
+  background: linear-gradient(135deg, #1f5eff 0%, #143a7b 100%);
   border-radius: 24rpx;
   padding: 24rpx;
   color: #ffffff;
@@ -587,7 +587,7 @@ export default {
   background: #ffffff;
   border-radius: 20rpx;
   padding: 20rpx;
-  border-left: 8rpx solid #2d55c7;
+  border-left: 8rpx solid #1f5eff;
 }
 
 .audit-title {
@@ -635,7 +635,7 @@ export default {
   padding: 0 16rpx;
   border-radius: 999rpx;
   background: #e8efff;
-  color: #2d55c7;
+  color: #1f5eff;
   font-size: 22rpx;
 }
 
@@ -716,7 +716,7 @@ export default {
 }
 
 .chip.active {
-  background: #2d55c7;
+  background: #1f5eff;
   color: #ffffff;
 }
 
@@ -765,7 +765,7 @@ export default {
   display: block;
   margin-top: 10rpx;
   font-size: 22rpx;
-  color: #2d55c7;
+  color: #1f5eff;
 }
 
 .mini-btn {
@@ -776,7 +776,7 @@ export default {
   border-radius: 999rpx;
   padding: 0 16rpx;
   background: #e8efff;
-  color: #2d55c7;
+  color: #1f5eff;
   font-size: 22rpx;
 }
 
@@ -873,7 +873,7 @@ export default {
   padding: 0 16rpx;
   border-radius: 999rpx;
   background: #e8efff;
-  color: #2d55c7;
+  color: #1f5eff;
   font-size: 22rpx;
   font-weight: 700;
 }
@@ -944,7 +944,7 @@ export default {
 }
 
 .publish-btn {
-  background: #2f4f75;
+  background: #173b75;
   color: #ffffff;
 }
 </style>

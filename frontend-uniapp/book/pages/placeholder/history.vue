@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <view class="page">
     <view
       class="header"
@@ -186,7 +186,7 @@ export default {
   height: 64rpx;
   padding: 0 18rpx;
   border-radius: 999rpx;
-  background: #2f4f75;
+  background: #173b75;
   color: #ffffff;
   font-size: 24rpx;
   display: flex;
@@ -262,7 +262,7 @@ export default {
 
 .type-tag.book {
   background: #eef3ff;
-  color: #2d55c7;
+  color: #1f5eff;
 }
 
 .type-tag.path {

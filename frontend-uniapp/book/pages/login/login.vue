@@ -109,16 +109,16 @@ export default {
 </script>
 
 <style scoped>
-.page { min-height: 100vh; padding: 120rpx 40rpx 80rpx; box-sizing: border-box; background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 34%), linear-gradient(160deg, #2148b7 0%, #2d55c7 55%, #6e9bff 100%); display: flex; flex-direction: column; justify-content: space-between; }
+.page { min-height: 100vh; padding: 120rpx 40rpx 80rpx; box-sizing: border-box; background: radial-gradient(circle at 18% 14%, rgba(20, 184, 166, 0.5), transparent 30%), radial-gradient(circle at 90% 8%, rgba(245, 158, 11, 0.34), transparent 26%), linear-gradient(160deg, #0f2557 0%, #143a7b 44%, #1f5eff 100%); display: flex; flex-direction: column; justify-content: space-between; }
 .hero { padding-top: 80rpx; color: #ffffff; }
-.logo { width: 112rpx; height: 112rpx; border-radius: 28rpx; background: rgba(255, 255, 255, 0.16); padding: 18rpx; box-sizing: border-box; }
-.title { display: block; margin-top: 26rpx; font-size: 64rpx; font-weight: 700; letter-spacing: 6rpx; }
-.subtitle { display: block; margin-top: 18rpx; font-size: 28rpx; line-height: 1.6; opacity: 0.92; }
-.card { padding: 36rpx 30rpx 30rpx; border-radius: 28rpx; background: rgba(255, 255, 255, 0.95); box-shadow: 0 18rpx 48rpx rgba(8, 35, 99, 0.2); }
+.logo { width: 116rpx; height: 116rpx; border-radius: 32rpx; background: rgba(255, 255, 255, 0.16); padding: 18rpx; box-sizing: border-box; border: 1rpx solid rgba(255, 255, 255, 0.28); box-shadow: 0 18rpx 42rpx rgba(15, 32, 68, 0.26); }
+.title { display: block; margin-top: 30rpx; font-size: 66rpx; font-weight: 800; letter-spacing: 0; }
+.subtitle { display: block; margin-top: 18rpx; font-size: 28rpx; line-height: 1.7; opacity: 0.9; max-width: 620rpx; }
+.card { padding: 38rpx 32rpx 32rpx; border-radius: 32rpx; background: rgba(255, 255, 255, 0.96); box-shadow: 0 24rpx 64rpx rgba(8, 25, 61, 0.28); border: 1rpx solid rgba(255, 255, 255, 0.64); }
 .card-title { display: block; font-size: 36rpx; color: #22344a; font-weight: 700; }
 .card-desc { display: block; margin-top: 12rpx; font-size: 24rpx; line-height: 1.7; color: #66798f; }
 .login-btn { height: 88rpx; border-radius: 20rpx; margin-top: 24rpx; display: flex; align-items: center; justify-content: center; font-size: 30rpx; font-weight: 700; }
-.login-btn.primary { background: #2d55c7; color: #ffffff; }
+.login-btn.primary { background: linear-gradient(135deg, #1f5eff 0%, #0f766e 100%); color: #ffffff; box-shadow: 0 14rpx 28rpx rgba(31, 94, 255, 0.24); }
 .login-btn.disabled { opacity: 0.7; }
 .tip-text { display: block; margin-top: 20rpx; text-align: center; font-size: 22rpx; color: #7a8da2; }
 </style>

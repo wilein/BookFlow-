@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <view class="page">
     <view
       class="header"
@@ -402,7 +402,7 @@ export default {
 </script>
 
 <style scoped>
-.page { min-height: 100vh; background: #f3f5f8; }
+.page { min-height: 100vh; background: #eef3fb; }
 .header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding-left: 20rpx; background: rgba(243, 245, 248, 0.96); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: space-between; }
 .back-btn, .header-placeholder { width: 72rpx; height: 72rpx; flex-shrink: 0; }
 .back-btn { border-radius: 16rpx; background: #edf2f8; display: flex; align-items: center; justify-content: center; }
@@ -417,10 +417,10 @@ export default {
 .picker-value.placeholder { color: #8a9aae; }
 .textarea { width: 100%; min-height: 150rpx; border-radius: 16rpx; background: #f5f8fb; padding: 18rpx; box-sizing: border-box; font-size: 25rpx; color: #27394d; line-height: 1.6; }
 .file-box { margin-top: 18rpx; min-height: 150rpx; border-radius: 18rpx; background: #eef4fb; padding: 22rpx; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; }
-.file-title { font-size: 28rpx; color: #2f5f8f; font-weight: 900; }
+.file-title { font-size: 28rpx; color: #0f766e; font-weight: 900; }
 .file-sub { margin-top: 10rpx; font-size: 23rpx; color: #6b7f94; line-height: 1.6; word-break: break-all; }
 .field-tip { display: block; margin-top: 8rpx; color: #bf6a27; font-size: 22rpx; line-height: 1.5; }
-.submit-btn { height: 84rpx; border-radius: 18rpx; background: #2f5f8f; color: #ffffff; font-size: 30rpx; font-weight: 900; display: flex; align-items: center; justify-content: center; }
+.submit-btn { height: 84rpx; border-radius: 18rpx; background: #0f766e; color: #ffffff; font-size: 30rpx; font-weight: 900; display: flex; align-items: center; justify-content: center; }
 .submit-btn.disabled { background: #b7c4d4; }
 .bottom-space { height: 20rpx; }
 </style>

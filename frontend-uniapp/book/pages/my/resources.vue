@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <view class="page">
     <view
       class="header"
@@ -230,15 +230,15 @@ export default {
 </script>
 
 <style scoped>
-.page { min-height: 100vh; background: #f3f5f8; }
+.page { min-height: 100vh; background: #eef3fb; }
 .header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding-left: 20rpx; background: rgba(243, 245, 248, 0.96); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: space-between; }
 .back-btn, .add-btn { width: 72rpx; height: 72rpx; flex-shrink: 0; }
 .back-btn { border-radius: 16rpx; background: #edf2f8; display: flex; align-items: center; justify-content: center; }
 .back-icon { width: 32rpx; height: 32rpx; }
 .header-title { flex: 1; text-align: center; font-size: 30rpx; color: #2d3d52; font-weight: 700; }
-.add-btn { border-radius: 16rpx; background: #2f5f8f; color: #ffffff; font-size: 24rpx; display: flex; align-items: center; justify-content: center; }
+.add-btn { border-radius: 16rpx; background: #0f766e; color: #ffffff; font-size: 24rpx; display: flex; align-items: center; justify-content: center; }
 .content { padding: 16rpx 20rpx calc(36rpx + env(safe-area-inset-bottom)); }
-.summary-card { min-height: 138rpx; box-sizing: border-box; border-radius: 24rpx; padding: 24rpx; background: #2f5f8f; color: #ffffff; display: flex; align-items: center; justify-content: space-between; gap: 18rpx; }
+.summary-card { min-height: 138rpx; box-sizing: border-box; border-radius: 24rpx; padding: 24rpx; background: #0f766e; color: #ffffff; display: flex; align-items: center; justify-content: space-between; gap: 18rpx; }
 .summary-title { display: block; font-size: 34rpx; font-weight: 800; line-height: 1.35; }
 .summary-sub { display: block; margin-top: 8rpx; font-size: 24rpx; opacity: 0.9; }
 .summary-badge { flex-shrink: 0; padding: 10rpx 16rpx; border-radius: 999rpx; background: rgba(255, 255, 255, 0.16); font-size: 22rpx; }
@@ -249,18 +249,18 @@ export default {
 .tabs-scroll { margin-top: 16rpx; white-space: nowrap; }
 .tabs-row { display: inline-flex; gap: 12rpx; padding-bottom: 2rpx; }
 .tab-chip { min-width: 134rpx; height: 64rpx; border-radius: 999rpx; background: #ffffff; color: #63758a; font-size: 24rpx; display: inline-flex; align-items: center; justify-content: center; gap: 8rpx; padding: 0 18rpx; box-sizing: border-box; }
-.tab-chip.active { background: #e8efff; color: #2d55c7; font-weight: 800; }
+.tab-chip.active { background: #e8efff; color: #1f5eff; font-weight: 800; }
 .tab-count { font-size: 21rpx; color: inherit; opacity: 0.78; }
 .list { margin-top: 16rpx; display: flex; flex-direction: column; gap: 16rpx; }
 .card { display: flex; gap: 16rpx; background: #ffffff; border-radius: 22rpx; padding: 18rpx; box-shadow: 0 10rpx 24rpx rgba(20, 38, 58, 0.05); }
 .icon { width: 88rpx; height: 88rpx; border-radius: 20rpx; background: #e8f6ef; color: #239263; font-size: 30rpx; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.icon.book { background: #e7efff; color: #2d55c7; }
+.icon.book { background: #e7efff; color: #1f5eff; }
 .icon.pathNode { background: #fff2df; color: #b87910; }
 .card-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 8rpx; }
 .card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12rpx; }
 .title { flex: 1; min-width: 0; font-size: 30rpx; color: #243548; font-weight: 800; line-height: 1.35; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .type-pill { flex-shrink: 0; max-width: 130rpx; padding: 6rpx 12rpx; border-radius: 999rpx; background: #f2f6fa; color: #607389; font-size: 21rpx; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.binding { font-size: 23rpx; color: #2f5f8f; line-height: 1.5; }
+.binding { font-size: 23rpx; color: #0f766e; line-height: 1.5; }
 .desc { font-size: 23rpx; color: #708399; line-height: 1.6; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 .meta-row { display: flex; flex-wrap: wrap; gap: 8rpx; margin-top: 4rpx; }
 .meta-row text { padding: 6rpx 10rpx; border-radius: 999rpx; background: #f4f7fb; color: #7d8fa2; font-size: 21rpx; }

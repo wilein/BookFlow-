@@ -437,7 +437,7 @@ export default {
 <style scoped>
 .page {
   min-height: 100vh;
-  background: #f8f9fc;
+  background: linear-gradient(180deg, #dbeafe 0%, #eef3fb 260rpx, #eef3fb 100%);
 }
 
 .header {
@@ -447,10 +447,11 @@ export default {
   right: 0;
   z-index: 40;
   box-sizing: border-box;
-  background: rgba(255, 255, 255, 0.97);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(12px);
-  border-bottom: 1rpx solid #ecf0f3;
+  border-bottom: 1rpx solid #dfe8f4;
   padding-left: 20rpx;
+  box-shadow: 0 10rpx 28rpx rgba(23, 32, 51, 0.06);
 }
 
 .header-inner {
@@ -466,7 +467,7 @@ export default {
   width: 72rpx;
   height: 72rpx;
   border-radius: 16rpx;
-  background: #f1f5f9;
+  background: #e8efff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -482,7 +483,8 @@ export default {
   flex: 1;
   height: 72rpx;
   border-radius: 40rpx;
-  background: #f1f5f9;
+  background: #f7faff;
+  border: 1rpx solid #d9e4f2;
   display: flex;
   align-items: center;
   padding-left: 20rpx;
@@ -509,7 +511,7 @@ export default {
   width: 56rpx;
   height: 56rpx;
   border-radius: 28rpx;
-  background: #2f4f75;
+  background: linear-gradient(135deg, #1f5eff 0%, #0f766e 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -525,7 +527,7 @@ export default {
   height: 60rpx;
   border-radius: 30rpx;
   background: #eef3f8;
-  color: #2f4f75;
+  color: #1f5eff;
   font-size: 24rpx;
   font-weight: 700;
   display: flex;
@@ -541,9 +543,10 @@ export default {
 
 .filter-card {
   background: #ffffff;
-  border-radius: 20rpx;
-  padding: 20rpx 16rpx 8rpx;
-  box-shadow: 0 6rpx 18rpx rgba(0, 0, 0, 0.02);
+  border-radius: 28rpx;
+  padding: 22rpx 18rpx 10rpx;
+  border: 1rpx solid #e2eaf5;
+  box-shadow: 0 16rpx 36rpx rgba(23, 32, 51, 0.07);
 }
 
 .filter-row {
@@ -575,25 +578,25 @@ export default {
 .chip {
   padding: 10rpx 20rpx;
   border-radius: 999rpx;
-  background: #f3f7fb;
+  background: #f4f7fb;
   color: #5d7288;
   font-size: 24rpx;
 }
 
 .chip.active {
-  background: #2f4f75;
+  background: linear-gradient(135deg, #1f5eff 0%, #0f766e 100%);
   color: #ffffff;
 }
 
 .sort-bar {
   margin-top: 16rpx;
   background: #ffffff;
-  border-radius: 20rpx;
+  border-radius: 24rpx;
   padding: 12rpx;
   display: flex;
   flex-wrap: wrap;
   gap: 12rpx;
-  box-shadow: 0 6rpx 18rpx rgba(0, 0, 0, 0.02);
+  box-shadow: 0 12rpx 28rpx rgba(23, 32, 51, 0.06);
 }
 
 .sort-item {
@@ -606,7 +609,7 @@ export default {
 
 .sort-item.active {
   background: #e8efff;
-  color: #2d55c7;
+  color: #1f5eff;
   font-weight: 700;
 }
 
@@ -619,9 +622,10 @@ export default {
   gap: 18rpx;
   padding: 18rpx;
   margin-bottom: 16rpx;
-  border-radius: 22rpx;
+  border-radius: 28rpx;
   background: #ffffff;
-  box-shadow: 0 6rpx 18rpx rgba(0, 0, 0, 0.02);
+  border: 1rpx solid #e2eaf5;
+  box-shadow: 0 16rpx 36rpx rgba(23, 32, 51, 0.07);
 }
 
 .cover {
@@ -663,7 +667,7 @@ export default {
 .price {
   font-size: 32rpx;
   font-weight: 700;
-  color: #e67e22;
+  color: #f59e0b;
 }
 
 .annotation,
@@ -673,7 +677,7 @@ export default {
 }
 
 .annotation {
-  color: #4a78b4;
+  color: #0f766e;
 }
 
 .category {
@@ -684,7 +688,7 @@ export default {
   padding: 6rpx 12rpx;
   border-radius: 999rpx;
   background: #eff4ff;
-  color: #2d55c7;
+  color: #1f5eff;
 }
 
 .status-block,

@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <view class="page">
     <view class="header" :style="{ height: headerHeight + 'px', paddingTop: statusBarHeight + 'px' }">
       <view class="back-btn" @click="goBack">
@@ -211,8 +211,8 @@ export default {
 </script>
 
 <style scoped>
-.page { min-height: 100vh; background: #f5f7fb; padding-bottom: calc(120rpx + env(safe-area-inset-bottom)); }
-.header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #f5f7fb; display: flex; align-items: center; justify-content: space-between; }
+.page { min-height: 100vh; background: #eef3fb; padding-bottom: calc(120rpx + env(safe-area-inset-bottom)); }
+.header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #eef3fb; display: flex; align-items: center; justify-content: space-between; }
 .back-btn, .header-placeholder { width: 72rpx; height: 72rpx; flex-shrink: 0; }
 .back-btn { border-radius: 16rpx; background: #edf2f8; display: flex; align-items: center; justify-content: center; }
 .back-icon { width: 32rpx; height: 32rpx; }
@@ -223,20 +223,20 @@ export default {
 .post-user { flex: 1; min-width: 0; }
 .post-author { display: block; font-size: 27rpx; color: #243548; font-weight: 700; }
 .post-meta { display: block; margin-top: 6rpx; font-size: 22rpx; color: #7d8fa2; }
-.post-type { flex-shrink: 0; padding: 8rpx 14rpx; border-radius: 999rpx; background: #edf3ff; color: #2d55c7; font-size: 21rpx; }
+.post-type { flex-shrink: 0; padding: 8rpx 14rpx; border-radius: 999rpx; background: #edf3ff; color: #1f5eff; font-size: 21rpx; }
 .post-title { display: block; margin-top: 18rpx; font-size: 34rpx; line-height: 1.5; color: #243548; font-weight: 700; }
 .post-content { display: block; margin-top: 14rpx; font-size: 26rpx; line-height: 1.8; color: #51667d; }
 .shared-path { margin-top: 16rpx; border-radius: 18rpx; background: #f4f7fb; padding: 18rpx; border: 1rpx solid #e6edf5; }
-.shared-label { display: block; font-size: 22rpx; color: #2d55c7; font-weight: 700; }
+.shared-label { display: block; font-size: 22rpx; color: #1f5eff; font-weight: 700; }
 .shared-title { display: block; margin-top: 8rpx; font-size: 27rpx; color: #26384d; font-weight: 700; line-height: 1.4; }
 .shared-meta { display: block; margin-top: 8rpx; font-size: 22rpx; color: #76899e; }
 .post-actions { display: flex; gap: 26rpx; margin-top: 20rpx; }
 .action-text { font-size: 24rpx; color: #6d8095; }
-.action-text.active { color: #2d55c7; font-weight: 700; }
+.action-text.active { color: #1f5eff; font-weight: 700; }
 .content { padding: 16rpx 20rpx 0; }
 .reply-head { margin-bottom: 14rpx; display: flex; align-items: center; justify-content: space-between; }
 .reply-title { font-size: 30rpx; color: #243548; font-weight: 700; }
-.reply-count { min-width: 44rpx; height: 44rpx; border-radius: 22rpx; background: #e8efff; color: #2d55c7; display: flex; align-items: center; justify-content: center; font-size: 22rpx; font-weight: 700; }
+.reply-count { min-width: 44rpx; height: 44rpx; border-radius: 22rpx; background: #e8efff; color: #1f5eff; display: flex; align-items: center; justify-content: center; font-size: 22rpx; font-weight: 700; }
 .list { display: flex; flex-direction: column; gap: 16rpx; }
 .comment-card { display: flex; gap: 14rpx; background: #fff; border-radius: 20rpx; padding: 18rpx; }
 .avatar { width: 72rpx; height: 72rpx; border-radius: 50%; background: #e8edf3; flex-shrink: 0; }
@@ -248,5 +248,5 @@ export default {
 .empty { margin-top: 120rpx; text-align: center; color: #7d8fa2; font-size: 28rpx; }
 .bottom-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: flex; align-items: center; gap: 14rpx; background: rgba(255,255,255,0.96); border-top: 1rpx solid #e7edf4; padding: 16rpx 20rpx calc(16rpx + env(safe-area-inset-bottom)); }
 .input { flex: 1; height: 80rpx; line-height: 80rpx; border-radius: 18rpx; background: #f1f5fa; padding: 0 20rpx; font-size: 26rpx; color: #2d3d52; }
-.submit-btn { width: 132rpx; height: 80rpx; border-radius: 18rpx; background: #2d55c7; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 28rpx; font-weight: 700; }
+.submit-btn { width: 132rpx; height: 80rpx; border-radius: 18rpx; background: #1f5eff; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 28rpx; font-weight: 700; }
 </style>

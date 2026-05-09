@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <view class="page">
     <view class="header" :style="{ height: headerHeight + 'px', paddingTop: statusBarHeight + 'px' }">
       <view class="back-btn" @click="goBack">
@@ -210,14 +210,14 @@ export default {
 </script>
 
 <style scoped>
-.page { min-height: 100vh; background: #f3f5f8; }
+.page { min-height: 100vh; background: #eef3fb; }
 .header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: rgba(243, 245, 248, 0.96); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: space-between; }
 .back-btn, .header-placeholder { width: 72rpx; height: 72rpx; flex-shrink: 0; }
 .back-btn { border-radius: 16rpx; background: #edf2f8; display: flex; align-items: center; justify-content: center; }
 .back-icon { width: 32rpx; height: 32rpx; }
 .header-title { flex: 1; text-align: center; font-size: 30rpx; color: #2d3d52; font-weight: 700; }
 .content { padding: 18rpx 20rpx 0; }
-.hero-card { background: linear-gradient(135deg, #2f4f75 0%, #376b74 100%); border-radius: 24rpx; padding: 28rpx; box-shadow: 0 12rpx 28rpx rgba(47, 79, 117, 0.16); }
+.hero-card { background: linear-gradient(135deg, #173b75 0%, #376b74 100%); border-radius: 24rpx; padding: 28rpx; box-shadow: 0 12rpx 28rpx rgba(47, 79, 117, 0.16); }
 .hero-card.completed { background: linear-gradient(135deg, #65717d 0%, #7b858e 100%); }
 .hero-meta { display: flex; align-items: center; gap: 12rpx; margin-bottom: 18rpx; }
 .status-pill, .duration-pill { height: 48rpx; padding: 0 18rpx; border-radius: 999rpx; background: rgba(255, 255, 255, 0.16); color: #ffffff; font-size: 22rpx; display: flex; align-items: center; }
@@ -227,14 +227,14 @@ export default {
 .brief-row { display: flex; flex-direction: column; gap: 18rpx; }
 .brief-item { padding-bottom: 18rpx; border-bottom: 1rpx solid #edf1f6; }
 .brief-item:last-child { padding-bottom: 0; border-bottom: 0; }
-.brief-label { display: block; margin-bottom: 8rpx; font-size: 24rpx; color: #2d55c7; font-weight: 700; }
+.brief-label { display: block; margin-bottom: 8rpx; font-size: 24rpx; color: #1f5eff; font-weight: 700; }
 .brief-text { display: block; font-size: 25rpx; color: #35485b; line-height: 1.7; }
 .section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16rpx; margin-bottom: 18rpx; }
 .section-title { font-size: 30rpx; color: #263442; font-weight: 800; }
 .section-sub { font-size: 22rpx; color: #7d8fa2; }
 .step-list { display: flex; flex-direction: column; gap: 18rpx; }
 .step-row { display: flex; gap: 16rpx; }
-.step-index { width: 46rpx; height: 46rpx; border-radius: 50%; background: #e7efff; color: #2d55c7; font-size: 24rpx; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.step-index { width: 46rpx; height: 46rpx; border-radius: 50%; background: #e7efff; color: #1f5eff; font-size: 24rpx; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .step-main { flex: 1; min-width: 0; padding-bottom: 18rpx; border-bottom: 1rpx solid #edf1f6; }
 .step-row:last-child .step-main { padding-bottom: 0; border-bottom: 0; }
 .step-title { display: block; font-size: 27rpx; color: #25384d; font-weight: 800; }
@@ -247,7 +247,7 @@ export default {
 .resource-title { font-size: 27rpx; color: #25384d; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .resource-desc { font-size: 23rpx; color: #6f8194; line-height: 1.5; }
 .resource-meta { display: flex; gap: 14rpx; color: #8a99a8; font-size: 21rpx; }
-.open-text { color: #2d55c7; font-size: 24rpx; font-weight: 800; flex-shrink: 0; }
+.open-text { color: #1f5eff; font-size: 24rpx; font-weight: 800; flex-shrink: 0; }
 .empty-resource { padding: 36rpx 0; text-align: center; color: #8292a4; font-size: 25rpx; }
 .bottom-space { height: 46rpx; }
 </style>

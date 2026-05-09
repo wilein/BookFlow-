@@ -1,7 +1,7 @@
 
-.page.data-v-ea533e64 { min-height: 100vh; background: #f3f5f8;
+.page.data-v-ea533e64 { min-height: 100vh; background: #eef3fb;
 }
-.header.data-v-ea533e64 { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #f3f5f8; display: flex; align-items: center; justify-content: space-between;
+.header.data-v-ea533e64 { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #eef3fb; display: flex; align-items: center; justify-content: space-between;
 }
 .back-btn.data-v-ea533e64, .header-placeholder.data-v-ea533e64 { width: 72rpx; height: 72rpx; flex-shrink: 0;
 }
@@ -17,7 +17,7 @@
 }
 .card.data-v-ea533e64 { background: #ffffff; border-radius: 20rpx; padding: 20rpx;
 }
-.card.selected.data-v-ea533e64 { box-shadow: 0 0 0 3rpx #2d55c7 inset;
+.card.selected.data-v-ea533e64 { box-shadow: 0 0 0 3rpx #1f5eff inset;
 }
 .card-head.data-v-ea533e64 { display: flex; align-items: center; justify-content: space-between; gap: 16rpx;
 }
@@ -35,7 +35,7 @@
 }
 .action-btn.data-v-ea533e64 { flex: 1; height: 70rpx; border-radius: 16rpx; background: #eef3f9; color: #5a7088; font-size: 24rpx; display: flex; align-items: center; justify-content: center;
 }
-.action-btn.primary.data-v-ea533e64 { background: #edf3ff; color: #2d55c7;
+.action-btn.primary.data-v-ea533e64 { background: #edf3ff; color: #1f5eff;
 }
 .action-btn.danger.data-v-ea533e64 { background: #fff1ee; color: #c85a3b;
 }
@@ -43,5 +43,5 @@
 }
 .bottom-bar.data-v-ea533e64 { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; background: rgba(255, 255, 255, 0.96); border-top: 1rpx solid #e7edf4; padding: 16rpx 20rpx calc(16rpx + env(safe-area-inset-bottom));
 }
-.add-btn.data-v-ea533e64 { height: 84rpx; border-radius: 16rpx; background: #2f4f75; color: #ffffff; font-size: 30rpx; font-weight: 700; display: flex; align-items: center; justify-content: center;
+.add-btn.data-v-ea533e64 { height: 84rpx; border-radius: 16rpx; background: #173b75; color: #ffffff; font-size: 30rpx; font-weight: 700; display: flex; align-items: center; justify-content: center;
 }

@@ -47,7 +47,7 @@
   height: 64rpx;
   padding: 0 18rpx;
   border-radius: 999rpx;
-  background: #2f4f75;
+  background: #173b75;
   color: #ffffff;
   font-size: 24rpx;
   display: flex;
@@ -112,7 +112,7 @@
 }
 .type-tag.book.data-v-de590ec9 {
   background: #eef3ff;
-  color: #2d55c7;
+  color: #1f5eff;
 }
 .type-tag.path.data-v-de590ec9 {
   background: #eaf8ef;

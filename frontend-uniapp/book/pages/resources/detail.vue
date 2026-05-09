@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <view class="page">
     <view
       class="header"
@@ -617,15 +617,15 @@ export default {
 </script>
 
 <style scoped>
-.page { min-height: 100vh; background: #f3f5f8; }
+.page { min-height: 100vh; background: #eef3fb; }
 .header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding-left: 20rpx; background: rgba(243, 245, 248, 0.96); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: space-between; }
 .back-btn, .header-placeholder, .edit-toggle { width: 88rpx; height: 72rpx; flex-shrink: 0; }
 .back-btn { width: 72rpx; border-radius: 16rpx; background: #edf2f8; display: flex; align-items: center; justify-content: center; }
 .back-icon { width: 32rpx; height: 32rpx; }
 .header-title { flex: 1; min-width: 0; text-align: center; font-size: 30rpx; color: #2d3d52; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.edit-toggle { border-radius: 16rpx; background: #2f5f8f; color: #ffffff; font-size: 24rpx; display: flex; align-items: center; justify-content: center; }
+.edit-toggle { border-radius: 16rpx; background: #0f766e; color: #ffffff; font-size: 24rpx; display: flex; align-items: center; justify-content: center; }
 .content { padding: 18rpx 20rpx calc(42rpx + env(safe-area-inset-bottom)); }
-.hero-card { border-radius: 26rpx; padding: 26rpx; background: #2f5f8f; color: #ffffff; box-shadow: 0 12rpx 28rpx rgba(47, 95, 143, 0.16); }
+.hero-card { border-radius: 26rpx; padding: 26rpx; background: #0f766e; color: #ffffff; box-shadow: 0 12rpx 28rpx rgba(47, 95, 143, 0.16); }
 .hero-top { display: flex; align-items: center; gap: 18rpx; }
 .resource-icon { width: 92rpx; height: 92rpx; border-radius: 22rpx; background: rgba(255, 255, 255, 0.16); color: #ffffff; font-size: 34rpx; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .hero-main { flex: 1; min-width: 0; }
@@ -639,12 +639,12 @@ export default {
 .image-preview { width: 100%; height: 420rpx; border-radius: 18rpx; background: #eef2f8; }
 .video-preview { width: 100%; height: 420rpx; border-radius: 18rpx; overflow: hidden; background: #111827; }
 .file-preview { min-height: 260rpx; border-radius: 18rpx; background: #f5f8fb; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30rpx; box-sizing: border-box; text-align: center; }
-.file-icon { width: 104rpx; height: 104rpx; border-radius: 26rpx; background: #e7efff; color: #2d55c7; font-size: 42rpx; font-weight: 900; display: flex; align-items: center; justify-content: center; }
+.file-icon { width: 104rpx; height: 104rpx; border-radius: 26rpx; background: #e7efff; color: #1f5eff; font-size: 42rpx; font-weight: 900; display: flex; align-items: center; justify-content: center; }
 .file-title { margin-top: 18rpx; font-size: 30rpx; color: #263442; font-weight: 900; }
 .file-desc { margin-top: 10rpx; font-size: 24rpx; color: #6e7f92; line-height: 1.6; }
 .action-row, .edit-actions { margin-top: 18rpx; display: flex; gap: 14rpx; }
 .primary-btn, .secondary-btn { height: 76rpx; border-radius: 18rpx; display: flex; align-items: center; justify-content: center; font-size: 26rpx; font-weight: 800; }
-.primary-btn { flex: 1; background: #2f5f8f; color: #ffffff; }
+.primary-btn { flex: 1; background: #0f766e; color: #ffffff; }
 .secondary-btn { flex: 1; background: #eef2f7; color: #3f5268; }
 .grow { flex: 1; }
 .info-row { padding: 18rpx 0; border-bottom: 1rpx solid #edf1f6; display: flex; align-items: flex-start; gap: 18rpx; }

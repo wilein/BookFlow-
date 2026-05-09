@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <view class="page">
     <view
       class="header"
@@ -262,18 +262,18 @@ export default {
 .back-btn { width: 72rpx; height: 72rpx; border-radius: 16rpx; background: #edf2f8; display: flex; align-items: center; justify-content: center; }
 .back-icon { width: 32rpx; height: 32rpx; }
 .title { flex: 1; font-size: 30rpx; color: #2d3d52; font-weight: 700; }
-.submit-mini { min-width: 104rpx; height: 64rpx; padding: 0 18rpx; border-radius: 999rpx; background: #2f4f75; color: #ffffff; font-size: 24rpx; display: flex; align-items: center; justify-content: center; }
+.submit-mini { min-width: 104rpx; height: 64rpx; padding: 0 18rpx; border-radius: 999rpx; background: #173b75; color: #ffffff; font-size: 24rpx; display: flex; align-items: center; justify-content: center; }
 .content { padding: 16rpx 20rpx 0; }
 .form-card { background: #ffffff; border-radius: 24rpx; padding: 24rpx; box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.03); }
 .field-title { display: block; margin-bottom: 12rpx; font-size: 24rpx; color: #6e8094; }
 .field-title:not(:first-child) { margin-top: 24rpx; }
 .type-row { display: flex; flex-wrap: wrap; gap: 12rpx; }
 .type-chip { padding: 10rpx 18rpx; border-radius: 999rpx; background: #f2f6fb; color: #5f748a; font-size: 24rpx; }
-.type-chip.active { background: #2f4f75; color: #ffffff; }
+.type-chip.active { background: #173b75; color: #ffffff; }
 .input, .textarea { width: 100%; box-sizing: border-box; border-radius: 16rpx; background: #f5f8fc; padding: 18rpx 20rpx; font-size: 26rpx; color: #24364b; }
 .input { height: 84rpx; }
 .textarea { min-height: 260rpx; }
 .read-only { color: #7f90a4; }
-.bottom-btn { margin-top: 24rpx; height: 88rpx; border-radius: 18rpx; background: #2f4f75; color: #ffffff; font-size: 30rpx; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.bottom-btn { margin-top: 24rpx; height: 88rpx; border-radius: 18rpx; background: #173b75; color: #ffffff; font-size: 30rpx; font-weight: 700; display: flex; align-items: center; justify-content: center; }
 .bottom-space { height: calc(88rpx + env(safe-area-inset-bottom)); }
 </style>

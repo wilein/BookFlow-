@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <view class="page">
     <view class="header" :style="{ height: headerHeight + 'px', paddingTop: statusBarHeight + 'px' }">
       <view class="back-btn" @click="goBack">
@@ -144,8 +144,8 @@ export default {
 </script>
 
 <style scoped>
-.page { min-height: 100vh; background: #f3f5f8; }
-.header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #f3f5f8; display: flex; align-items: center; justify-content: space-between; }
+.page { min-height: 100vh; background: #eef3fb; }
+.header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #eef3fb; display: flex; align-items: center; justify-content: space-between; }
 .back-btn, .header-placeholder { width: 72rpx; height: 72rpx; flex-shrink: 0; }
 .back-btn { border-radius: 16rpx; background: #edf2f8; display: flex; align-items: center; justify-content: center; }
 .back-icon { width: 32rpx; height: 32rpx; }
@@ -154,23 +154,23 @@ export default {
 .card { margin-bottom: 16rpx; background: #ffffff; border-radius: 22rpx; padding: 20rpx; }
 .head-row { display: flex; justify-content: space-between; gap: 12rpx; }
 .order-no { font-size: 22rpx; color: #7b8ea1; }
-.status { font-size: 24rpx; color: #2d55c7; font-weight: 700; }
+.status { font-size: 24rpx; color: #1f5eff; font-weight: 700; }
 .book-row { margin-top: 16rpx; display: flex; gap: 16rpx; }
 .cover { width: 136rpx; height: 164rpx; border-radius: 16rpx; background: #edf2f8; }
 .book-main { flex: 1; display: flex; flex-direction: column; gap: 8rpx; }
 .title { font-size: 30rpx; color: #243548; font-weight: 700; line-height: 1.5; }
 .meta, .line { font-size: 24rpx; color: #5a6f86; line-height: 1.7; }
-.amount { margin-top: 8rpx; font-size: 34rpx; color: #d05a25; font-weight: 700; }
+.amount { margin-top: 8rpx; font-size: 34rpx; color: #f59e0b; font-weight: 700; }
 .section-title { display: block; margin-bottom: 12rpx; font-size: 28rpx; color: #243548; font-weight: 700; }
 .issue-item { padding: 16rpx 0; border-top: 1rpx solid #edf1f5; }
 .issue-item:first-of-type { border-top: none; padding-top: 0; }
 .issue-head { display: flex; justify-content: space-between; gap: 12rpx; margin-bottom: 8rpx; }
-.issue-type { font-size: 24rpx; color: #2d55c7; font-weight: 700; }
+.issue-type { font-size: 24rpx; color: #1f5eff; font-weight: 700; }
 .issue-status { font-size: 22rpx; color: #7b8ea1; }
 .issue-meta { display: block; margin-top: 8rpx; font-size: 22rpx; color: #8ea0b4; }
 .reply-box { margin-top: 12rpx; border-radius: 16rpx; background: #f5f8fc; padding: 14rpx; }
 .reply-title { display: block; margin-bottom: 8rpx; font-size: 22rpx; color: #2d3d52; font-weight: 700; }
-.issue-action { margin-top: 12rpx; width: 164rpx; height: 60rpx; border-radius: 14rpx; background: #2d55c7; color: #ffffff; font-size: 24rpx; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.issue-action { margin-top: 12rpx; width: 164rpx; height: 60rpx; border-radius: 14rpx; background: #1f5eff; color: #ffffff; font-size: 24rpx; font-weight: 700; display: flex; align-items: center; justify-content: center; }
 .action-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16rpx; }
-.action-card { height: 88rpx; border-radius: 18rpx; background: #ffffff; color: #2f4f75; font-size: 24rpx; font-weight: 700; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 12rpx; }
+.action-card { height: 88rpx; border-radius: 18rpx; background: #ffffff; color: #173b75; font-size: 24rpx; font-weight: 700; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 12rpx; }
 </style>

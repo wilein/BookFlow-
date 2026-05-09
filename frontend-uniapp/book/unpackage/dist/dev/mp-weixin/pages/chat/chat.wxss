@@ -87,13 +87,13 @@
   padding: 6rpx 14rpx;
   border-radius: 999rpx;
   background: #edf3ff;
-  color: #2d55c7;
+  color: #1f5eff;
   font-size: 20rpx;
   font-weight: 700;
 }
 .trade-status.data-v-0a633310 {
   font-size: 22rpx;
-  color: #d05a25;
+  color: #f59e0b;
   font-weight: 700;
 }
 .trade-title.data-v-0a633310 {
@@ -112,7 +112,7 @@
 .trade-price.data-v-0a633310 {
   margin-top: 12rpx;
   font-size: 34rpx;
-  color: #d05a25;
+  color: #f59e0b;
   font-weight: 700;
 }
 .trade-actions.data-v-0a633310 {
@@ -134,7 +134,7 @@
   font-weight: 700;
 }
 .action-btn.primary.data-v-0a633310 {
-  background: #2d55c7;
+  background: #1f5eff;
   color: #ffffff;
 }
 .action-btn.secondary.data-v-0a633310 {
@@ -142,7 +142,7 @@
   color: #4c6077;
 }
 .status-card.data-v-0a633310 {
-  background: linear-gradient(135deg, #2d55c7 0%, #2349b7 100%);
+  background: linear-gradient(135deg, #1f5eff 0%, #143a7b 100%);
   color: #ffffff;
   border-radius: 20rpx;
   padding: 20rpx;
@@ -234,7 +234,7 @@
   height: 62rpx;
   padding: 0 24rpx;
   border-radius: 16rpx;
-  background: #2d55c7;
+  background: #1f5eff;
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -266,7 +266,7 @@
   width: 128rpx;
   height: 72rpx;
   border-radius: 36rpx;
-  background: #2f4f75;
+  background: #173b75;
   color: #ffffff;
   display: flex;
   align-items: center;

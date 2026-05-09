@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <view class="page">
     <view class="header" :style="{ height: headerHeight + 'px', paddingTop: statusBarHeight + 'px' }">
       <view class="back-btn" @click="goBack">
@@ -99,8 +99,8 @@ export default {
 </script>
 
 <style scoped>
-.page { min-height: 100vh; background: #f3f5f8; }
-.header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #f3f5f8; display: flex; align-items: center; justify-content: space-between; }
+.page { min-height: 100vh; background: #eef3fb; }
+.header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #eef3fb; display: flex; align-items: center; justify-content: space-between; }
 .back-btn, .header-placeholder { width: 72rpx; height: 72rpx; flex-shrink: 0; }
 .back-btn { border-radius: 16rpx; background: #edf2f8; display: flex; align-items: center; justify-content: center; }
 .back-icon { width: 32rpx; height: 32rpx; }
@@ -108,10 +108,10 @@ export default {
 .content { padding: 18rpx 20rpx 40rpx; }
 .list { display: flex; flex-direction: column; gap: 16rpx; }
 .card { display: flex; gap: 16rpx; background: #ffffff; border-radius: 22rpx; padding: 20rpx; box-shadow: 0 10rpx 24rpx rgba(19, 37, 62, 0.05); }
-.icon { width: 92rpx; height: 92rpx; border-radius: 20rpx; background: #e7efff; color: #2d55c7; font-size: 34rpx; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.icon { width: 92rpx; height: 92rpx; border-radius: 20rpx; background: #e7efff; color: #1f5eff; font-size: 34rpx; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .card-main { flex: 1; display: flex; flex-direction: column; gap: 8rpx; }
 .title { font-size: 30rpx; color: #243548; font-weight: 700; }
-.type { font-size: 22rpx; color: #2d55c7; }
+.type { font-size: 22rpx; color: #1f5eff; }
 .desc { font-size: 23rpx; color: #708399; line-height: 1.6; }
 .meta-row { display: flex; align-items: center; justify-content: space-between; gap: 16rpx; margin-top: 6rpx; }
 .meta { font-size: 22rpx; color: #7d8fa2; }

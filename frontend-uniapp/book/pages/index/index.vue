@@ -363,7 +363,7 @@ export default {
 <style scoped>
 .page {
   min-height: 100vh;
-  background: #f8f9fc;
+  background: linear-gradient(180deg, #dbeafe 0%, #eef3fb 240rpx, #eef3fb 100%);
 }
 
 .fixed-header {
@@ -371,10 +371,10 @@ export default {
   top: 0;
   left: 0;
   right: 0;
-  background: #ffffff;
+  background: linear-gradient(135deg, #143a7b 0%, #1f5eff 58%, #13b8a6 100%);
   padding-left: 32rpx;
-  padding-bottom: 20rpx;
-  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.02);
+  padding-bottom: 28rpx;
+  box-shadow: 0 18rpx 46rpx rgba(31, 94, 255, 0.22);
   z-index: 100;
   box-sizing: border-box;
 }
@@ -394,19 +394,23 @@ export default {
   width: 48rpx;
   height: 48rpx;
   margin-right: 12rpx;
+  padding: 8rpx;
+  border-radius: 16rpx;
+  background: rgba(255, 255, 255, 0.16);
+  box-sizing: border-box;
 }
 
 .logo-text {
   font-size: 44rpx;
   font-weight: 700;
-  color: #2c3e50;
+  color: #ffffff;
 }
 
 .search-btn {
   width: 60rpx;
   height: 60rpx;
   border-radius: 50%;
-  background: #f0f3f7;
+  background: rgba(255, 255, 255, 0.18);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -420,16 +424,17 @@ export default {
 .slogan {
   margin-top: 8rpx;
   font-size: 26rpx;
-  color: #7f8c8d;
+  color: rgba(255, 255, 255, 0.82);
   display: block;
 }
 
 .current-path-card {
-  margin: 20rpx 32rpx 0;
-  border-radius: 24rpx;
-  padding: 24rpx;
-  background: #2f4f75;
+  margin: 28rpx 24rpx 0;
+  border-radius: 30rpx;
+  padding: 28rpx;
+  background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);
   color: #ffffff;
+  box-shadow: 0 18rpx 44rpx rgba(15, 118, 110, 0.2);
 }
 
 .current-path-top {
@@ -475,18 +480,19 @@ export default {
 .current-progress-fill {
   height: 100%;
   border-radius: 999rpx;
-  background: #5ee09b;
+  background: linear-gradient(90deg, #fef3c7 0%, #f59e0b 100%);
 }
 
 .swiper-section {
-  margin: 24rpx 32rpx 20rpx;
-  border-radius: 24rpx;
+  margin: 26rpx 24rpx 20rpx;
+  border-radius: 30rpx;
   overflow: hidden;
+  box-shadow: 0 18rpx 42rpx rgba(23, 32, 51, 0.1);
 }
 
 .swiper {
   width: 100%;
-  height: 300rpx;
+  height: 320rpx;
 }
 
 .swiper-image {
@@ -498,11 +504,12 @@ export default {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background: #ffffff;
-  margin: 24rpx 32rpx;
-  padding: 20rpx 0;
-  border-radius: 24rpx;
-  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.03);
+  background: rgba(255, 255, 255, 0.92);
+  margin: 24rpx;
+  padding: 18rpx 8rpx;
+  border-radius: 30rpx;
+  border: 1rpx solid rgba(214, 226, 241, 0.9);
+  box-shadow: 0 18rpx 42rpx rgba(23, 32, 51, 0.08);
 }
 
 .nav-item {
@@ -514,21 +521,32 @@ export default {
 }
 
 .nav-icon {
-  font-size: 42rpx;
+  width: 66rpx;
+  height: 66rpx;
+  border-radius: 22rpx;
+  background: #e8efff;
+  color: #1f5eff;
+  font-size: 32rpx;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-text {
   margin-top: 10rpx;
   font-size: 24rpx;
-  color: #34495e;
+  color: #334155;
+  font-weight: 600;
 }
 
 .section {
-  margin: 24rpx 32rpx;
+  margin: 24rpx;
   background: #ffffff;
-  border-radius: 28rpx;
+  border-radius: 30rpx;
   padding: 28rpx;
-  box-shadow: 0 6rpx 24rpx rgba(0, 0, 0, 0.02);
+  border: 1rpx solid rgba(214, 226, 241, 0.9);
+  box-shadow: 0 16rpx 40rpx rgba(23, 32, 51, 0.07);
 }
 
 .section-header {
@@ -541,12 +559,13 @@ export default {
 .section-title {
   font-size: 32rpx;
   font-weight: 700;
-  color: #2c3e50;
+  color: #172033;
 }
 
 .more {
   font-size: 24rpx;
-  color: #7f8c8d;
+  color: #1f5eff;
+  font-weight: 700;
 }
 
 .hot-tabs-scroll {
@@ -562,15 +581,16 @@ export default {
 .hot-tab {
   padding: 10rpx 24rpx;
   border-radius: 999rpx;
-  background: #f1f5f9;
-  color: #607185;
+  background: #f4f7fb;
+  color: #5f7185;
   font-size: 24rpx;
   white-space: nowrap;
 }
 
 .hot-tab.active {
-  background: #2f4f75;
+  background: linear-gradient(135deg, #1f5eff 0%, #0f766e 100%);
   color: #ffffff;
+  box-shadow: 0 10rpx 22rpx rgba(31, 94, 255, 0.18);
 }
 
 .hot-books-scroll {
@@ -587,9 +607,11 @@ export default {
 .hot-book-card {
   width: 260rpx;
   flex-shrink: 0;
-  background: #f8fafc;
-  border-radius: 22rpx;
+  background: #fbfcff;
+  border-radius: 26rpx;
   overflow: hidden;
+  border: 1rpx solid #e2eaf5;
+  box-shadow: 0 12rpx 26rpx rgba(23, 32, 51, 0.06);
 }
 
 .hot-book-cover {
@@ -606,7 +628,7 @@ export default {
   display: block;
   font-size: 28rpx;
   font-weight: 700;
-  color: #24364b;
+  color: #172033;
   line-height: 1.4;
 }
 
@@ -627,13 +649,13 @@ export default {
 
 .hot-book-price {
   font-size: 30rpx;
-  color: #e67e22;
+  color: #f59e0b;
   font-weight: 700;
 }
 
 .hot-book-annotation {
   font-size: 22rpx;
-  color: #3f6db4;
+  color: #0f766e;
 }
 
 .empty-block {
@@ -656,6 +678,9 @@ export default {
 .dynamic-item {
   display: flex;
   gap: 20rpx;
+  padding: 18rpx;
+  border-radius: 22rpx;
+  background: #f7faff;
 }
 
 .path-item {
@@ -663,6 +688,10 @@ export default {
   align-items: center;
   justify-content: space-between;
   gap: 20rpx;
+  padding: 20rpx;
+  border-radius: 24rpx;
+  background: #f7faff;
+  border: 1rpx solid #e5edf7;
 }
 
 .avatar {
@@ -697,9 +726,18 @@ export default {
   align-items: center;
 }
 
+.path-stats text {
+  padding: 8rpx 12rpx;
+  border-radius: 999rpx;
+  background: #e8efff;
+  color: #1f5eff;
+  font-size: 21rpx;
+  white-space: nowrap;
+}
+
 .username {
   font-size: 28rpx;
-  color: #2c3e50;
+  color: #172033;
   font-weight: 600;
 }
 

@@ -62,6 +62,8 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+import static com.book.bookflow.entity.table.UserProfileTableDef.USER_PROFILE;
+
 @Service
 public class AdminService {
 
@@ -349,8 +351,11 @@ public class AdminService {
             wrapper.and("(real_name LIKE ? OR student_id LIKE ? OR school LIKE ? OR department LIKE ?)", like, like, like, like);
         }
         long total = userProfileMapper.selectCountByQuery(wrapper);
+        wrapper.orderBy(USER_PROFILE.AUTH_STATUS.asc())
+                .orderBy(USER_PROFILE.UPDATE_TIME.desc())
+                .orderBy(USER_PROFILE.ID.desc());
         List<UserProfile> profiles = userProfileMapper.selectListByQuery(page(
-            wrapper.orderBy("case when auth_status = 1 then 0 else 1 end asc, update_time desc, id desc"),
+            wrapper,
             pageNo,
             pageSize
         ));

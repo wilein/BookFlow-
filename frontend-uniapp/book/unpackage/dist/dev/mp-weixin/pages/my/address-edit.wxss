@@ -1,7 +1,7 @@
 
-.page.data-v-7272ca84 { min-height: 100vh; background: #f3f5f8;
+.page.data-v-7272ca84 { min-height: 100vh; background: #eef3fb;
 }
-.header.data-v-7272ca84 { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #f3f5f8; display: flex; align-items: center; justify-content: space-between;
+.header.data-v-7272ca84 { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #eef3fb; display: flex; align-items: center; justify-content: space-between;
 }
 .back-btn.data-v-7272ca84, .header-placeholder.data-v-7272ca84 { width: 72rpx; height: 72rpx; flex-shrink: 0;
 }
@@ -31,11 +31,11 @@
 }
 .checkbox.data-v-7272ca84 { width: 34rpx; height: 34rpx; border-radius: 10rpx; background: #e7edf5; border: 2rpx solid #cbd7e4;
 }
-.checkbox.active.data-v-7272ca84 { background: #2d55c7; border-color: #2d55c7;
+.checkbox.active.data-v-7272ca84 { background: #1f5eff; border-color: #1f5eff;
 }
 .default-text.data-v-7272ca84 { font-size: 24rpx; color: #44596f;
 }
 .bottom-bar.data-v-7272ca84 { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; background: rgba(255, 255, 255, 0.96); border-top: 1rpx solid #e7edf4; padding: 16rpx 20rpx calc(16rpx + env(safe-area-inset-bottom));
 }
-.save-btn.data-v-7272ca84 { height: 84rpx; border-radius: 16rpx; background: #2f4f75; color: #ffffff; font-size: 30rpx; font-weight: 700; display: flex; align-items: center; justify-content: center;
+.save-btn.data-v-7272ca84 { height: 84rpx; border-radius: 16rpx; background: #173b75; color: #ffffff; font-size: 30rpx; font-weight: 700; display: flex; align-items: center; justify-content: center;
 }

@@ -1,7 +1,7 @@
 
-.page.data-v-a2e5626f { min-height: 100vh; background: #f5f7fb;
+.page.data-v-a2e5626f { min-height: 100vh; background: #eef3fb;
 }
-.header.data-v-a2e5626f { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #f5f7fb; display: flex; align-items: center; justify-content: space-between;
+.header.data-v-a2e5626f { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #eef3fb; display: flex; align-items: center; justify-content: space-between;
 }
 .back-btn.data-v-a2e5626f { width: 72rpx; height: 72rpx; border-radius: 16rpx; background: #edf2f8; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
@@ -9,7 +9,7 @@
 }
 .header-title.data-v-a2e5626f { font-size: 30rpx; color: #2d3d52; font-weight: 700;
 }
-.save-btn.data-v-a2e5626f { min-width: 96rpx; height: 64rpx; border-radius: 16rpx; background: #2d55c7; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 24rpx; font-weight: 700;
+.save-btn.data-v-a2e5626f { min-width: 96rpx; height: 64rpx; border-radius: 16rpx; background: #1f5eff; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 24rpx; font-weight: 700;
 }
 .content.data-v-a2e5626f { padding: 18rpx 20rpx 40rpx;
 }
@@ -21,13 +21,13 @@
 }
 .type-btn.data-v-a2e5626f { padding: 12rpx 22rpx; border-radius: 999rpx; background: #eef2f8; color: #5d7085; font-size: 24rpx;
 }
-.type-btn.active.data-v-a2e5626f { background: #e6efff; color: #2d55c7; font-weight: 700;
+.type-btn.active.data-v-a2e5626f { background: #e6efff; color: #1f5eff; font-weight: 700;
 }
 .path-options.data-v-a2e5626f { display: flex; flex-direction: column; gap: 12rpx;
 }
 .path-option.data-v-a2e5626f { border-radius: 16rpx; background: #f3f6fb; padding: 16rpx; border: 2rpx solid transparent;
 }
-.path-option.active.data-v-a2e5626f { background: #edf3ff; border-color: #2d55c7;
+.path-option.active.data-v-a2e5626f { background: #edf3ff; border-color: #1f5eff;
 }
 .path-name.data-v-a2e5626f { display: block; font-size: 27rpx; color: #2b3f53; font-weight: 700; line-height: 1.4;
 }

@@ -26,5 +26,26 @@ export default {
 </script>
 
 <style>
-/* 每个页面公共css */
+page {
+  background: #eef3fb;
+  color: #172033;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+view,
+text,
+input,
+textarea,
+button,
+picker {
+  box-sizing: border-box;
+}
+
+image {
+  display: block;
+}
+
+.safe-bottom {
+  height: env(safe-area-inset-bottom);
+}
 </style>

@@ -316,25 +316,25 @@ export default {
 </script>
 
 <style scoped>
-.page { min-height: 100vh; background: linear-gradient(180deg, #f1efe8 0%, #f8f9fc 24%, #f8f9fc 100%); }
+.page { min-height: 100vh; background: linear-gradient(180deg, #dbeafe 0%, #eef3fb 440rpx, #eef3fb 100%); }
 .hero { position: relative; }
-.swiper { height: 480rpx; }
+.swiper { height: 520rpx; }
 .swiper-image { width: 100%; height: 100%; }
 .top-bar { position: absolute; top: 0; left: 0; right: 0; z-index: 10; padding-left: 24rpx; box-sizing: border-box; padding-bottom: 16rpx; display: flex; justify-content: space-between; align-items: center; }
 .top-actions { display: flex; gap: 12rpx; }
-.circle-btn { min-width: 64rpx; height: 64rpx; border-radius: 50%; background: rgba(255, 255, 255, 0.9); display: flex; justify-content: center; align-items: center; padding: 0 12rpx; box-sizing: border-box; }
+.circle-btn { min-width: 66rpx; height: 66rpx; border-radius: 50%; background: rgba(255, 255, 255, 0.92); display: flex; justify-content: center; align-items: center; padding: 0 12rpx; box-sizing: border-box; box-shadow: 0 10rpx 24rpx rgba(15, 32, 68, 0.16); }
 .icon-text { font-size: 22rpx; color: #2b2f3a; }
 .back-icon { width: 32rpx; height: 32rpx; }
-.content { padding: 20rpx 24rpx 0; }
-.card { background: #ffffff; border-radius: 24rpx; padding: 24rpx; box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.04); margin-bottom: 20rpx; }
+.content { padding: 0 24rpx; margin-top: -64rpx; position: relative; z-index: 2; }
+.card { background: #ffffff; border-radius: 30rpx; padding: 26rpx; border: 1rpx solid #e2eaf5; box-shadow: 0 18rpx 42rpx rgba(23, 32, 51, 0.08); margin-bottom: 20rpx; }
 .book-title { display: block; font-size: 36rpx; line-height: 1.4; font-weight: 700; color: #263442; }
 .book-author { display: block; margin-top: 8rpx; font-size: 26rpx; color: #6f7c8e; }
 .meta-row { margin-top: 12rpx; display: flex; justify-content: space-between; gap: 18rpx; }
 .meta-label { font-size: 24rpx; color: #7a8797; }
 .meta-value { flex: 1; text-align: right; font-size: 24rpx; color: #344759; }
 .tags { margin-top: 18rpx; display: flex; flex-wrap: wrap; gap: 12rpx; }
-.tag { padding: 6rpx 16rpx; border-radius: 999rpx; background: #eef3fb; font-size: 22rpx; color: #526981; }
-.price-line { margin-top: 24rpx; display: flex; align-items: flex-end; color: #d05a25; }
+.tag { padding: 8rpx 16rpx; border-radius: 999rpx; background: #eef3fb; font-size: 22rpx; color: #526981; border: 1rpx solid #dfe8f4; }
+.price-line { margin-top: 24rpx; display: flex; align-items: flex-end; color: #f59e0b; }
 .price-symbol { font-size: 30rpx; font-weight: 700; margin-right: 4rpx; }
 .price-text { font-size: 52rpx; line-height: 1; font-weight: 700; }
 .seller-card { display: flex; align-items: center; justify-content: space-between; gap: 18rpx; }
@@ -345,20 +345,20 @@ export default {
 .seller-stars { margin-top: 8rpx; display: flex; align-items: center; gap: 4rpx; }
 .star { color: #f2b632; font-size: 22rpx; }
 .score { margin-left: 8rpx; font-size: 22rpx; color: #6a7b8f; }
-.contact-btn { height: 72rpx; padding: 0 24rpx; border-radius: 18rpx; background: #2f4f75; color: #ffffff; font-size: 24rpx; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.contact-btn { height: 72rpx; padding: 0 24rpx; border-radius: 20rpx; background: linear-gradient(135deg, #1f5eff 0%, #0f766e 100%); color: #ffffff; font-size: 24rpx; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .section-title { display: block; font-size: 30rpx; color: #263442; font-weight: 700; margin-bottom: 18rpx; }
 .feature-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16rpx; }
-.feature-card { background: #f4f7fb; border-radius: 20rpx; padding: 20rpx; }
+.feature-card { background: linear-gradient(180deg, #f8fbff 0%, #f1f6ff 100%); border-radius: 24rpx; padding: 22rpx; border: 1rpx solid #e2eaf5; }
 .feature-title { display: block; font-size: 26rpx; color: #3a4f66; font-weight: 700; }
-.feature-value { display: block; margin-top: 18rpx; font-size: 40rpx; color: #2d55c7; font-weight: 700; }
+.feature-value { display: block; margin-top: 18rpx; font-size: 40rpx; color: #1f5eff; font-weight: 700; }
 .feature-desc { display: block; margin-top: 8rpx; font-size: 22rpx; color: #6f8094; }
 .path-block { margin-top: 24rpx; }
 .path-title { display: block; font-size: 28rpx; color: #2c4057; font-weight: 700; margin-bottom: 12rpx; }
-.path-item { display: flex; align-items: center; justify-content: space-between; gap: 18rpx; padding: 20rpx; border-radius: 18rpx; background: #f7f9fc; margin-top: 12rpx; }
+.path-item { display: flex; align-items: center; justify-content: space-between; gap: 18rpx; padding: 20rpx; border-radius: 22rpx; background: #f7faff; margin-top: 12rpx; border: 1rpx solid #e2eaf5; }
 .path-main { flex: 1; min-width: 0; }
 .path-name { display: block; font-size: 26rpx; color: #2d3f53; font-weight: 700; }
 .path-intro { display: block; margin-top: 8rpx; font-size: 22rpx; color: #74859a; line-height: 1.6; }
-.path-extra { flex-shrink: 0; font-size: 22rpx; color: #2d55c7; }
+.path-extra { flex-shrink: 0; font-size: 22rpx; color: #1f5eff; }
 .desc-text, .remark-text { display: block; font-size: 24rpx; color: #566a82; line-height: 1.8; }
 .remark-title { display: block; margin-top: 20rpx; margin-bottom: 10rpx; font-size: 26rpx; color: #2c4057; font-weight: 700; }
 .bottom-space { height: 140rpx; }
@@ -366,6 +366,6 @@ export default {
 .collect-btn, .cart-btn, .buy-btn { height: 84rpx; border-radius: 20rpx; display: flex; align-items: center; justify-content: center; font-size: 28rpx; font-weight: 700; }
 .collect-btn { width: 170rpx; background: #edf2f8; color: #44596f; flex-shrink: 0; }
 .cart-btn { width: 150rpx; background: #fff3e8; color: #c85a3b; flex-shrink: 0; }
-.buy-btn { flex: 1; background: #2d55c7; color: #ffffff; }
+.buy-btn { flex: 1; background: linear-gradient(135deg, #1f5eff 0%, #0f766e 100%); color: #ffffff; box-shadow: 0 12rpx 26rpx rgba(31, 94, 255, 0.2); }
 .buy-btn.sold, .cart-btn.sold { background: #bfc8d6; color: #ffffff; }
 </style>

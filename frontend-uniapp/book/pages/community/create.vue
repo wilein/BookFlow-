@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <view class="page">
     <view class="header" :style="{ height: headerHeight + 'px', paddingTop: statusBarHeight + 'px' }">
       <view class="back-btn" @click="goBack">
@@ -149,21 +149,21 @@ export default {
 </script>
 
 <style scoped>
-.page { min-height: 100vh; background: #f5f7fb; }
-.header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #f5f7fb; display: flex; align-items: center; justify-content: space-between; }
+.page { min-height: 100vh; background: #eef3fb; }
+.header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #eef3fb; display: flex; align-items: center; justify-content: space-between; }
 .back-btn { width: 72rpx; height: 72rpx; border-radius: 16rpx; background: #edf2f8; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .back-icon { width: 32rpx; height: 32rpx; }
 .header-title { font-size: 30rpx; color: #2d3d52; font-weight: 700; }
-.save-btn { min-width: 96rpx; height: 64rpx; border-radius: 16rpx; background: #2d55c7; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 24rpx; font-weight: 700; }
+.save-btn { min-width: 96rpx; height: 64rpx; border-radius: 16rpx; background: #1f5eff; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 24rpx; font-weight: 700; }
 .content { padding: 18rpx 20rpx 40rpx; }
 .card { background: #fff; border-radius: 22rpx; padding: 20rpx; margin-bottom: 16rpx; }
 .label { display: block; font-size: 28rpx; color: #2b3f53; font-weight: 700; margin-bottom: 16rpx; }
 .type-row { display: flex; flex-wrap: wrap; gap: 12rpx; }
 .type-btn { padding: 12rpx 22rpx; border-radius: 999rpx; background: #eef2f8; color: #5d7085; font-size: 24rpx; }
-.type-btn.active { background: #e6efff; color: #2d55c7; font-weight: 700; }
+.type-btn.active { background: #e6efff; color: #1f5eff; font-weight: 700; }
 .path-options { display: flex; flex-direction: column; gap: 12rpx; }
 .path-option { border-radius: 16rpx; background: #f3f6fb; padding: 16rpx; border: 2rpx solid transparent; }
-.path-option.active { background: #edf3ff; border-color: #2d55c7; }
+.path-option.active { background: #edf3ff; border-color: #1f5eff; }
 .path-name { display: block; font-size: 27rpx; color: #2b3f53; font-weight: 700; line-height: 1.4; }
 .path-meta { display: block; margin-top: 8rpx; font-size: 22rpx; color: #718398; }
 .empty-tip { display: block; font-size: 24rpx; color: #7d8fa2; }

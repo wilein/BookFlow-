@@ -150,7 +150,7 @@ export default {
 <style scoped>
 .page {
   height: 100vh;
-  background: #f8f9fc;
+  background: linear-gradient(180deg, #dbeafe 0%, #eef3fb 260rpx, #eef3fb 100%);
   display: flex;
   flex-direction: column;
 }
@@ -160,10 +160,10 @@ export default {
   top: 0;
   left: 0;
   right: 0;
-  background: #ffffff;
+  background: linear-gradient(135deg, #143a7b 0%, #1f5eff 64%, #13b8a6 100%);
   padding-left: 32rpx;
-  padding-bottom: 20rpx;
-  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.02);
+  padding-bottom: 30rpx;
+  box-shadow: 0 18rpx 46rpx rgba(31, 94, 255, 0.22);
   z-index: 100;
   box-sizing: border-box;
 }
@@ -177,34 +177,40 @@ export default {
   width: 48rpx;
   height: 48rpx;
   margin-right: 12rpx;
+  padding: 8rpx;
+  border-radius: 16rpx;
+  background: rgba(255, 255, 255, 0.16);
+  box-sizing: border-box;
 }
 
 .logo-text {
   font-size: 44rpx;
   font-weight: 700;
-  color: #2c3e50;
+  color: #ffffff;
 }
 
 .slogan {
   margin-top: 8rpx;
   display: block;
   font-size: 24rpx;
-  color: #7f8c8d;
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .search-section,
 .history-hot-section {
-  background: #ffffff;
-  padding: 18rpx 24rpx;
+  background: transparent;
+  padding: 18rpx 24rpx 0;
 }
 
 .search-bar {
   display: flex;
   align-items: center;
-  background: #f0f3f7;
+  background: #ffffff;
   border-radius: 60rpx;
   height: 72rpx;
   padding: 0 8rpx 0 24rpx;
+  border: 1rpx solid #d9e4f2;
+  box-shadow: 0 16rpx 36rpx rgba(23, 32, 51, 0.08);
 }
 
 .search-input {
@@ -216,7 +222,7 @@ export default {
   width: 64rpx;
   height: 64rpx;
   border-radius: 50%;
-  background: #3498db;
+  background: linear-gradient(135deg, #1f5eff 0%, #0f766e 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -236,7 +242,12 @@ export default {
 .block-title,
 .clear-btn {
   font-size: 24rpx;
-  color: #5d7186;
+  color: #52677f;
+}
+
+.clear-btn {
+  color: #1f5eff;
+  font-weight: 700;
 }
 
 .tag-list {
@@ -249,9 +260,10 @@ export default {
 .tag-item {
   padding: 10rpx 20rpx;
   border-radius: 999rpx;
-  background: #f3f7fb;
-  color: #4b5f76;
+  background: #ffffff;
+  color: #40566f;
   font-size: 22rpx;
+  border: 1rpx solid #dfe8f4;
 }
 
 .main-content {
@@ -262,47 +274,52 @@ export default {
 
 .category-sidebar {
   width: 200rpx;
-  background: #ffffff;
-  border-right: 1rpx solid #e9eef5;
+  background: #f8fbff;
+  border-right: 1rpx solid #dfe8f4;
+  padding: 12rpx 0;
 }
 
 .category-item {
-  padding: 30rpx 0;
-  text-align: center;
+  margin: 6rpx 12rpx;
+  padding: 24rpx 10rpx;
+  text-align: left;
+  border-radius: 18rpx;
   font-size: 26rpx;
-  color: #4b5f76;
+  color: #52677f;
 }
 
 .category-item.active {
-  background: #eaf3fb;
-  color: #2f4f75;
+  background: linear-gradient(135deg, #e8efff 0%, #e7fbf8 100%);
+  color: #1f5eff;
   font-weight: 700;
 }
 
 .book-list {
   flex: 1;
-  padding: 20rpx;
+  padding: 20rpx 20rpx 136rpx;
 }
 
 .status-block {
   padding: 50rpx 0;
   text-align: center;
-  color: #7f8c8d;
+  color: #728397;
 }
 
 .book-item {
   display: flex;
   gap: 20rpx;
   background: #ffffff;
-  border-radius: 18rpx;
-  padding: 16rpx;
-  margin-bottom: 14rpx;
+  border-radius: 24rpx;
+  padding: 18rpx;
+  margin-bottom: 16rpx;
+  border: 1rpx solid #e2eaf5;
+  box-shadow: 0 14rpx 32rpx rgba(23, 32, 51, 0.07);
 }
 
 .book-cover {
   width: 130rpx;
   height: 170rpx;
-  border-radius: 14rpx;
+  border-radius: 18rpx;
   background: #edf2f8;
 }
 
@@ -313,14 +330,14 @@ export default {
 .book-title {
   font-size: 30rpx;
   font-weight: 700;
-  color: #2c3e50;
+  color: #172033;
 }
 
 .book-author {
   display: block;
   margin-top: 8rpx;
   font-size: 24rpx;
-  color: #7f8c8d;
+  color: #738397;
 }
 
 .book-meta {
@@ -330,13 +347,13 @@ export default {
 }
 
 .price {
-  color: #e67e22;
+  color: #f59e0b;
   font-size: 24rpx;
   font-weight: 600;
 }
 
 .annotations {
-  color: #3498db;
+  color: #0f766e;
   font-size: 22rpx;
 }
 
@@ -345,8 +362,8 @@ export default {
   margin-top: 10rpx;
   padding: 6rpx 14rpx;
   border-radius: 24rpx;
-  background: #e8f6f3;
-  color: #16a085;
+  background: #e7fbf8;
+  color: #0f766e;
   font-size: 22rpx;
 }
 </style>

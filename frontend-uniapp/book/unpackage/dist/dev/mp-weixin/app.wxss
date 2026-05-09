@@ -1,3 +1,21 @@
 
-/* 每个页面公共css */
+page {
+  background: #eef3fb;
+  color: #172033;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+view,
+text,
+input,
+textarea,
+button,
+picker {
+  box-sizing: border-box;
+}
+image {
+  display: block;
+}
+.safe-bottom {
+  height: env(safe-area-inset-bottom);
+}
 page{--status-bar-height:25px;--top-window-height:0px;--window-top:0px;--window-bottom:0px;--window-left:0px;--window-right:0px;--window-magin:0px}[data-c-h="true"]{display: none !important;}

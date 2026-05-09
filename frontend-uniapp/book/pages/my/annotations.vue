@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <view class="page">
     <view
       class="header"
@@ -256,15 +256,15 @@ export default {
 </script>
 
 <style scoped>
-.page { min-height: 100vh; background: #f3f5f8; }
+.page { min-height: 100vh; background: #eef3fb; }
 .header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding-left: 20rpx; background: rgba(243, 245, 248, 0.96); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: space-between; }
 .back-btn { width: 72rpx; height: 72rpx; flex-shrink: 0; }
 .back-btn { border-radius: 16rpx; background: #edf2f8; display: flex; align-items: center; justify-content: center; }
 .back-icon { width: 32rpx; height: 32rpx; }
 .header-title { flex: 1; min-width: 0; text-align: center; font-size: 30rpx; color: #2d3d52; font-weight: 700; }
-.create-btn { width: 88rpx; height: 64rpx; border-radius: 16rpx; background: #2f4f75; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 24rpx; font-weight: 700; flex-shrink: 0; }
+.create-btn { width: 88rpx; height: 64rpx; border-radius: 16rpx; background: #173b75; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 24rpx; font-weight: 700; flex-shrink: 0; }
 .content { padding: 16rpx 20rpx calc(32rpx + env(safe-area-inset-bottom)); }
-.summary-card { min-height: 138rpx; box-sizing: border-box; border-radius: 24rpx; padding: 24rpx; background: #2f5f8f; color: #ffffff; display: flex; align-items: center; justify-content: space-between; gap: 18rpx; }
+.summary-card { min-height: 138rpx; box-sizing: border-box; border-radius: 24rpx; padding: 24rpx; background: #0f766e; color: #ffffff; display: flex; align-items: center; justify-content: space-between; gap: 18rpx; }
 .summary-title { display: block; font-size: 34rpx; font-weight: 700; line-height: 1.35; }
 .summary-sub { display: block; margin-top: 8rpx; font-size: 24rpx; opacity: 0.9; }
 .summary-badge { flex-shrink: 0; padding: 10rpx 16rpx; border-radius: 999rpx; background: rgba(255, 255, 255, 0.16); font-size: 22rpx; }
@@ -278,7 +278,7 @@ export default {
 .book-main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
 .book-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12rpx; }
 .book-title { flex: 1; min-width: 0; font-size: 30rpx; color: #243548; font-weight: 700; line-height: 1.35; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
-.category { flex-shrink: 0; max-width: 140rpx; padding: 6rpx 12rpx; border-radius: 999rpx; background: #edf3ff; color: #2d55c7; font-size: 21rpx; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.category { flex-shrink: 0; max-width: 140rpx; padding: 6rpx 12rpx; border-radius: 999rpx; background: #edf3ff; color: #1f5eff; font-size: 21rpx; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .stats-row { margin-top: 10rpx; display: flex; flex-wrap: wrap; gap: 8rpx; }
 .stats-row text { padding: 6rpx 10rpx; border-radius: 999rpx; background: #f2f6fa; color: #607389; font-size: 21rpx; }
 .latest-box { margin-top: 12rpx; min-height: 58rpx; border-radius: 14rpx; background: #f7f9fc; padding: 12rpx; display: flex; gap: 10rpx; align-items: flex-start; }
@@ -288,7 +288,7 @@ export default {
 .page-tags { flex: 1; min-width: 0; display: flex; align-items: center; gap: 8rpx; overflow: hidden; }
 .page-tag, .page-more { flex-shrink: 0; padding: 5rpx 10rpx; border-radius: 999rpx; background: #eef6f1; color: #2f7a50; font-size: 20rpx; }
 .page-more { background: #eef2f7; color: #697c90; }
-.open-text { flex-shrink: 0; color: #2f5f8f; font-size: 24rpx; font-weight: 700; }
+.open-text { flex-shrink: 0; color: #0f766e; font-size: 24rpx; font-weight: 700; }
 .empty { margin-top: 120rpx; padding: 0 40rpx; text-align: center; }
 .empty-title { display: block; color: #31465c; font-size: 30rpx; font-weight: 700; }
 .empty-sub { display: block; margin-top: 12rpx; color: #7d8fa2; font-size: 24rpx; line-height: 1.6; }

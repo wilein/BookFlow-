@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <view class="page">
     <view class="header" :style="{ height: headerHeight + 'px', paddingTop: statusBarHeight + 'px' }">
       <view class="back-btn" @click="goBack">
@@ -87,8 +87,8 @@ export default {
 </script>
 
 <style scoped>
-.page { min-height: 100vh; background: #f3f5f8; }
-.header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #f3f5f8; display: flex; align-items: center; justify-content: space-between; }
+.page { min-height: 100vh; background: #eef3fb; }
+.header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #eef3fb; display: flex; align-items: center; justify-content: space-between; }
 .back-btn, .header-placeholder { width: 72rpx; height: 72rpx; flex-shrink: 0; }
 .back-btn { border-radius: 16rpx; background: #edf2f8; display: flex; align-items: center; justify-content: center; }
 .back-icon { width: 32rpx; height: 32rpx; }
@@ -96,11 +96,11 @@ export default {
 .content { padding: 16rpx 20rpx 40rpx; }
 .list { display: flex; flex-direction: column; gap: 16rpx; }
 .card { background: #ffffff; border-radius: 20rpx; padding: 20rpx; border-left: 8rpx solid transparent; }
-.card.unread { border-left-color: #2d55c7; }
+.card.unread { border-left-color: #1f5eff; }
 .card-head { display: flex; align-items: center; justify-content: space-between; gap: 16rpx; }
 .title { flex: 1; font-size: 28rpx; color: #243548; font-weight: 700; }
 .time { font-size: 22rpx; color: #8b9bad; }
-.type { display: block; margin-top: 10rpx; font-size: 22rpx; color: #2d55c7; }
+.type { display: block; margin-top: 10rpx; font-size: 22rpx; color: #1f5eff; }
 .content-text { display: block; margin-top: 10rpx; font-size: 24rpx; line-height: 1.6; color: #5a6f86; }
 .empty { margin-top: 120rpx; text-align: center; color: #7d8fa2; font-size: 28rpx; }
 </style>

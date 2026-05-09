@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <view class="page">
     <view class="header" :style="{ height: headerHeight + 'px', paddingTop: statusBarHeight + 'px' }">
       <view class="back-btn" @click="goBack">
@@ -151,8 +151,8 @@ export default {
 </script>
 
 <style scoped>
-.page { min-height: 100vh; background: #f3f5f8; }
-.header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #f3f5f8; display: flex; align-items: center; justify-content: space-between; }
+.page { min-height: 100vh; background: #eef3fb; }
+.header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #eef3fb; display: flex; align-items: center; justify-content: space-between; }
 .back-btn, .header-placeholder { width: 72rpx; height: 72rpx; flex-shrink: 0; }
 .back-btn { border-radius: 16rpx; background: #edf2f8; display: flex; align-items: center; justify-content: center; }
 .back-icon { width: 32rpx; height: 32rpx; }
@@ -160,7 +160,7 @@ export default {
 .content { padding: 16rpx 20rpx 140rpx; }
 .list { display: flex; flex-direction: column; gap: 16rpx; }
 .card { background: #ffffff; border-radius: 20rpx; padding: 20rpx; }
-.card.selected { box-shadow: 0 0 0 3rpx #2d55c7 inset; }
+.card.selected { box-shadow: 0 0 0 3rpx #1f5eff inset; }
 .card-head { display: flex; align-items: center; justify-content: space-between; gap: 16rpx; }
 .user-row { display: flex; align-items: center; gap: 16rpx; }
 .name { font-size: 28rpx; color: #243548; font-weight: 700; }
@@ -169,9 +169,9 @@ export default {
 .address { display: block; margin-top: 14rpx; font-size: 24rpx; color: #4d6278; line-height: 1.7; }
 .action-row { margin-top: 18rpx; display: flex; gap: 12rpx; }
 .action-btn { flex: 1; height: 70rpx; border-radius: 16rpx; background: #eef3f9; color: #5a7088; font-size: 24rpx; display: flex; align-items: center; justify-content: center; }
-.action-btn.primary { background: #edf3ff; color: #2d55c7; }
+.action-btn.primary { background: #edf3ff; color: #1f5eff; }
 .action-btn.danger { background: #fff1ee; color: #c85a3b; }
 .empty { margin-top: 120rpx; text-align: center; color: #7d8fa2; font-size: 28rpx; }
 .bottom-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; background: rgba(255, 255, 255, 0.96); border-top: 1rpx solid #e7edf4; padding: 16rpx 20rpx calc(16rpx + env(safe-area-inset-bottom)); }
-.add-btn { height: 84rpx; border-radius: 16rpx; background: #2f4f75; color: #ffffff; font-size: 30rpx; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.add-btn { height: 84rpx; border-radius: 16rpx; background: #173b75; color: #ffffff; font-size: 30rpx; font-weight: 700; display: flex; align-items: center; justify-content: center; }
 </style>

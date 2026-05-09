@@ -164,20 +164,20 @@ export default {
 </script>
 
 <style scoped>
-.page { min-height: 100vh; background: #f3f5f8; }
-.header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #f3f5f8; display: flex; align-items: center; justify-content: space-between; }
+.page { min-height: 100vh; background: linear-gradient(180deg, #dbeafe 0%, #eef3fb 260rpx, #eef3fb 100%); }
+.header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: rgba(255, 255, 255, 0.94); display: flex; align-items: center; justify-content: space-between; border-bottom: 1rpx solid #dfe8f4; box-shadow: 0 10rpx 28rpx rgba(23, 32, 51, 0.06); }
 .back-btn, .header-placeholder { width: 72rpx; height: 72rpx; flex-shrink: 0; }
-.back-btn { border-radius: 16rpx; background: #edf2f8; display: flex; align-items: center; justify-content: center; }
+.back-btn { border-radius: 18rpx; background: #e8efff; display: flex; align-items: center; justify-content: center; }
 .back-icon { width: 32rpx; height: 32rpx; }
 .header-title { font-size: 30rpx; color: #2d3d52; font-weight: 700; }
 .content { padding: 16rpx 20rpx 150rpx; }
 .list { display: flex; flex-direction: column; gap: 16rpx; }
-.card { display: flex; gap: 16rpx; align-items: center; background: #ffffff; border-radius: 20rpx; padding: 18rpx; }
+.card { display: flex; gap: 16rpx; align-items: center; background: #ffffff; border-radius: 28rpx; padding: 20rpx; border: 1rpx solid #e2eaf5; box-shadow: 0 16rpx 36rpx rgba(23, 32, 51, 0.07); }
 .card.invalid { opacity: 0.62; }
 .check, .small-check { border-radius: 50%; border: 2rpx solid #c5d0dc; display: flex; align-items: center; justify-content: center; color: #ffffff; }
 .check { width: 42rpx; height: 42rpx; flex-shrink: 0; }
 .small-check { width: 34rpx; height: 34rpx; }
-.check.checked, .small-check.checked { background: #2d55c7; border-color: #2d55c7; }
+.check.checked, .small-check.checked { background: #1f5eff; border-color: #1f5eff; }
 .check.disabled { background: #eef2f8; }
 .cover { width: 128rpx; height: 150rpx; border-radius: 14rpx; background: #e8edf3; flex-shrink: 0; }
 .main { flex: 1; min-width: 0; }
@@ -185,15 +185,15 @@ export default {
 .seller, .invalid-text { display: block; margin-top: 8rpx; font-size: 22rpx; color: #75889d; }
 .invalid-text { color: #c85a3b; }
 .bottom-row { margin-top: 16rpx; display: flex; align-items: center; justify-content: space-between; }
-.price { color: #d05a25; font-size: 30rpx; font-weight: 700; }
+.price { color: #f59e0b; font-size: 30rpx; font-weight: 700; }
 .remove { color: #7a8da2; font-size: 24rpx; }
 .state { margin-top: 160rpx; display: flex; flex-direction: column; gap: 20rpx; align-items: center; color: #7d8fa2; font-size: 28rpx; }
-.retry-btn { height: 64rpx; padding: 0 32rpx; border-radius: 14rpx; background: #2d55c7; color: #ffffff; display: flex; align-items: center; justify-content: center; }
+.retry-btn { height: 64rpx; padding: 0 32rpx; border-radius: 18rpx; background: linear-gradient(135deg, #1f5eff 0%, #0f766e 100%); color: #ffffff; display: flex; align-items: center; justify-content: center; }
 .bottom-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; background: rgba(255, 255, 255, 0.97); border-top: 1rpx solid #e7edf4; padding: 16rpx 20rpx calc(16rpx + env(safe-area-inset-bottom)); display: flex; align-items: center; gap: 18rpx; }
 .select-all { display: flex; align-items: center; gap: 8rpx; color: #52677f; font-size: 24rpx; }
 .summary { flex: 1; display: flex; flex-direction: column; align-items: flex-end; gap: 4rpx; }
 .count { color: #7a8da2; font-size: 22rpx; }
-.amount { color: #d05a25; font-size: 30rpx; font-weight: 700; }
-.checkout-btn { width: 176rpx; height: 76rpx; border-radius: 16rpx; background: #2d55c7; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 26rpx; font-weight: 700; }
+.amount { color: #f59e0b; font-size: 30rpx; font-weight: 700; }
+.checkout-btn { width: 176rpx; height: 76rpx; border-radius: 20rpx; background: linear-gradient(135deg, #1f5eff 0%, #0f766e 100%); color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 26rpx; font-weight: 700; }
 .checkout-btn.disabled { background: #bfc8d6; }
 </style>

@@ -1,7 +1,7 @@
 
-.page.data-v-d4d01944 { min-height: 100vh; background: #f3f5f8;
+.page.data-v-d4d01944 { min-height: 100vh; background: #eef3fb;
 }
-.header.data-v-d4d01944 { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #f3f5f8; display: flex; align-items: center; justify-content: space-between;
+.header.data-v-d4d01944 { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #eef3fb; display: flex; align-items: center; justify-content: space-between;
 }
 .back-btn.data-v-d4d01944, .header-placeholder.data-v-d4d01944 { width: 72rpx; height: 72rpx; flex-shrink: 0;
 }
@@ -13,7 +13,7 @@
 }
 .content.data-v-d4d01944 { padding: 0 20rpx 140rpx;
 }
-.hero-card.data-v-d4d01944 { background: linear-gradient(135deg, #2d55c7 0%, #2349b7 100%); border-radius: 24rpx; padding: 24rpx; color: #ffffff;
+.hero-card.data-v-d4d01944 { background: linear-gradient(135deg, #1f5eff 0%, #143a7b 100%); border-radius: 24rpx; padding: 24rpx; color: #ffffff;
 }
 .hero-title.data-v-d4d01944 { display: block; font-size: 34rpx; font-weight: 700;
 }
@@ -45,5 +45,5 @@
 }
 .bottom-bar.data-v-d4d01944 { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; background: rgba(255, 255, 255, 0.96); border-top: 1rpx solid #e7edf4; padding: 16rpx 20rpx calc(16rpx + env(safe-area-inset-bottom));
 }
-.save-btn.data-v-d4d01944 { height: 84rpx; border-radius: 16rpx; background: #2f4f75; color: #ffffff; font-size: 30rpx; font-weight: 700; display: flex; align-items: center; justify-content: center;
+.save-btn.data-v-d4d01944 { height: 84rpx; border-radius: 16rpx; background: #173b75; color: #ffffff; font-size: 30rpx; font-weight: 700; display: flex; align-items: center; justify-content: center;
 }

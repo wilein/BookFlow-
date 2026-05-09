@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <view class="page">
     <view class="header" :style="{ height: headerHeight + 'px', paddingTop: statusBarHeight + 'px' }">
       <view class="back-btn" @click="goBack">
@@ -235,25 +235,25 @@ export default {
 </script>
 
 <style scoped>
-.page { min-height: 100vh; background: #f3f5f8; }
-.header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #f3f5f8; display: flex; align-items: center; justify-content: space-between; }
+.page { min-height: 100vh; background: #eef3fb; }
+.header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #eef3fb; display: flex; align-items: center; justify-content: space-between; }
 .back-btn, .header-placeholder { width: 72rpx; height: 72rpx; flex-shrink: 0; }
 .back-btn { border-radius: 16rpx; background: #edf2f8; display: flex; align-items: center; justify-content: center; }
 .back-icon { width: 32rpx; height: 32rpx; }
 .header-title { font-size: 30rpx; color: #2d3d52; font-weight: 700; }
 .role-row { padding: 16rpx 20rpx 0; display: flex; gap: 12rpx; }
 .role-item { flex: 1; height: 72rpx; border-radius: 18rpx; background: #ffffff; color: #60758a; font-size: 26rpx; font-weight: 700; display: flex; align-items: center; justify-content: center; }
-.role-item.active { background: #2d55c7; color: #ffffff; }
+.role-item.active { background: #1f5eff; color: #ffffff; }
 .status-scroll { white-space: nowrap; }
 .status-row { display: inline-flex; gap: 12rpx; padding: 16rpx 20rpx 0; }
 .status-item { padding: 16rpx 24rpx; border-radius: 999rpx; background: #ffffff; color: #60758a; font-size: 24rpx; }
-.status-item.active { background: #2d55c7; color: #ffffff; font-weight: 700; }
+.status-item.active { background: #1f5eff; color: #ffffff; font-weight: 700; }
 .content { padding: 16rpx 20rpx calc(32rpx + env(safe-area-inset-bottom)); }
 .list { display: flex; flex-direction: column; gap: 16rpx; }
 .card { background: #ffffff; border-radius: 20rpx; padding: 18rpx; }
 .card-head, .info-row, .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 14rpx; }
 .order-no { font-size: 22rpx; color: #7b8ea1; }
-.status { font-size: 24rpx; color: #2d55c7; font-weight: 700; }
+.status { font-size: 24rpx; color: #1f5eff; font-weight: 700; }
 .book-row { margin-top: 14rpx; display: flex; gap: 16rpx; }
 .cover { width: 132rpx; height: 156rpx; border-radius: 14rpx; background: #e8edf3; flex-shrink: 0; }
 .book-main { flex: 1; display: flex; flex-direction: column; gap: 8rpx; }
@@ -265,13 +265,13 @@ export default {
 .value.address { line-height: 1.5; }
 .footer-row { margin-top: 14rpx; padding-top: 14rpx; border-top: 1rpx solid #edf1f5; }
 .message { flex: 1; font-size: 22rpx; color: #7b8ea1; }
-.amount { color: #d05a25; font-size: 32rpx; font-weight: 700; }
+.amount { color: #f59e0b; font-size: 32rpx; font-weight: 700; }
 .action-row { margin-top: 16rpx; display: flex; gap: 12rpx; justify-content: flex-end; flex-wrap: wrap; }
 .action-btn { min-width: 156rpx; height: 68rpx; border-radius: 16rpx; display: flex; align-items: center; justify-content: center; font-size: 24rpx; font-weight: 700; }
-.action-btn.primary { background: #2d55c7; color: #ffffff; }
+.action-btn.primary { background: #1f5eff; color: #ffffff; }
 .action-btn.secondary { background: #eef2f8; color: #52677f; }
 .empty, .state { margin-top: 120rpx; text-align: center; color: #7d8fa2; font-size: 28rpx; }
 .state { display: flex; flex-direction: column; align-items: center; gap: 20rpx; }
 .state-text { display: block; color: #6d8095; font-size: 26rpx; }
-.retry-btn { min-width: 156rpx; height: 64rpx; padding: 0 24rpx; border-radius: 16rpx; background: #2d55c7; color: #ffffff; font-size: 24rpx; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.retry-btn { min-width: 156rpx; height: 64rpx; padding: 0 24rpx; border-radius: 16rpx; background: #1f5eff; color: #ffffff; font-size: 24rpx; font-weight: 700; display: flex; align-items: center; justify-content: center; }
 </style>

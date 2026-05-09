@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <view class="page">
     <view
       class="header"
@@ -383,30 +383,30 @@ export default {
 </script>
 
 <style scoped>
-.page { min-height: 100vh; background: #f3f5f8; }
-.header { position: fixed; left: 0; right: 0; top: 0; z-index: 30; box-sizing: border-box; padding-left: 20rpx; background: rgba(243, 245, 248, 0.96); backdrop-filter: blur(10px); }
+.page { min-height: 100vh; background: linear-gradient(180deg, #dbeafe 0%, #eef3fb 300rpx, #eef3fb 100%); }
+.header { position: fixed; left: 0; right: 0; top: 0; z-index: 30; box-sizing: border-box; padding-left: 20rpx; background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(10px); border-bottom: 1rpx solid #dfe8f4; box-shadow: 0 10rpx 28rpx rgba(23, 32, 51, 0.06); }
 .header-inner { height: 100%; display: flex; align-items: center; gap: 14rpx; padding-bottom: 12rpx; box-sizing: border-box; }
 .back-btn { width: 72rpx; height: 72rpx; border-radius: 16rpx; background: #edf2f8; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .back-icon { width: 32rpx; height: 32rpx; }
 .header-title { flex: 1; min-width: 0; font-size: 30rpx; color: #2d3d52; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .header-placeholder { width: 72rpx; height: 72rpx; flex-shrink: 0; }
 .content { padding: 18rpx 20rpx 0; }
-.path-info-card, .progress-card, .nodes-card { background: #ffffff; border-radius: 24rpx; padding: 24rpx; box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.04); margin-bottom: 18rpx; }
+.path-info-card, .progress-card, .nodes-card { background: #ffffff; border-radius: 30rpx; padding: 26rpx; border: 1rpx solid #e2eaf5; box-shadow: 0 16rpx 36rpx rgba(23, 32, 51, 0.07); margin-bottom: 18rpx; }
 .path-cover { width: 100%; height: 300rpx; border-radius: 18rpx; background: #eef2f8; margin-bottom: 20rpx; }
 .title-row { display: flex; align-items: center; justify-content: space-between; gap: 16rpx; }
 .path-title { flex: 1; min-width: 0; font-size: 36rpx; color: #263442; font-weight: 700; }
-.difficulty { padding: 8rpx 18rpx; border-radius: 999rpx; background: #edf3ff; color: #2d55c7; font-size: 22rpx; }
-.cover-audit { display: block; margin-top: 10rpx; font-size: 22rpx; color: #2d55c7; }
+.difficulty { padding: 8rpx 18rpx; border-radius: 999rpx; background: #e8efff; color: #1f5eff; font-size: 22rpx; }
+.cover-audit { display: block; margin-top: 10rpx; font-size: 22rpx; color: #1f5eff; }
 .meta-text { display: block; margin-top: 12rpx; font-size: 24rpx; color: #6f7c8e; }
 .desc-text { display: block; margin-top: 18rpx; font-size: 24rpx; line-height: 1.8; color: #4d6278; }
 .path-actions-row { margin-top: 20rpx; display: flex; gap: 12rpx; }
 .path-action-chip { height: 60rpx; padding: 0 22rpx; border-radius: 16rpx; background: #eef3f9; color: #536b84; font-size: 24rpx; font-weight: 700; display: flex; align-items: center; justify-content: center; }
-.path-action-chip.active { background: #e7efff; color: #2d55c7; }
+.path-action-chip.active { background: #e8efff; color: #1f5eff; }
 .progress-head { display: flex; align-items: center; justify-content: space-between; gap: 16rpx; }
 .section-title { font-size: 30rpx; color: #263442; font-weight: 700; }
 .progress-text { font-size: 24rpx; color: #68809a; }
 .progress-track { margin-top: 20rpx; width: 100%; height: 16rpx; border-radius: 999rpx; background: #eef2f8; overflow: hidden; }
-.progress-fill { height: 100%; border-radius: 999rpx; background: linear-gradient(90deg, #29b36f 0%, #4ec986 100%); }
+.progress-fill { height: 100%; border-radius: 999rpx; background: linear-gradient(90deg, #0f766e 0%, #14b8a6 100%); }
 .nodes-list { margin-top: 12rpx; display: flex; flex-direction: column; gap: 18rpx; }
 .node-item { display: flex; gap: 16rpx; }
 .node-item.completed .node-main { background: #f1f3f5; }
@@ -418,7 +418,7 @@ export default {
 .status-dot.done { background: #c8d0da; color: #ffffff; }
 .dot-text { font-size: 20rpx; font-weight: 700; }
 .line { flex: 1; width: 4rpx; background: #e4eaf2; margin-top: 8rpx; }
-.node-main { flex: 1; background: #f8fafc; border-radius: 18rpx; padding: 18rpx; }
+.node-main { flex: 1; background: #f7faff; border-radius: 22rpx; padding: 20rpx; border: 1rpx solid #e2eaf5; }
 .node-top { display: flex; align-items: center; justify-content: space-between; gap: 14rpx; }
 .node-title-wrap { flex: 1; min-width: 0; }
 .node-title { display: block; font-size: 28rpx; color: #25384d; font-weight: 700; line-height: 1.4; }
@@ -430,11 +430,11 @@ export default {
 .node-status { font-size: 22rpx; color: #8799ad; }
 .node-status.done { color: #8a97a6; font-weight: 700; }
 .resource-btn { height: 56rpx; padding: 0 18rpx; border-radius: 14rpx; font-size: 22rpx; display: flex; align-items: center; justify-content: center; }
-.resource-btn { background: #eef3ff; color: #2d55c7; }
+.resource-btn { background: #e8efff; color: #1f5eff; }
 .detail-hint { margin-left: auto; font-size: 22rpx; color: #7b8da0; }
 .bottom-space { height: 140rpx; }
 .bottom-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; background: rgba(255, 255, 255, 0.96); border-top: 1rpx solid #e7edf4; padding: 16rpx 20rpx calc(16rpx + env(safe-area-inset-bottom)); }
-.main-action-btn { height: 84rpx; border-radius: 18rpx; background: #2f4f75; color: #ffffff; font-size: 30rpx; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.main-action-btn { height: 84rpx; border-radius: 22rpx; background: linear-gradient(135deg, #1f5eff 0%, #0f766e 100%); color: #ffffff; font-size: 30rpx; font-weight: 700; display: flex; align-items: center; justify-content: center; box-shadow: 0 12rpx 26rpx rgba(31, 94, 255, 0.2); }
 .bottom-actions { display: flex; gap: 12rpx; }
 .continue-btn { flex: 1; }
 .cancel-action-btn { width: 190rpx; height: 84rpx; border-radius: 18rpx; background: #eef2f8; color: #53657a; font-size: 28rpx; font-weight: 700; display: flex; align-items: center; justify-content: center; }

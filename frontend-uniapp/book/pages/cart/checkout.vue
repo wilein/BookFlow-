@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <view class="page">
     <view class="header" :style="{ height: headerHeight + 'px', paddingTop: statusBarHeight + 'px' }">
       <view class="back-btn" @click="goBack">
@@ -238,35 +238,35 @@ export default {
 </script>
 
 <style scoped>
-.page { min-height: 100vh; background: #f3f5f8; }
-.header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: #f3f5f8; display: flex; align-items: center; justify-content: space-between; }
+.page { min-height: 100vh; background: linear-gradient(180deg, #dbeafe 0%, #eef3fb 260rpx, #eef3fb 100%); }
+.header { position: fixed; left: 0; right: 0; top: 0; z-index: 20; box-sizing: border-box; padding: 0 20rpx; background: rgba(255, 255, 255, 0.94); display: flex; align-items: center; justify-content: space-between; border-bottom: 1rpx solid #dfe8f4; box-shadow: 0 10rpx 28rpx rgba(23, 32, 51, 0.06); }
 .back-btn, .header-placeholder { width: 72rpx; height: 72rpx; flex-shrink: 0; }
-.back-btn { border-radius: 16rpx; background: #edf2f8; display: flex; align-items: center; justify-content: center; }
+.back-btn { border-radius: 18rpx; background: #e8efff; display: flex; align-items: center; justify-content: center; }
 .back-icon { width: 32rpx; height: 32rpx; }
 .header-title { font-size: 30rpx; color: #2d3d52; font-weight: 700; }
 .content { padding: 16rpx 20rpx 150rpx; }
-.section { background: #ffffff; border-radius: 20rpx; padding: 20rpx; margin-bottom: 16rpx; }
+.section { background: #ffffff; border-radius: 28rpx; padding: 22rpx; margin-bottom: 18rpx; border: 1rpx solid #e2eaf5; box-shadow: 0 16rpx 36rpx rgba(23, 32, 51, 0.07); }
 .section-title { display: block; margin-bottom: 14rpx; font-size: 28rpx; color: #243548; font-weight: 700; }
 .address-card { position: relative; }
 .address-user { display: flex; gap: 16rpx; align-items: center; }
 .receiver { font-size: 28rpx; color: #243548; font-weight: 700; }
 .phone, .full-address, .seller { font-size: 24rpx; color: #6f8196; }
 .full-address { display: block; margin-top: 10rpx; line-height: 1.55; }
-.address-empty { color: #2d55c7; font-size: 26rpx; }
+.address-empty { color: #1f5eff; font-size: 26rpx; }
 .book-row { display: flex; gap: 16rpx; padding: 16rpx 0; border-bottom: 1rpx solid #edf1f5; }
 .book-row:last-child { border-bottom: none; }
 .cover { width: 126rpx; height: 148rpx; border-radius: 14rpx; background: #e8edf3; flex-shrink: 0; }
 .book-main { flex: 1; min-width: 0; }
 .book-title { display: block; font-size: 28rpx; color: #243548; font-weight: 700; line-height: 1.45; }
 .seller { display: block; margin-top: 8rpx; }
-.price { display: block; margin-top: 14rpx; color: #d05a25; font-size: 30rpx; font-weight: 700; }
+.price { display: block; margin-top: 14rpx; color: #f59e0b; font-size: 30rpx; font-weight: 700; }
 .message-input { width: 100%; min-height: 140rpx; box-sizing: border-box; border-radius: 16rpx; background: #f4f7fb; padding: 18rpx; color: #2b3f53; font-size: 26rpx; }
 .state { margin-top: 160rpx; display: flex; flex-direction: column; gap: 20rpx; align-items: center; color: #7d8fa2; font-size: 28rpx; }
-.retry-btn { height: 64rpx; padding: 0 32rpx; border-radius: 14rpx; background: #2d55c7; color: #ffffff; display: flex; align-items: center; justify-content: center; }
+.retry-btn { height: 64rpx; padding: 0 32rpx; border-radius: 18rpx; background: linear-gradient(135deg, #1f5eff 0%, #0f766e 100%); color: #ffffff; display: flex; align-items: center; justify-content: center; }
 .bottom-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; background: rgba(255, 255, 255, 0.97); border-top: 1rpx solid #e7edf4; padding: 16rpx 20rpx calc(16rpx + env(safe-area-inset-bottom)); display: flex; align-items: center; gap: 20rpx; }
 .summary { flex: 1; display: flex; flex-direction: column; gap: 4rpx; }
 .count { color: #7a8da2; font-size: 22rpx; }
-.amount { color: #d05a25; font-size: 34rpx; font-weight: 700; }
-.submit-btn { width: 220rpx; height: 78rpx; border-radius: 16rpx; background: #2d55c7; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 26rpx; font-weight: 700; }
+.amount { color: #f59e0b; font-size: 34rpx; font-weight: 700; }
+.submit-btn { width: 220rpx; height: 78rpx; border-radius: 20rpx; background: linear-gradient(135deg, #1f5eff 0%, #0f766e 100%); color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 26rpx; font-weight: 700; }
 .submit-btn.disabled { background: #bfc8d6; }
 </style>
