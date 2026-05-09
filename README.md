@@ -47,8 +47,7 @@
 ### 1. 克隆项目
 ```bash
 https://github.com/wilein/BookFlow-.git
-## 2. backend/README.md
-
+```markdown
 # 后端服务 (Spring Boot)
 
 本目录包含校园学术资源传承平台的后端代码，提供 RESTful API，支持小程序和管理后台的数据交互。
@@ -82,8 +81,6 @@ mvn clean package
 # 运行
 java -jar target/academic-resource-backend.jar --spring.profiles.active=dev
 或者是直接运行主类BookflowApplication.java
-
----
 
 
 # 微信小程序端（UniApp）
