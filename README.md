@@ -47,4 +47,101 @@
 ### 1. 克隆项目
 ```bash
 https://github.com/wilein/BookFlow-.git
+## 2. backend/README.md
 
+# 后端服务 (Spring Boot)
+
+本目录包含校园学术资源传承平台的后端代码，提供 RESTful API，支持小程序和管理后台的数据交互。
+
+## 环境要求
+
+- JDK 17+
+- Maven 3.8+
+- MySQL 8.0
+- Redis 7.0
+
+## 快速启动
+#后端（spring）
+### 1. 导入数据库
+
+创建数据库（如 `academic_resource`），执行 SQL 脚本：
+
+```bash
+mysql -u root -p academic_resource < sql/init.sql
+### 2. 修改配置文件application.yml
+修改数据库url，username，password
+修改redis配置
+修改weixin开发者appid和secret
+### 3. 编译与运行
+# 进入 backend 目录
+cd backend
+
+# 编译打包
+mvn clean package
+
+# 运行
+java -jar target/academic-resource-backend.jar --spring.profiles.active=dev
+或者是直接运行主类BookflowApplication.java
+
+---
+
+
+# 微信小程序端（UniApp）
+
+本目录为基于 UniApp 开发的微信小程序源码，提供书籍浏览、交易、批注、学习路径、社区等用户端功能。
+
+## 环境要求
+
+- HBuilderX（最新版）
+- 微信开发者工具
+- Node.js（用于安装依赖，UniApp 通常通过 HBuilderX 管理）
+
+## 快速启动
+
+### 1. 打开项目
+
+使用 HBuilderX 打开 `frontend-miniprogram` 目录。
+
+### 2. 配置小程序 AppID
+
+修改 `manifest.json` 文件：
+
+```json
+{
+  "mp-weixin": {
+    "appid": "your_wechat_miniprogram_appid",
+    "setting": {
+      "urlCheck": false,   // 开发时可关闭域名校验
+      "es6": true
+    }
+  }
+}
+### 3. 配置后端地址
+修改utils/config
+const ENV_CONFIG = {
+  development: {
+    API_BASE_URL: 'http://10.212.211.152:8080',
+    IMAGE_BASE_URL: 'http://10.212.211.152:8080'
+  }
+}
+
+
+
+# 管理后台 (Vue 3 + Element Plus)
+
+本目录为平台的管理端 Web 应用，用于用户认证审核、内容管理、订单处理、数据统计等。
+
+## 环境要求
+
+- Node.js 16+
+- npm 或 yarn
+
+## 快速启动
+
+### 1. 安装依赖
+
+```bash
+cd frontend-admin
+npm install
+### 2. 启动
+pnpm run dev
